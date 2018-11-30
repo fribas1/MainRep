@@ -66,13 +66,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
-    <Content Include="Forms\CustomerMain.aspx" />
-    <Content Include="Forms\CustomerPages\Orders.aspx" />
-    <Content Include="Forms\EmployeeTools.aspx" />
-    <Content Include="Forms\EmployeeTools\employees.aspx" />
-    <Content Include="Forms\EmployeeTools\management.aspx" />
-    <Content Include="Forms\EmployeeTools\reports.aspx" />
-    <Content Include="Forms\Repairs.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Images\btnEmployee.png" />
     <Content Include="Images\btnReports.png" />
@@ -95,55 +88,6 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\CustomerMain.aspx.cs">
-      <DependentUpon>CustomerMain.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Forms\CustomerMain.aspx.designer.cs">
-      <DependentUpon>CustomerMain.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\CustomerPages\Orders.aspx.cs">
-      <DependentUpon>Orders.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Forms\CustomerPages\Orders.aspx.designer.cs">
-      <DependentUpon>Orders.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\EmployeeTools.aspx.cs">
-      <DependentUpon>EmployeeTools.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Forms\EmployeeTools.aspx.designer.cs">
-      <DependentUpon>EmployeeTools.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\EmployeeTools\employees.aspx.cs">
-      <DependentUpon>employees.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Forms\EmployeeTools\employees.aspx.designer.cs">
-      <DependentUpon>employees.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\EmployeeTools\management.aspx.cs">
-      <DependentUpon>management.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Forms\EmployeeTools\management.aspx.designer.cs">
-      <DependentUpon>management.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\EmployeeTools\reports.aspx.cs">
-      <DependentUpon>reports.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Forms\EmployeeTools\reports.aspx.designer.cs">
-      <DependentUpon>reports.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Repairs.aspx.cs">
-      <DependentUpon>Repairs.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Forms\Repairs.aspx.designer.cs">
-      <DependentUpon>Repairs.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -175,6 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Forms\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
