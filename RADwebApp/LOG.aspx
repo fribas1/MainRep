@@ -4,62 +4,44 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Emma's | Homepage</title>
     <style type="text/css">
-        .auto-style1 {
-            text-align: center;
-            }
-        .auto-style2 {
-            font-size: xx-large;
+        body {
+            margin: auto;
+            font-size: 16px;
+            font-family: Arial;
+            max-width: 100%;
+            height: 100%;
+            background-image: url("Images/car-background.png");
+            background-size: cover;
         }
-        .auto-style10 {
-            width: 100%;
+
+        .time {
+            padding-left: 20px;
+        }     
+
+        p {
+            padding-bottom: 50px;
         }
-        .auto-style13 {
+
+        .center {
+            background-color: #C0C0C0;
+            margin: 0 auto;
+            width: 30%;
+            border: 3px solid #419A1C;
+            padding: 70px 0;
             text-align: center;
-            height: 45px;
         }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-    
-        <strong><span class="auto-style2">Login</span></strong><table class="auto-style10">
-            <tr>
-                <td class="auto-style1">
-    
-        <strong>
-        <asp:Image src="Images/emmas.png" ID="imgLogo" runat="server" />
-        </strong></td>
-            </tr>
-            <tr>
-                <td class="auto-style13">
-                    <asp:TextBox ID="txtUser" placeholder="Username" runat="server" Height="30px" Width="145px"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style13">
-                    <asp:TextBox ID="txtPass" placeholder="Password" runat="server" TextMode="Password" Height="30px" Width="145px"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="auto-style1">
-        <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" Height="40px" Width="160px" />
-                </td>
-            </tr>
-        </table>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-    
-    </div>
+        <div class="center">
+            <asp:Image src="Images/emmas-logo.png" Alt="emmas-logo" ID="logo" runat="server" /><br /><br />
+            <asp:TextBox ID="txtUser" placeholder="Username" runat="server" Height="30px" Width="145px"></asp:TextBox><br /><br />
+            <asp:TextBox ID="txtPass" placeholder="Password" runat="server" TextMode="Password" Height="30px" Width="145px"></asp:TextBox><br /><br />
+            <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" Height="50px" Width="120px" />
+        </div>
     </form>
 </body>
 </html>

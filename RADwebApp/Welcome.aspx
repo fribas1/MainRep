@@ -4,118 +4,189 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Emma's | Welcome Page</title>
     <style type="text/css">
+        .nav {
+            padding-bottom: 20px;
+        }
+
+        .nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333333;
+        }
+
+        .nav li {
+            float: left;
+        }
+
+        .nav li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 16px;
+            text-decoration: none;
+        }
+
+        .nav li a:hover {
+            background-color: #111111;
+        }
+
         body {
             margin: auto;
+            font-size: 16px;
+            font-family: Arial;
         }
-        .auto-style5 {
-            width: 486px;
+
+        .content {
+            padding-left: 20px;
         }
-        .auto-style6 {
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-gap: 20px;
+            padding: 20px;
+        }
+
+        .menuItem {
+            background-color: #C0C0C0;
             text-align: center;
-            width: 486px;
+            padding:20px 0;
+            font-size: 24px;
         }
-        .auto-style7 {
+
+        .menuItem a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .menuItem a:hover {
+            cursor: pointer;
+        }
+
+        .icon {
+            padding: 20px;
+        }
+
+        .button {
+            background-color: #333333;
+            border: none;
+            color: white;
+            width: 130px;
+            height: 55px;
+            padding: 16px 32px;
             text-align: center;
-            width: 486px;
-            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;            
+            transition-duration: 0.4s;
+            cursor: pointer;
         }
-        .auto-style8 {
-            text-align: center;
-            width: 486px;
-            font-weight: bold;
-            height: 23px;
+
+        .edit {
+            background-color: #4682B4;
+            color: white;
+            border: 2px solid #4682B4;
         }
-        .auto-style9 {
-            width: 486px;
-            height: 23px;
+
+        .new {
+            background-color: #419A1C;
+            color: white;
+            border: 2px solid #419A1C;
         }
-        .auto-style10 {
-            width: 584px;
-            height: 23px;
+
+        .delete {
+            background-color: #f44336;
+            color: white;
+            border: 2px solid #f44336;
         }
-        .auto-style11 {
-            width: 584px;
+
+        .container-submenu {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 5px;
+            padding: 5px;
         }
-        .auto-style12 {
-            text-align: center;
-            width: 584px;
-        }
-        .auto-style13 {
-            text-align: center;
-            width: 584px;
-            font-weight: bold;
-            height: 23px;
-        }
-        .auto-style14 {
-            text-align: center;
-            width: 584px;
-            font-weight: bold;
-        }
+
     </style>
 </head>
-<body style="width: 1460px">
-    <form id="form1" runat="server">
-    <div style="height: 350px">
-    
-        <table style="width:100%;">
-            <tr>
-                <td class="auto-style10">
-                    <asp:Label ID="lblWelcome" runat="server" Text="Welcome "></asp:Label><%=Request.QueryString["User"] %>
-                </td>
-                <td class="auto-style9">
-                    </td>
-            </tr>
-            <tr>
-                <td class="auto-style11">
-                    &nbsp;</td>
-                <td class="auto-style5">
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="auto-style12">
-                    <asp:Image src="Images/customers-icon.png" Alt="Customers-icon" ID="Image1" runat="server" />
-                </td>
-                <td class="auto-style6">
-                    <asp:Image src="Images/services-icon.png" Alt="services-icon" ID="Image3" runat="server" />
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style13">
-                    <asp:LinkButton ID="btnSell" runat="server" OnClick="btnSell_Click">CUSTOMER TOOLS</asp:LinkButton>
-                </td>
-                <td class="auto-style8">
-                    <asp:LinkButton ID="btnRepair" runat="server" OnClick="btnRepair_Click">REPAIRS</asp:LinkButton>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style12">
-                    &nbsp;</td>
-                <td class="auto-style6">
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="auto-style12">
-                    <asp:Image src="Images/employees-icon.png" Alt="Employees-icon" ID="Image7" runat="server" />
-                </td>
-                <td class="auto-style6">
-                    <asp:Image src="Images/reports-icon.png" Alt="Reports-icon" ID="Image4" runat="server" />
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style14">
-                    <asp:LinkButton ID="btnEmp" runat="server" OnClick="btnEmp_Click">EMPLOYEE TOOLS</asp:LinkButton>
-                </td>
-                <td class="auto-style7">
-                    <asp:LinkButton ID="btnPolicies" runat="server" OnClick="btnPolicies_Click">POLICIES</asp:LinkButton>
-                </td>
-            </tr>
-            </table>
-    
-        <br />
-    
-    </div>
+<body style="width: 100%">
+    <form id="form2" runat="server">
+        <div class="nav">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#customers">Customers</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#employees">Employees</a></li>
+                <li><a href="#inventory">Inventory</a></li>
+                <li><a href="#reports">Reports</a></li>
+                <li><a href="#contact">Contact</a></li>            
+                <li style="float: right;"><asp:LinkButton  runat="server" Visible="True" OnClick="lnkLogout_Click">Logout</asp:LinkButton></li>
+            </ul>
+        </div>
+        <div class="content">
+            <asp:Label ID="Label1" runat="server" Text="Welcome "></asp:Label><%//=Request.QueryString["User"] %>
+        </div>        
+        <div class="grid-container">
+            <div class="menuItem">   
+                <a><strong>CUSTOMERS</strong><br /></a>
+                <a><asp:Image src="Images/customers-icon.png" Alt="Customers-icon" ID="imgCustomer" runat="server" CssClass="icon" /></a><br />
+                <asp:Button ID="btnSearchCustomer" Text="Search" runat="server" CssClass="button" />
+                <asp:Button ID="btnEditCustomerton2" Text="Edit" runat="server" CssClass="button edit" />
+                <asp:Button ID="btnNewCustomer" Text="Add New" runat="server" CssClass="button new" />
+                <asp:Button ID="btnDeleteCustomer" Text="Delete" runat="server" CssClass="button delete" />
+              </div>
+            <div class="menuItem">
+                <strong>SERVICES</strong><br />
+                <asp:Image src="Images/services-icon.png" Alt="Services-icon" ID="imgServices" runat="server" CssClass="icon" />
+                <div class="container-submenu">
+                    <div class="submenu-item">
+                        Repairs<br />
+                        <asp:Button ID="btnRepairs" Text="Search" runat="server" CssClass="button" />
+                        <asp:Button ID="btnNewRepair" Text="New" runat="server" CssClass="button new" />
+                    </div>
+                    <div class="submenu-item">
+                        Sales<br />
+                        <asp:Button ID="btnSales" Text="Search" runat="server" CssClass="button" />
+                        <asp:Button ID="btnNewSale" Text="New" runat="server" CssClass="button new" />
+                    </div>
+                </div>
+              </div>
+            <div class="menuItem">
+                <strong>EMPLOYEES</strong><br />
+                <asp:Image src="Images/employees-icon.png" Alt="Employees-icon" ID="imgEmployees" runat="server" CssClass="icon" /><br />
+                <asp:Button ID="btnSearchEmployee" Text="Search" runat="server" CssClass="button" />
+                <asp:Button ID="btnEditEmployee" Text="Edit" runat="server" CssClass="button edit" />
+                <asp:Button ID="btnAddEmployee" Text="Add New" runat="server" CssClass="button new" />
+                <asp:Button ID="btnDeleteEmployee" Text="Delete" runat="server" CssClass="button delete" />
+              </div>
+            <div class="menuItem">
+                <strong>INVENTORY</strong><br />
+                <asp:Image src="Images/inventory-icon.png" Alt="Inventory-icon" ID="imgInventory" runat="server" CssClass="icon" /><br />
+                <div class="container-submenu">
+                    <div class="submenu-item">
+                        Products<br />
+                        <asp:Button ID="btnSearchItem" Text="Search" runat="server" CssClass="button" />
+                    </div>
+                    <div class="submenu-item">
+                        Orders<br />
+                        <asp:Button ID="btnSearchOrder" Text="Search" runat="server" CssClass="button" />
+                        <asp:Button ID="btnNewOrder" Text="New" runat="server" CssClass="button new" />
+                    </div>
+                </div>
+              </div>
+            <div class="menuItem">
+                <strong>DOCUMENTS</strong><br />
+                <asp:Image src="Images/reports-icon.png" Alt="Reports-icon" ID="imgReports" runat="server" CssClass="icon" /><br />
+                <asp:Button ID="btnReports" Text="Reports" runat="server" CssClass="button" />
+                <asp:Button ID="btnEmmasRep" Text="Emma's" runat="server" CssClass="button" />
+                <asp:Button ID="btnPolicy" Text="Policies" runat="server" CssClass="button" />
+            </div>
+        </div>
     </form>
 </body>
 </html>
