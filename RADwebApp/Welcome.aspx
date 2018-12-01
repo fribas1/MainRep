@@ -133,12 +133,12 @@
         </div>        
         <div class="grid-container">
             <div class="menuItem">   
-                <a><strong>CUSTOMERS</strong><br /></a>
-                <a><asp:Image src="Images/customers-icon.png" Alt="Customers-icon" ID="imgCustomer" runat="server" CssClass="icon" /></a><br />
-                <asp:Button ID="btnSearchCustomer" Text="Search" runat="server" CssClass="button" />
-                <asp:Button ID="btnEditCustomerton2" Text="Edit" runat="server" CssClass="button edit" />
-                <asp:Button ID="btnNewCustomer" Text="Add New" runat="server" CssClass="button new" />
-                <asp:Button ID="btnDeleteCustomer" Text="Delete" runat="server" CssClass="button delete" />
+                <a href="Forms/Customers/Customers.aspx"><strong>CUSTOMERS</strong><br /></a>
+                <a href="Forms/Customers/Customers.aspx"><asp:Image src="Images/customers-icon.png" Alt="Customers-icon" ID="imgCustomer" runat="server" CssClass="icon" /></a><br />
+                <asp:Button ID="btnSearchCustomer" Text="Search" runat="server" CssClass="button" OnClick="btnSearchCustomer_Click" />
+                <asp:Button ID="btnEditCustomerton2" Text="Edit" runat="server" CssClass="button edit" OnClick="btnEditCustomerton2_Click" />
+                <asp:Button ID="btnNewCustomer" Text="Add New" runat="server" CssClass="button new" OnClick="btnNewCustomer_Click" />
+                <asp:Button ID="btnDeleteCustomer" Text="Delete" runat="server" CssClass="button delete" OnClick="btnDeleteCustomer_Click" />
               </div>
             <div class="menuItem">
                 <strong>SERVICES</strong><br />
