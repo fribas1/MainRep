@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Emma_sLibrary
+namespace aLibrary
 {
     public class Class1
     {
