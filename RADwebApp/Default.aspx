@@ -21,14 +21,12 @@
     <div class="card-header bg-transparent text-white mb-5">
            <%: DateTime.Now.Date.ToLongDateString() %>
     </div>
-    <div class="row">
         <div class="col-sm-2 offset-5 jumbotron">
     <form class="text-center" id="form1" runat="server">
             <asp:Image  src="Images/emmas-logo.png" Alt="emmas-logo" ID="Image1" runat="server" /><br />
             <asp:Button CssClass="btn btn-secondary mt-5" ID="btnLogin" runat="server" Text="Sign In" Height="50px" Width="120px" OnClick="btnLogin_Click" />
     </form>
     </div>
-        </div>
 </body>
 </html>
 
