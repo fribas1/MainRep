@@ -159,10 +159,10 @@
             <div class="menuItem">
                 <strong>EMPLOYEES</strong><br />
                 <asp:Image src="Images/employees-icon.png" Alt="Employees-icon" ID="imgEmployees" runat="server" CssClass="icon" /><br />
-                <asp:Button ID="btnSearchEmployee" Text="Search" runat="server" CssClass="button" />
-                <asp:Button ID="btnEditEmployee" Text="Edit" runat="server" CssClass="button edit" />
-                <asp:Button ID="btnAddEmployee" Text="Add New" runat="server" CssClass="button new" />
-                <asp:Button ID="btnDeleteEmployee" Text="Delete" runat="server" CssClass="button delete" />
+                <asp:Button ID="btnSearchEmployee" Text="Search" runat="server" CssClass="button" OnClick="btnSearchEmployee_Click" />
+                <asp:Button ID="btnEditEmployee" Text="Edit" runat="server" CssClass="button edit" OnClick="btnEditEmployee_Click" />
+                <asp:Button ID="btnAddEmployee" Text="Add New" runat="server" CssClass="button new" OnClick="btnAddEmployee_Click" />
+                <asp:Button ID="btnDeleteEmployee" Text="Delete" runat="server" CssClass="button delete" OnClick="btnDeleteEmployee_Click" />
               </div>
             <div class="menuItem">
                 <strong>INVENTORY</strong><br />

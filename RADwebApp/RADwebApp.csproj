@@ -76,6 +76,8 @@
     <Content Include="Forms\Customers\CustomerOrders.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Forms\Customers\Customers.aspx" />
+    <Content Include="Forms\Employees\Employees.aspx" />
+    <Content Include="Forms\Employees\EmployeeServices.aspx" />
     <Content Include="Forms\RepairPages\AllRepairs.aspx" />
     <Content Include="Forms\RepairPages\OrderTools.aspx" />
     <Content Include="Forms\RepairPages\Warranty.aspx" />
@@ -101,6 +103,20 @@
     </Compile>
     <Compile Include="Forms\Customers\CustomerDetails.aspx.designer.cs">
       <DependentUpon>CustomerDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Employees\Employees.aspx.cs">
+      <DependentUpon>Employees.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Employees\Employees.aspx.designer.cs">
+      <DependentUpon>Employees.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Employees\EmployeeServices.aspx.cs">
+      <DependentUpon>EmployeeServices.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Employees\EmployeeServices.aspx.designer.cs">
+      <DependentUpon>EmployeeServices.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Forms\Customers\CustomerOrders.aspx.cs">
@@ -155,6 +171,7 @@
     <Compile Include="LOG.aspx.designer.cs">
       <DependentUpon>LOG.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Employee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Welcome.aspx.cs">
       <DependentUpon>Welcome.aspx</DependentUpon>
