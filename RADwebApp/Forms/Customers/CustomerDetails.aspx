@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CustomerEdit.aspx.cs" Inherits="RADwebApp.Forms.CustomerPages.CustomerEdit" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CustomerDetails.aspx.cs" Inherits="RADwebApp.Forms.Customers.CustomerDetails" %>
 
 <!DOCTYPE html>
 
@@ -11,17 +11,27 @@
         <div>
             <asp:DetailsView ID="dvEditCustomer" runat="server" AutoGenerateRows="False" DataKeyNames="id" DataSourceID="dsCustomer" OnItemDeleted="dvEditCustomer_ItemDeleted" OnItemUpdated="dvEditCustomer_ItemUpdated" >
                 <Fields>
-                    <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
-                    <asp:BoundField DataField="custFirst" HeaderText="First Name" SortExpression="custFirst" />
-                    <asp:BoundField DataField="custLast" HeaderText="Last Name" SortExpression="custLast" />
-                    <asp:BoundField DataField="custPhone" HeaderText="Phone" SortExpression="custPhone" />
-                    <asp:BoundField DataField="custAddress" HeaderText="Address" SortExpression="custAddress" />
-                    <asp:BoundField DataField="custCity" HeaderText="City" SortExpression="custCity" />
-                    <asp:BoundField DataField="custPostal" HeaderText="Postal Code" SortExpression="custPostal" />
-                    <asp:BoundField DataField="custEmail" HeaderText="E-mail" SortExpression="custEmail" />
-                    <asp:CommandField ShowEditButton="True" ButtonType="Button" ShowDeleteButton="True" />
+                    <asp:BoundField DataField="id" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="id" />
+                    <asp:DynamicField DataField="custFirst" HeaderText="First Name" SortExpression="custFirst" />
+                    <asp:DynamicField DataField="custLast" HeaderText="Last Name" SortExpression="custLast" />
+                    <asp:DynamicField DataField="custPhone" HeaderText="Phone" SortExpression="custPhone" />
+                    <asp:DynamicField DataField="custAddress" HeaderText="Address" SortExpression="custAddress" />
+                    <asp:DynamicField DataField="custCity" HeaderText="City" SortExpression="custCity" />
+                    <asp:DynamicField DataField="custPostal" HeaderText="Postal Code" SortExpression="custPostal" />
+                    <asp:DynamicField DataField="custEmail" HeaderText="E-mail" SortExpression="custEmail" />
+                    <asp:TemplateField ShowHeader="False">
+                        <EditItemTemplate>
+                            <asp:Button ID="btnUpdate" runat="server" CausesValidation="True" CommandName="Update" Text="Update" OnClientClick="return confirm('Do you want to save the changes?');" />
+                            &nbsp;<asp:Button ID="Button2" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Button ID="btnEdit" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" />
+                            &nbsp;<asp:Button ID="btnDelete" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" OnClientClick="return confirm('Are you sure you want to delete this customer?');" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Fields>
             </asp:DetailsView>
+            <asp:ValidationSummary ID="ValidationSummary1" runat="server" HeaderText="Please fix the following:" />
             <br />
             <asp:Button ID="btnBack" runat="server" OnClick="btnBack_Click" Text="Back" />
         </div>
