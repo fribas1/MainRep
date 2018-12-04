@@ -85,13 +85,13 @@ namespace RADwebApp.Forms.CustomerPages {
         protected global::System.Web.UI.WebControls.GridView gvCustomers;
         
         /// <summary>
-        /// dsCustomers control.
+        /// dsCustomersAll control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dsCustomers;
+        protected global::System.Web.UI.WebControls.ObjectDataSource dsCustomersAll;
         
         /// <summary>
         /// dsCity control.
@@ -100,6 +100,15 @@ namespace RADwebApp.Forms.CustomerPages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dsCity;
+        protected global::System.Web.UI.WebControls.ObjectDataSource dsCity;
+        
+        /// <summary>
+        /// dsCustomer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource dsCustomer;
     }
 }
