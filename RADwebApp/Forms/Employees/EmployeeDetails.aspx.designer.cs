@@ -49,15 +49,6 @@ namespace RADwebApp.Forms.Employees {
         protected global::System.Web.UI.WebControls.Button btnBack;
         
         /// <summary>
-        /// dsEmployee control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource dsEmployee;
-        
-        /// <summary>
         /// dsPosition control.
         /// </summary>
         /// <remarks>
@@ -65,5 +56,14 @@ namespace RADwebApp.Forms.Employees {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ObjectDataSource dsPosition;
+        
+        /// <summary>
+        /// dsEmployee control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource dsEmployee;
     }
 }
