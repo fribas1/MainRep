@@ -28,7 +28,7 @@ namespace aLibrary {
         
         private searchCustomerDataTable tablesearchCustomer;
         
-        private custumerCityDataTable tablecustumerCity;
+        private customerCityDataTable tablecustomerCity;
         
         private customerDataTable tablecustomer;
         
@@ -36,7 +36,7 @@ namespace aLibrary {
         
         private searchEmployeeDataTable tablesearchEmployee;
         
-        private positionDataTable tableposition;
+        private employeePositionDataTable tableemployeePosition;
         
         private employeeDataTable tableemployee;
         
@@ -78,8 +78,8 @@ namespace aLibrary {
                 if ((ds.Tables["searchCustomer"] != null)) {
                     base.Tables.Add(new searchCustomerDataTable(ds.Tables["searchCustomer"]));
                 }
-                if ((ds.Tables["custumerCity"] != null)) {
-                    base.Tables.Add(new custumerCityDataTable(ds.Tables["custumerCity"]));
+                if ((ds.Tables["customerCity"] != null)) {
+                    base.Tables.Add(new customerCityDataTable(ds.Tables["customerCity"]));
                 }
                 if ((ds.Tables["customer"] != null)) {
                     base.Tables.Add(new customerDataTable(ds.Tables["customer"]));
@@ -90,8 +90,8 @@ namespace aLibrary {
                 if ((ds.Tables["searchEmployee"] != null)) {
                     base.Tables.Add(new searchEmployeeDataTable(ds.Tables["searchEmployee"]));
                 }
-                if ((ds.Tables["position"] != null)) {
-                    base.Tables.Add(new positionDataTable(ds.Tables["position"]));
+                if ((ds.Tables["employeePosition"] != null)) {
+                    base.Tables.Add(new employeePositionDataTable(ds.Tables["employeePosition"]));
                 }
                 if ((ds.Tables["employee"] != null)) {
                     base.Tables.Add(new employeeDataTable(ds.Tables["employee"]));
@@ -144,9 +144,9 @@ namespace aLibrary {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public custumerCityDataTable custumerCity {
+        public customerCityDataTable customerCity {
             get {
-                return this.tablecustumerCity;
+                return this.tablecustomerCity;
             }
         }
         
@@ -184,9 +184,9 @@ namespace aLibrary {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public positionDataTable position {
+        public employeePositionDataTable employeePosition {
             get {
-                return this.tableposition;
+                return this.tableemployeePosition;
             }
         }
         
@@ -293,8 +293,8 @@ namespace aLibrary {
                 if ((ds.Tables["searchCustomer"] != null)) {
                     base.Tables.Add(new searchCustomerDataTable(ds.Tables["searchCustomer"]));
                 }
-                if ((ds.Tables["custumerCity"] != null)) {
-                    base.Tables.Add(new custumerCityDataTable(ds.Tables["custumerCity"]));
+                if ((ds.Tables["customerCity"] != null)) {
+                    base.Tables.Add(new customerCityDataTable(ds.Tables["customerCity"]));
                 }
                 if ((ds.Tables["customer"] != null)) {
                     base.Tables.Add(new customerDataTable(ds.Tables["customer"]));
@@ -305,8 +305,8 @@ namespace aLibrary {
                 if ((ds.Tables["searchEmployee"] != null)) {
                     base.Tables.Add(new searchEmployeeDataTable(ds.Tables["searchEmployee"]));
                 }
-                if ((ds.Tables["position"] != null)) {
-                    base.Tables.Add(new positionDataTable(ds.Tables["position"]));
+                if ((ds.Tables["employeePosition"] != null)) {
+                    base.Tables.Add(new employeePositionDataTable(ds.Tables["employeePosition"]));
                 }
                 if ((ds.Tables["employee"] != null)) {
                     base.Tables.Add(new employeeDataTable(ds.Tables["employee"]));
@@ -362,10 +362,10 @@ namespace aLibrary {
                     this.tablesearchCustomer.InitVars();
                 }
             }
-            this.tablecustumerCity = ((custumerCityDataTable)(base.Tables["custumerCity"]));
+            this.tablecustomerCity = ((customerCityDataTable)(base.Tables["customerCity"]));
             if ((initTable == true)) {
-                if ((this.tablecustumerCity != null)) {
-                    this.tablecustumerCity.InitVars();
+                if ((this.tablecustomerCity != null)) {
+                    this.tablecustomerCity.InitVars();
                 }
             }
             this.tablecustomer = ((customerDataTable)(base.Tables["customer"]));
@@ -386,10 +386,10 @@ namespace aLibrary {
                     this.tablesearchEmployee.InitVars();
                 }
             }
-            this.tableposition = ((positionDataTable)(base.Tables["position"]));
+            this.tableemployeePosition = ((employeePositionDataTable)(base.Tables["employeePosition"]));
             if ((initTable == true)) {
-                if ((this.tableposition != null)) {
-                    this.tableposition.InitVars();
+                if ((this.tableemployeePosition != null)) {
+                    this.tableemployeePosition.InitVars();
                 }
             }
             this.tableemployee = ((employeeDataTable)(base.Tables["employee"]));
@@ -424,16 +424,16 @@ namespace aLibrary {
             base.Tables.Add(this.tablesearchSales);
             this.tablesearchCustomer = new searchCustomerDataTable();
             base.Tables.Add(this.tablesearchCustomer);
-            this.tablecustumerCity = new custumerCityDataTable();
-            base.Tables.Add(this.tablecustumerCity);
+            this.tablecustomerCity = new customerCityDataTable();
+            base.Tables.Add(this.tablecustomerCity);
             this.tablecustomer = new customerDataTable();
             base.Tables.Add(this.tablecustomer);
             this.tablecustomerOrders = new customerOrdersDataTable();
             base.Tables.Add(this.tablecustomerOrders);
             this.tablesearchEmployee = new searchEmployeeDataTable();
             base.Tables.Add(this.tablesearchEmployee);
-            this.tableposition = new positionDataTable();
-            base.Tables.Add(this.tableposition);
+            this.tableemployeePosition = new employeePositionDataTable();
+            base.Tables.Add(this.tableemployeePosition);
             this.tableemployee = new employeeDataTable();
             base.Tables.Add(this.tableemployee);
             this.tableemployeeRepairs = new employeeRepairsDataTable();
@@ -456,7 +456,7 @@ namespace aLibrary {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerializecustumerCity() {
+        private bool ShouldSerializecustomerCity() {
             return false;
         }
         
@@ -480,7 +480,7 @@ namespace aLibrary {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerializeposition() {
+        private bool ShouldSerializeemployeePosition() {
             return false;
         }
         
@@ -564,7 +564,7 @@ namespace aLibrary {
         public delegate void searchCustomerRowChangeEventHandler(object sender, searchCustomerRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void custumerCityRowChangeEventHandler(object sender, custumerCityRowChangeEvent e);
+        public delegate void customerCityRowChangeEventHandler(object sender, customerCityRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public delegate void customerRowChangeEventHandler(object sender, customerRowChangeEvent e);
@@ -576,7 +576,7 @@ namespace aLibrary {
         public delegate void searchEmployeeRowChangeEventHandler(object sender, searchEmployeeRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void positionRowChangeEventHandler(object sender, positionRowChangeEvent e);
+        public delegate void employeePositionRowChangeEventHandler(object sender, employeePositionRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public delegate void employeeRowChangeEventHandler(object sender, employeeRowChangeEvent e);
@@ -1341,14 +1341,14 @@ namespace aLibrary {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class custumerCityDataTable : global::System.Data.TypedTableBase<custumerCityRow> {
+        public partial class customerCityDataTable : global::System.Data.TypedTableBase<customerCityRow> {
             
             private global::System.Data.DataColumn columncustCity;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public custumerCityDataTable() {
-                this.TableName = "custumerCity";
+            public customerCityDataTable() {
+                this.TableName = "customerCity";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -1356,7 +1356,7 @@ namespace aLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal custumerCityDataTable(global::System.Data.DataTable table) {
+            internal customerCityDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -1373,7 +1373,7 @@ namespace aLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected custumerCityDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected customerCityDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -1397,45 +1397,45 @@ namespace aLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public custumerCityRow this[int index] {
+            public customerCityRow this[int index] {
                 get {
-                    return ((custumerCityRow)(this.Rows[index]));
+                    return ((customerCityRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event custumerCityRowChangeEventHandler custumerCityRowChanging;
+            public event customerCityRowChangeEventHandler customerCityRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event custumerCityRowChangeEventHandler custumerCityRowChanged;
+            public event customerCityRowChangeEventHandler customerCityRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event custumerCityRowChangeEventHandler custumerCityRowDeleting;
+            public event customerCityRowChangeEventHandler customerCityRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event custumerCityRowChangeEventHandler custumerCityRowDeleted;
+            public event customerCityRowChangeEventHandler customerCityRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void AddcustumerCityRow(custumerCityRow row) {
+            public void AddcustomerCityRow(customerCityRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public custumerCityRow AddcustumerCityRow(string custCity) {
-                custumerCityRow rowcustumerCityRow = ((custumerCityRow)(this.NewRow()));
+            public customerCityRow AddcustomerCityRow(string custCity) {
+                customerCityRow rowcustomerCityRow = ((customerCityRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         custCity};
-                rowcustumerCityRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowcustumerCityRow);
-                return rowcustumerCityRow;
+                rowcustomerCityRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowcustomerCityRow);
+                return rowcustomerCityRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                custumerCityDataTable cln = ((custumerCityDataTable)(base.Clone()));
+                customerCityDataTable cln = ((customerCityDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -1443,7 +1443,7 @@ namespace aLibrary {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new custumerCityDataTable();
+                return new customerCityDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1462,28 +1462,28 @@ namespace aLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public custumerCityRow NewcustumerCityRow() {
-                return ((custumerCityRow)(this.NewRow()));
+            public customerCityRow NewcustomerCityRow() {
+                return ((customerCityRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new custumerCityRow(builder);
+                return new customerCityRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(custumerCityRow);
+                return typeof(customerCityRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.custumerCityRowChanged != null)) {
-                    this.custumerCityRowChanged(this, new custumerCityRowChangeEvent(((custumerCityRow)(e.Row)), e.Action));
+                if ((this.customerCityRowChanged != null)) {
+                    this.customerCityRowChanged(this, new customerCityRowChangeEvent(((customerCityRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1491,8 +1491,8 @@ namespace aLibrary {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.custumerCityRowChanging != null)) {
-                    this.custumerCityRowChanging(this, new custumerCityRowChangeEvent(((custumerCityRow)(e.Row)), e.Action));
+                if ((this.customerCityRowChanging != null)) {
+                    this.customerCityRowChanging(this, new customerCityRowChangeEvent(((customerCityRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1500,8 +1500,8 @@ namespace aLibrary {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.custumerCityRowDeleted != null)) {
-                    this.custumerCityRowDeleted(this, new custumerCityRowChangeEvent(((custumerCityRow)(e.Row)), e.Action));
+                if ((this.customerCityRowDeleted != null)) {
+                    this.customerCityRowDeleted(this, new customerCityRowChangeEvent(((customerCityRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1509,14 +1509,14 @@ namespace aLibrary {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.custumerCityRowDeleting != null)) {
-                    this.custumerCityRowDeleting(this, new custumerCityRowChangeEvent(((custumerCityRow)(e.Row)), e.Action));
+                if ((this.customerCityRowDeleting != null)) {
+                    this.customerCityRowDeleting(this, new customerCityRowChangeEvent(((customerCityRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void RemovecustumerCityRow(custumerCityRow row) {
+            public void RemovecustomerCityRow(customerCityRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -1543,7 +1543,7 @@ namespace aLibrary {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "custumerCityDataTable";
+                attribute2.FixedValue = "customerCityDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -2661,7 +2661,7 @@ namespace aLibrary {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class positionDataTable : global::System.Data.TypedTableBase<positionRow> {
+        public partial class employeePositionDataTable : global::System.Data.TypedTableBase<employeePositionRow> {
             
             private global::System.Data.DataColumn columnid;
             
@@ -2669,8 +2669,8 @@ namespace aLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public positionDataTable() {
-                this.TableName = "position";
+            public employeePositionDataTable() {
+                this.TableName = "employeePosition";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -2678,7 +2678,7 @@ namespace aLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal positionDataTable(global::System.Data.DataTable table) {
+            internal employeePositionDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -2695,7 +2695,7 @@ namespace aLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected positionDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected employeePositionDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -2727,53 +2727,53 @@ namespace aLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public positionRow this[int index] {
+            public employeePositionRow this[int index] {
                 get {
-                    return ((positionRow)(this.Rows[index]));
+                    return ((employeePositionRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event positionRowChangeEventHandler positionRowChanging;
+            public event employeePositionRowChangeEventHandler employeePositionRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event positionRowChangeEventHandler positionRowChanged;
+            public event employeePositionRowChangeEventHandler employeePositionRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event positionRowChangeEventHandler positionRowDeleting;
+            public event employeePositionRowChangeEventHandler employeePositionRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event positionRowChangeEventHandler positionRowDeleted;
+            public event employeePositionRowChangeEventHandler employeePositionRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void AddpositionRow(positionRow row) {
+            public void AddemployeePositionRow(employeePositionRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public positionRow AddpositionRow(string posName) {
-                positionRow rowpositionRow = ((positionRow)(this.NewRow()));
+            public employeePositionRow AddemployeePositionRow(string posName) {
+                employeePositionRow rowemployeePositionRow = ((employeePositionRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         posName};
-                rowpositionRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowpositionRow);
-                return rowpositionRow;
+                rowemployeePositionRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowemployeePositionRow);
+                return rowemployeePositionRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public positionRow FindByid(int id) {
-                return ((positionRow)(this.Rows.Find(new object[] {
+            public employeePositionRow FindByid(int id) {
+                return ((employeePositionRow)(this.Rows.Find(new object[] {
                             id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                positionDataTable cln = ((positionDataTable)(base.Clone()));
+                employeePositionDataTable cln = ((employeePositionDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -2781,7 +2781,7 @@ namespace aLibrary {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new positionDataTable();
+                return new employeePositionDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2811,28 +2811,28 @@ namespace aLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public positionRow NewpositionRow() {
-                return ((positionRow)(this.NewRow()));
+            public employeePositionRow NewemployeePositionRow() {
+                return ((employeePositionRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new positionRow(builder);
+                return new employeePositionRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(positionRow);
+                return typeof(employeePositionRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.positionRowChanged != null)) {
-                    this.positionRowChanged(this, new positionRowChangeEvent(((positionRow)(e.Row)), e.Action));
+                if ((this.employeePositionRowChanged != null)) {
+                    this.employeePositionRowChanged(this, new employeePositionRowChangeEvent(((employeePositionRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2840,8 +2840,8 @@ namespace aLibrary {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.positionRowChanging != null)) {
-                    this.positionRowChanging(this, new positionRowChangeEvent(((positionRow)(e.Row)), e.Action));
+                if ((this.employeePositionRowChanging != null)) {
+                    this.employeePositionRowChanging(this, new employeePositionRowChangeEvent(((employeePositionRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2849,8 +2849,8 @@ namespace aLibrary {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.positionRowDeleted != null)) {
-                    this.positionRowDeleted(this, new positionRowChangeEvent(((positionRow)(e.Row)), e.Action));
+                if ((this.employeePositionRowDeleted != null)) {
+                    this.employeePositionRowDeleted(this, new employeePositionRowChangeEvent(((employeePositionRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2858,14 +2858,14 @@ namespace aLibrary {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.positionRowDeleting != null)) {
-                    this.positionRowDeleting(this, new positionRowChangeEvent(((positionRow)(e.Row)), e.Action));
+                if ((this.employeePositionRowDeleting != null)) {
+                    this.employeePositionRowDeleting(this, new employeePositionRowChangeEvent(((employeePositionRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void RemovepositionRow(positionRow row) {
+            public void RemoveemployeePositionRow(employeePositionRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -2892,7 +2892,7 @@ namespace aLibrary {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "positionDataTable";
+                attribute2.FixedValue = "employeePositionDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -4432,15 +4432,15 @@ namespace aLibrary {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class custumerCityRow : global::System.Data.DataRow {
+        public partial class customerCityRow : global::System.Data.DataRow {
             
-            private custumerCityDataTable tablecustumerCity;
+            private customerCityDataTable tablecustomerCity;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal custumerCityRow(global::System.Data.DataRowBuilder rb) : 
+            internal customerCityRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablecustumerCity = ((custumerCityDataTable)(this.Table));
+                this.tablecustomerCity = ((customerCityDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4448,27 +4448,27 @@ namespace aLibrary {
             public string custCity {
                 get {
                     try {
-                        return ((string)(this[this.tablecustumerCity.custCityColumn]));
+                        return ((string)(this[this.tablecustomerCity.custCityColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'custCity\' in table \'custumerCity\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'custCity\' in table \'customerCity\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablecustumerCity.custCityColumn] = value;
+                    this[this.tablecustomerCity.custCityColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IscustCityNull() {
-                return this.IsNull(this.tablecustumerCity.custCityColumn);
+                return this.IsNull(this.tablecustomerCity.custCityColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetcustCityNull() {
-                this[this.tablecustumerCity.custCityColumn] = global::System.Convert.DBNull;
+                this[this.tablecustomerCity.custCityColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5096,25 +5096,25 @@ namespace aLibrary {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class positionRow : global::System.Data.DataRow {
+        public partial class employeePositionRow : global::System.Data.DataRow {
             
-            private positionDataTable tableposition;
+            private employeePositionDataTable tableemployeePosition;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal positionRow(global::System.Data.DataRowBuilder rb) : 
+            internal employeePositionRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableposition = ((positionDataTable)(this.Table));
+                this.tableemployeePosition = ((employeePositionDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int id {
                 get {
-                    return ((int)(this[this.tableposition.idColumn]));
+                    return ((int)(this[this.tableemployeePosition.idColumn]));
                 }
                 set {
-                    this[this.tableposition.idColumn] = value;
+                    this[this.tableemployeePosition.idColumn] = value;
                 }
             }
             
@@ -5123,27 +5123,27 @@ namespace aLibrary {
             public string posName {
                 get {
                     try {
-                        return ((string)(this[this.tableposition.posNameColumn]));
+                        return ((string)(this[this.tableemployeePosition.posNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'posName\' in table \'position\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'posName\' in table \'employeePosition\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableposition.posNameColumn] = value;
+                    this[this.tableemployeePosition.posNameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsposNameNull() {
-                return this.IsNull(this.tableposition.posNameColumn);
+                return this.IsNull(this.tableemployeePosition.posNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetposNameNull() {
-                this[this.tableposition.posNameColumn] = global::System.Convert.DBNull;
+                this[this.tableemployeePosition.posNameColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5700,22 +5700,22 @@ namespace aLibrary {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class custumerCityRowChangeEvent : global::System.EventArgs {
+        public class customerCityRowChangeEvent : global::System.EventArgs {
             
-            private custumerCityRow eventRow;
+            private customerCityRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public custumerCityRowChangeEvent(custumerCityRow row, global::System.Data.DataRowAction action) {
+            public customerCityRowChangeEvent(customerCityRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public custumerCityRow Row {
+            public customerCityRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -5836,22 +5836,22 @@ namespace aLibrary {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class positionRowChangeEvent : global::System.EventArgs {
+        public class employeePositionRowChangeEvent : global::System.EventArgs {
             
-            private positionRow eventRow;
+            private employeePositionRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public positionRowChangeEvent(positionRow row, global::System.Data.DataRowAction action) {
+            public employeePositionRowChangeEvent(employeePositionRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public positionRow Row {
+            public employeePositionRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -6531,7 +6531,7 @@ WHERE        (receipt.ordDate BETWEEN @dateStart AND @dateEnd) AND ({ fn CONCAT(
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "custumerCity";
+            tableMapping.DataSetTable = "customerCity";
             tableMapping.ColumnMappings.Add("custCity", "custCity");
             this._adapter.TableMappings.Add(tableMapping);
         }
@@ -6557,9 +6557,9 @@ WHERE        (receipt.ordDate BETWEEN @dateStart AND @dateEnd) AND ({ fn CONCAT(
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual EmmasDataSet.custumerCityDataTable GetData() {
+        public virtual EmmasDataSet.customerCityDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            EmmasDataSet.custumerCityDataTable dataTable = new EmmasDataSet.custumerCityDataTable();
+            EmmasDataSet.customerCityDataTable dataTable = new EmmasDataSet.customerCityDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -7304,7 +7304,7 @@ ORDER BY receipt.ordNumber";
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class positionTableAdapter : global::System.ComponentModel.Component {
+    public partial class employeePositionTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -7318,7 +7318,7 @@ ORDER BY receipt.ordNumber";
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public positionTableAdapter() {
+        public employeePositionTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -7415,7 +7415,7 @@ ORDER BY receipt.ordNumber";
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "position";
+            tableMapping.DataSetTable = "employeePosition";
             tableMapping.ColumnMappings.Add("id", "id");
             tableMapping.ColumnMappings.Add("posName", "posName");
             this._adapter.TableMappings.Add(tableMapping);
@@ -7442,9 +7442,9 @@ ORDER BY receipt.ordNumber";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual EmmasDataSet.positionDataTable GetData() {
+        public virtual EmmasDataSet.employeePositionDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            EmmasDataSet.positionDataTable dataTable = new EmmasDataSet.positionDataTable();
+            EmmasDataSet.employeePositionDataTable dataTable = new EmmasDataSet.employeePositionDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

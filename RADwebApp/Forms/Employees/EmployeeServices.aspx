@@ -45,16 +45,16 @@
                 <p>This employee is not directly related to any Sales or Repairs services.</p>
             </asp:Panel>
         </div>
-        <asp:SqlDataSource ID="dsEmployeeRepairs" runat="server" ConnectionString="<%$ ConnectionStrings:EmmasConnectionString %>" SelectCommand="SELECT receipt.ordNumber, receipt.ordDate, customer.custFirst + ' ' + customer.custLast AS custName, equip_type.eqtType, service.serPrice, receipt.empID FROM receipt INNER JOIN service_order ON receipt.id = service_order.receiptID INNER JOIN customer ON receipt.custID = customer.id INNER JOIN service ON service_order.serviceID = service.id INNER JOIN equipment ON service_order.equipID = equipment.id AND customer.id = equipment.custID INNER JOIN equip_type ON equipment.equtypeID = equip_type.id WHERE (service_order.empID = @Param1) ORDER BY receipt.ordNumber, receipt.ordDate">
+        <asp:ObjectDataSource ID="dsEmployeeRepairs" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.employeeRepairsTableAdapter">
             <SelectParameters>
-                <asp:QueryStringParameter DefaultValue="0" Name="Param1" QueryStringField="id" />
+                <asp:QueryStringParameter DefaultValue="0" Name="Param1" QueryStringField="id" Type="Int32" />
             </SelectParameters>
-        </asp:SqlDataSource>
-        <asp:SqlDataSource ID="dsEmployeeSales" runat="server" ConnectionString="<%$ ConnectionStrings:EmmasConnectionString %>" SelectCommand="SELECT receipt.ordNumber, receipt.ordDate, receipt.empID, order_line.orlPrice, order_line.orlQuantity, product.prodName, customer.custFirst + ' ' + customer.custLast AS custName FROM receipt INNER JOIN order_line ON receipt.id = order_line.receiptID INNER JOIN inventory ON order_line.inventoryID = inventory.id INNER JOIN product ON inventory.productID = product.id INNER JOIN customer ON receipt.custID = customer.id WHERE (receipt.empID = @Param1) ORDER BY receipt.ordNumber, receipt.ordDate">
+        </asp:ObjectDataSource>
+        <asp:ObjectDataSource ID="dsEmployeeSales" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.employeeSalesTableAdapter">
             <SelectParameters>
-                <asp:QueryStringParameter DefaultValue="0" Name="Param1" QueryStringField="id" />
+                <asp:QueryStringParameter DefaultValue="0" Name="Param1" QueryStringField="id" Type="Int32" />
             </SelectParameters>
-        </asp:SqlDataSource>
+        </asp:ObjectDataSource>
     </form>
 </body>
 </html>

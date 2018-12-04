@@ -16,7 +16,7 @@
         <div>
             <asp:Button ID="btnNewEmployee" runat="server" OnClick="btnNewEmployee_Click" Text="Add New" />
             <br />
-            <asp:DetailsView ID="dvEmployeeNew" runat="server" AutoGenerateRows="False" DataKeyNames="id" DataSourceID="dsEmployees" DefaultMode="Insert" Height="50px" OnItemCommand="dvEmployeeNew_ItemCommand" Visible="False" Width="125px">
+            <asp:DetailsView ID="dvEmployeeNew" runat="server" AutoGenerateRows="False" DataKeyNames="id" DataSourceID="dsEmployee" DefaultMode="Insert" Height="50px" OnItemCommand="dvEmployeeNew_ItemCommand" Visible="False" Width="125px">
                 <Fields>
                     <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
                     <asp:DynamicField DataField="empFirst" HeaderText="First Name" />
@@ -33,7 +33,7 @@
                             <asp:Label ID="Label1" runat="server" Text='<%# Bind("posID") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField ShowHeader="False">
+                   <asp:TemplateField ShowHeader="False">
                         <InsertItemTemplate>
                             <asp:Button ID="btnIsert" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
                             &nbsp;<asp:Button ID="btnCancel" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
@@ -44,7 +44,7 @@
                     </asp:TemplateField>
                 </Fields>
             </asp:DetailsView>
-            <br />
+            <asp:ValidationSummary ID="ValidationSummary1" runat="server" HeaderText="Please fix the following:" />
             <asp:Panel ID="panelFilters" runat="server">
                 <asp:Label ID="lblFilterPosition" runat="server" Text="Filter by Position:"></asp:Label>
                 <asp:DropDownList ID="ddlPosition" runat="server" AppendDataBoundItems="True" AutoPostBack="True" DataSourceID="dsPosition" DataTextField="posName" DataValueField="id">
@@ -52,57 +52,39 @@
                 </asp:DropDownList>
             </asp:Panel>               
             <br />
-            <asp:GridView ID="gvEmployees" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="dsEmployees">
+            <asp:GridView ID="gvEmployees" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="dsSearchEmployee" OnSelectedIndexChanged="gvEmployees_SelectedIndexChanged1" EnableViewState="False">
                 <Columns>
-                    <asp:TemplateField ShowHeader="False">
-                        <EditItemTemplate>
-                            <asp:Button ID="btnUpdate" runat="server" CausesValidation="True" CommandName="Update" Text="Update" OnClientClick='return confirm("Do you want to save the changes?");'></asp:Button>
-                            &nbsp;<asp:Button ID="btnCancel" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel"></asp:Button>
-                        </EditItemTemplate>
-                        <ItemTemplate>
-                            <asp:Button ID="btnEdit" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit"></asp:Button>
-                            &nbsp;<asp:Button ID="btnDelete" runat="server" CausesValidation="True" CommandName="Delete" Text="Delete" OnClientClick='return confirm("Are you sure you want to delete this employee?");'></asp:Button>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:DynamicField DataField="empFirst" HeaderText="First Name" SortExpression="empFirst" />
-                    <asp:DynamicField DataField="empLast" HeaderText="Last Name" SortExpression="empLast" />
-                    <asp:TemplateField HeaderText="Position" SortExpression="posName">
-                        <EditItemTemplate>
-                            <asp:DropDownList ID="ddlPositionEdit" runat="server" DataSourceID="dsPosition" DataTextField="posName" DataValueField="id" SelectedValue='<%# Bind("posID") %>'>
-                            </asp:DropDownList>
-                        </EditItemTemplate>
-                        <ItemTemplate>
-                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("posName") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
+                    <asp:CommandField ShowSelectButton="True" ButtonType="Button" SelectText="Details" />
+                    <asp:BoundField DataField="empName" HeaderText="Name" ReadOnly="True" SortExpression="empName" />
+                    <asp:BoundField DataField="posName" HeaderText="Position" SortExpression="posName" />
                     <asp:HyperLinkField DataNavigateUrlFields="id, empFirst, empLast, posID"
-                    DataNavigateUrlFormatString="EmployeeServices.aspx?id={0}&first={1}&last={2}&pos={3}"
+                    DataNavigateUrlFormatString="EmployeeServices.aspx?id={0}&first={1}&last={2}&role={3}"
                       Text="View Services" />
                 </Columns>
             </asp:GridView>
-            <asp:ValidationSummary ID="ValidationSummary1" runat="server" HeaderText="Please fix the following:" />
-            <br />
         </div>
-        <asp:SqlDataSource ID="dsEmployees" runat="server" ConnectionString="<%$ ConnectionStrings:EmmasConnectionString %>" SelectCommand="SELECT employee.id, employee.empFirst + ' ' + employee.empLast AS empName, employee.empFirst, employee.empLast, position.posName, employee.posID FROM employee INNER JOIN position ON employee.posID = position.id WHERE (employee.posID = @Param1) OR (@Param1 = 0) ORDER BY employee.empFirst, employee.empLast, position.posName" InsertCommand="INSERT INTO [employee] ([empFirst], [empLast], [posID]) VALUES (@empFirst, @empLast, @posID)" DeleteCommand="DELETE FROM [employee] WHERE [id] = @id" UpdateCommand="UPDATE [employee] SET [empFirst] = @empFirst, [empLast] = @empLast, [posID] = @posID WHERE [id] = @id">
-            <DeleteParameters>
-                <asp:Parameter Name="id" Type="Int32" />
-            </DeleteParameters>
-            <InsertParameters>
-                <asp:Parameter Name="empFirst" Type="String" />
-                <asp:Parameter Name="empLast" Type="String" />
-                <asp:Parameter Name="posID" Type="Int32" />
-            </InsertParameters>
-            <SelectParameters>
-                <asp:ControlParameter ControlID="ddlPosition" DefaultValue="0" Name="Param1" PropertyName="SelectedValue" />
-            </SelectParameters>
-            <UpdateParameters>
-                <asp:Parameter Name="empFirst" Type="String" />
-                <asp:Parameter Name="empLast" Type="String" />
-                <asp:Parameter Name="posID" Type="Int32" />
-                <asp:Parameter Name="id" Type="Int32" />
-            </UpdateParameters>
-        </asp:SqlDataSource>
-        <asp:SqlDataSource ID="dsPosition" runat="server" ConnectionString="<%$ ConnectionStrings:EmmasConnectionString %>" SelectCommand="SELECT * FROM [position] ORDER BY [posName]"></asp:SqlDataSource>
+         <asp:ObjectDataSource ID="dsSearchEmployee" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.searchEmployeeTableAdapter">
+             <SelectParameters>
+                 <asp:ControlParameter ControlID="ddlPosition" DefaultValue="0" Name="Param1" PropertyName="SelectedValue" Type="Int32" />
+             </SelectParameters>
+         </asp:ObjectDataSource>
+         <asp:ObjectDataSource ID="dsEmployee" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.employeeTableAdapter" UpdateMethod="Update">
+             <DeleteParameters>
+                 <asp:Parameter Name="Original_id" Type="Int32" />
+             </DeleteParameters>
+             <InsertParameters>
+                 <asp:Parameter Name="empFirst" Type="String" />
+                 <asp:Parameter Name="empLast" Type="String" />
+                 <asp:Parameter Name="posID" Type="Int32" />
+             </InsertParameters>
+             <UpdateParameters>
+                 <asp:Parameter Name="empFirst" Type="String" />
+                 <asp:Parameter Name="empLast" Type="String" />
+                 <asp:Parameter Name="posID" Type="Int32" />
+                 <asp:Parameter Name="Original_id" Type="Int32" />
+             </UpdateParameters>
+         </asp:ObjectDataSource>
+         <asp:ObjectDataSource ID="dsPosition" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.employeePositionTableAdapter"></asp:ObjectDataSource>
         <br />
     </form>
 </body>
