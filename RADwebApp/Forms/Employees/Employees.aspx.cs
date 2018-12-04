@@ -13,7 +13,7 @@ namespace RADwebApp.Forms.Employees
         public bool flag = false;
 
         protected void Page_Init(object sender, EventArgs e)
-        {            
+        {
             dvEmployeeNew.EnableDynamicData(typeof(Employee));
         }
 
@@ -52,6 +52,13 @@ namespace RADwebApp.Forms.Employees
             this.btnNewEmployee.Visible = true;
             this.panelFilters.Visible = true;
             flag = false;
+        }
+
+        protected void gvEmployees_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+            int index = gvEmployees.SelectedRow.RowIndex;
+            string id = gvEmployees.DataKeys[index][0].ToString();
+            Response.Redirect("~/Forms/Employees/EmployeeDetails.aspx?id=" + id);
         }
     }
 }

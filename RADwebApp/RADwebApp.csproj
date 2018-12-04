@@ -83,11 +83,11 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Forms\Customers\CustomerAdd.aspx" />
     <!-->>>>>>>> master<-->
     <Content Include="Forms\Customers\CustomerOrders.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Forms\Customers\Customers.aspx" />
+    <Content Include="Forms\Employees\EmployeeDetails.aspx" />
     <Content Include="Forms\Employees\Employees.aspx" />
     <Content Include="Forms\Employees\EmployeeServices.aspx" />
     <Content Include="Forms\RepairPages\AllRepairs.aspx" />
@@ -151,6 +151,13 @@
     </Compile>
     <Compile Include="Forms\Customers\CustomerDetails.aspx.designer.cs">
       <DependentUpon>CustomerDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Employees\EmployeeDetails.aspx.cs">
+      <DependentUpon>EmployeeDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Employees\EmployeeDetails.aspx.designer.cs">
+      <DependentUpon>EmployeeDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Employees\Employees.aspx.cs">
       <DependentUpon>Employees.aspx</DependentUpon>

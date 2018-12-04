@@ -41,12 +41,12 @@
             <br />
             <asp:Panel ID="panelFilters" runat="server">
                 <asp:Label ID="lblFilterCity" runat="server" Text="Filter by City:"></asp:Label>
-                <asp:DropDownList ID="ddlCity" runat="server" AppendDataBoundItems="True" AutoPostBack="True" DataSourceID="dsCity" DataTextField="custCity" DataValueField="custCity">
+                <asp:DropDownList ID="ddlCity" runat="server" AppendDataBoundItems="True" AutoPostBack="True" DataSourceID="dsCity" DataTextField="custCity" DataValueField="custCity" EnableViewState="False">
                     <asp:ListItem Selected="True">All</asp:ListItem>
                 </asp:DropDownList>
             </asp:Panel>               
             <br />
-            <asp:GridView ID="gvCustomers" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="dsCustomersAll" OnSelectedIndexChanged="gvCustomers_SelectedIndexChanged" EnableViewState="False">
+            <asp:GridView ID="gvCustomers" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="dsSearchCustomer" OnSelectedIndexChanged="gvCustomers_SelectedIndexChanged" EnableViewState="False">
                 <Columns>
                     <asp:CommandField ShowSelectButton="True" ButtonType="Button" SelectText="Details"></asp:CommandField>
                     <asp:BoundField DataField="custName" HeaderText="Name" ReadOnly="True" SortExpression="custName"></asp:BoundField>
@@ -59,7 +59,7 @@
             </asp:GridView>
             <br />
         </div>
-        <asp:ObjectDataSource ID="dsCustomersAll" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.customersAllTableAdapter" UpdateMethod="Update">
+        <asp:ObjectDataSource ID="dsSearchCustomer" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.searchCustomerTableAdapter">
             <DeleteParameters>
                 <asp:Parameter Name="Original_id" Type="Int32" />
             </DeleteParameters>
@@ -86,8 +86,8 @@
                 <asp:Parameter Name="Original_id" Type="Int32" />
             </UpdateParameters>
         </asp:ObjectDataSource>
-        <asp:ObjectDataSource ID="dsCity" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.cityTableAdapter"></asp:ObjectDataSource>
-        <asp:ObjectDataSource ID="dsCustomer" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.customerNewTableAdapter" UpdateMethod="Update">
+        <asp:ObjectDataSource ID="dsCity" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.customerCityTableAdapter"></asp:ObjectDataSource>
+        <asp:ObjectDataSource ID="dsCustomer" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.customerTableAdapter" UpdateMethod="Update">
             <DeleteParameters>
                 <asp:Parameter Name="Original_id" Type="Int32" />
                 <asp:Parameter Name="Original_custFirst" Type="String" />
