@@ -19,7 +19,7 @@ namespace RADwebApp.Forms.CustomerPages
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString["mode"] != null)
-            {                
+            {
                 this.gvCustomers.Visible = false;
                 this.dvCustomerNew.Visible = true;
                 this.btnNewCustomer.Visible = false;
@@ -50,7 +50,7 @@ namespace RADwebApp.Forms.CustomerPages
             this.dvCustomerNew.Visible = false;
             this.btnNewCustomer.Visible = true;
             this.panelFilters.Visible = true;
-            flag = false;           
+            flag = false;
         }
     }
 }
