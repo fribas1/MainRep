@@ -11,22 +11,22 @@
         <div>
             <asp:DetailsView ID="dvEditCustomer" runat="server" AutoGenerateRows="False" DataKeyNames="id" DataSourceID="dsCustomer" OnItemDeleted="dvEditCustomer_ItemDeleted" OnItemUpdated="dvEditCustomer_ItemUpdated" >
                 <Fields>
-                    <asp:BoundField DataField="id" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="id" />
-                    <asp:DynamicField DataField="custFirst" HeaderText="First Name" SortExpression="custFirst" />
-                    <asp:DynamicField DataField="custLast" HeaderText="Last Name" SortExpression="custLast" />
-                    <asp:DynamicField DataField="custPhone" HeaderText="Phone" SortExpression="custPhone" />
-                    <asp:DynamicField DataField="custAddress" HeaderText="Address" SortExpression="custAddress" />
-                    <asp:DynamicField DataField="custCity" HeaderText="City" SortExpression="custCity" />
-                    <asp:DynamicField DataField="custPostal" HeaderText="Postal Code" SortExpression="custPostal" />
-                    <asp:DynamicField DataField="custEmail" HeaderText="E-mail" SortExpression="custEmail" />
+                    <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
+                    <asp:DynamicField DataField="custFirst" HeaderText="custFirst" />
+                    <asp:DynamicField DataField="custLast" HeaderText="custLast" />
+                    <asp:DynamicField DataField="custPhone" HeaderText="custPhone" />
+                    <asp:DynamicField DataField="custAddress" HeaderText="custAddress" />
+                    <asp:DynamicField DataField="custCity" HeaderText="custCity" />
+                    <asp:DynamicField DataField="custPostal" HeaderText="custPostal" />
+                    <asp:DynamicField DataField="custEmail" HeaderText="custEmail" />
                     <asp:TemplateField ShowHeader="False">
                         <EditItemTemplate>
-                            <asp:Button ID="btnUpdate" runat="server" CausesValidation="True" CommandName="Update" Text="Update" OnClientClick="return confirm('Do you want to save the changes?');" />
-                            &nbsp;<asp:Button ID="Button2" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                            <asp:Button ID="btnUpdate" runat="server" CausesValidation="True" CommandName="Update" Text="Update" OnClientClick='return confirm("Do you wanto to save the changes?");' />
+                            &nbsp;<asp:Button ID="btnCancel" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Button ID="btnEdit" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" />
-                            &nbsp;<asp:Button ID="btnDelete" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" OnClientClick="return confirm('Are you sure you want to delete this customer?');" />
+                            &nbsp;<asp:Button ID="btnDelete" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" OnClientClick='return confirm("Are you sure you want to delete this customer?");' />
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Fields>
@@ -35,8 +35,7 @@
             <br />
             <asp:Button ID="btnBack" runat="server" OnClick="btnBack_Click" Text="Back" />
         </div>
-        <br />
-        <asp:ObjectDataSource ID="dsCustomer" runat="server" DeleteMethod="Delete" InsertMethod="Insert" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.customerTableAdapter" UpdateMethod="Update">
+        <asp:ObjectDataSource ID="dsCustomer" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.customerTableAdapter" UpdateMethod="Update">
             <DeleteParameters>
                 <asp:Parameter Name="Original_id" Type="Int32" />
             </DeleteParameters>
@@ -50,7 +49,7 @@
                 <asp:Parameter Name="custEmail" Type="String" />
             </InsertParameters>
             <SelectParameters>
-                <asp:QueryStringParameter DefaultValue="0" Name="id" QueryStringField="id" Type="Int32" />
+                <asp:QueryStringParameter DefaultValue="0" Name="Param1" QueryStringField="id" Type="Int32" />
             </SelectParameters>
             <UpdateParameters>
                 <asp:Parameter Name="custFirst" Type="String" />
