@@ -74,9 +74,9 @@
     <Content Include="App_Data\Emmas_log.ldf">
       <DependentUpon>Emmas.mdf</DependentUpon>
     </Content>
-<!--><<<<<<< Customers<-->
+    <!--><<<<<<< Customers<-->
     <Content Include="Forms\Customers\CustomerDetails.aspx" />
-<!-->=======<-->
+    <!-->=======<-->
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -84,10 +84,11 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Forms\Customers\CustomerAdd.aspx" />
-<!-->>>>>>>> master<-->
+    <!-->>>>>>>> master<-->
     <Content Include="Forms\Customers\CustomerOrders.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Forms\Customers\Customers.aspx" />
+    <Content Include="Forms\Employees\EmployeeDetails.aspx" />
     <Content Include="Forms\Employees\Employees.aspx" />
     <Content Include="Forms\Employees\EmployeeServices.aspx" />
     <Content Include="Forms\RepairPages\AllRepairs.aspx" />
@@ -150,6 +151,13 @@
     </Compile>
     <Compile Include="Forms\Customers\CustomerDetails.aspx.designer.cs">
       <DependentUpon>CustomerDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Employees\EmployeeDetails.aspx.cs">
+      <DependentUpon>EmployeeDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Employees\EmployeeDetails.aspx.designer.cs">
+      <DependentUpon>EmployeeDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Employees\Employees.aspx.cs">
       <DependentUpon>Employees.aspx</DependentUpon>
@@ -248,19 +256,17 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-<!--><<<<<<< Customers<-->
+  <!--><<<<<<< Customers<-->
   <ItemGroup />
-<!-->=======<-->
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <!-->=======<-->
+  <ItemGroup />
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
-<!-->>>>>>>> master<-->
+  <!-->>>>>>>> master<-->
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

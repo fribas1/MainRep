@@ -40,6 +40,15 @@ namespace RADwebApp.Forms.Employees {
         protected global::System.Web.UI.WebControls.DetailsView dvEmployeeNew;
         
         /// <summary>
+        /// ValidationSummary1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
+        
+        /// <summary>
         /// panelFilters control.
         /// </summary>
         /// <remarks>
@@ -76,22 +85,22 @@ namespace RADwebApp.Forms.Employees {
         protected global::System.Web.UI.WebControls.GridView gvEmployees;
         
         /// <summary>
-        /// ValidationSummary1 control.
+        /// dsEmployeesAll control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
+        protected global::System.Web.UI.WebControls.ObjectDataSource dsEmployeesAll;
         
         /// <summary>
-        /// dsEmployees control.
+        /// dsEmployeeNew control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dsEmployees;
+        protected global::System.Web.UI.WebControls.ObjectDataSource dsEmployeeNew;
         
         /// <summary>
         /// dsPosition control.
@@ -100,6 +109,6 @@ namespace RADwebApp.Forms.Employees {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dsPosition;
+        protected global::System.Web.UI.WebControls.ObjectDataSource dsPosition;
     }
 }

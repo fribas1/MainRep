@@ -14,9 +14,9 @@ namespace RADwebApp.Forms.Employees
             if (IsPostBack) return;
             int id = Convert.ToInt32(Request.QueryString["id"]);
 
-            if (Request.QueryString["pos"] == "1") //Sales ID = 1 / Tech = 2
+            if (Request.QueryString["role"] == "1") //Sales ID = 1 / Tech = 2
                 this.panelSales.Visible = true;
-            else if (Request.QueryString["pos"] == "2")
+            else if (Request.QueryString["role"] == "2")
                 this.panelRepairs.Visible = true;
             else
                 this.panelNone.Visible = true;

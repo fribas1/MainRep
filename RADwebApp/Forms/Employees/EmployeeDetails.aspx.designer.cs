@@ -10,7 +10,7 @@
 namespace RADwebApp.Forms.Employees {
     
     
-    public partial class EmployeeServices {
+    public partial class EmployeeDetails {
         
         /// <summary>
         /// form1 control.
@@ -22,66 +22,48 @@ namespace RADwebApp.Forms.Employees {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// panelRepairs control.
+        /// dvEditEmployee control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panelRepairs;
+        protected global::System.Web.UI.WebControls.DetailsView dvEditEmployee;
         
         /// <summary>
-        /// gvEmployeeRepairs control.
+        /// ValidationSummary1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvEmployeeRepairs;
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
         
         /// <summary>
-        /// panelSales control.
+        /// btnBack control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panelSales;
+        protected global::System.Web.UI.WebControls.Button btnBack;
         
         /// <summary>
-        /// gvEmployeeSales control.
+        /// dsEmployee control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvEmployeeSales;
+        protected global::System.Web.UI.WebControls.ObjectDataSource dsEmployee;
         
         /// <summary>
-        /// panelNone control.
+        /// dsPosition control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panelNone;
-        
-        /// <summary>
-        /// dsEmployeeRepairs control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource dsEmployeeRepairs;
-        
-        /// <summary>
-        /// dsEmployeeSales control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource dsEmployeeSales;
+        protected global::System.Web.UI.WebControls.ObjectDataSource dsPosition;
     }
 }
