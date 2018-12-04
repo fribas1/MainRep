@@ -35,10 +35,9 @@
             <br />
             <asp:Button ID="btnBack" runat="server" OnClick="btnBack_Click" Text="Back" />
         </div>
-        <br />
-        <asp:ObjectDataSource ID="dsCustomer" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.customerTableAdapter" UpdateMethod="Update">
+        <asp:SqlDataSource ID="dsCustomer" runat="server" ConnectionString="<%$ ConnectionStrings:EmmasConnectionString %>" DeleteCommand="DELETE FROM [customer] WHERE [id] = @id" InsertCommand="INSERT INTO [customer] ([custFirst], [custLast], [custPhone], [custAddress], [custCity], [custPostal], [custEmail]) VALUES (@custFirst, @custLast, @custPhone, @custAddress, @custCity, @custPostal, @custEmail)" SelectCommand="SELECT * FROM [customer] WHERE ([id] = @id)" UpdateCommand="UPDATE [customer] SET [custFirst] = @custFirst, [custLast] = @custLast, [custPhone] = @custPhone, [custAddress] = @custAddress, [custCity] = @custCity, [custPostal] = @custPostal, [custEmail] = @custEmail WHERE [id] = @id">
             <DeleteParameters>
-                <asp:Parameter Name="Original_id" Type="Int32" />
+                <asp:Parameter Name="id" Type="Int32" />
             </DeleteParameters>
             <InsertParameters>
                 <asp:Parameter Name="custFirst" Type="String" />
@@ -60,9 +59,9 @@
                 <asp:Parameter Name="custCity" Type="String" />
                 <asp:Parameter Name="custPostal" Type="String" />
                 <asp:Parameter Name="custEmail" Type="String" />
-                <asp:Parameter Name="Original_id" Type="Int32" />
+                <asp:Parameter Name="id" Type="Int32" />
             </UpdateParameters>
-        </asp:ObjectDataSource>
+        </asp:SqlDataSource>
     </form>
 </body>
 </html>

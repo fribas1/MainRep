@@ -73,7 +73,7 @@ namespace RADwebApp.Forms.Employees {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource dsEmployeeRepairs;
+        protected global::System.Web.UI.WebControls.SqlDataSource dsEmployeeRepairs;
         
         /// <summary>
         /// dsEmployeeSales control.
@@ -82,6 +82,6 @@ namespace RADwebApp.Forms.Employees {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource dsEmployeeSales;
+        protected global::System.Web.UI.WebControls.SqlDataSource dsEmployeeSales;
     }
 }

@@ -53,12 +53,5 @@ namespace RADwebApp.Forms.Employees
             this.panelFilters.Visible = true;
             flag = false;
         }
-
-        protected void gvEmployees_SelectedIndexChanged1(object sender, EventArgs e)
-        {
-            int index = gvEmployees.SelectedRow.RowIndex;
-            string id = gvEmployees.DataKeys[index][0].ToString();
-            Response.Redirect("~/Forms/Employees/EmployeeDetails.aspx?id=" + id);
-        }
     }
 }

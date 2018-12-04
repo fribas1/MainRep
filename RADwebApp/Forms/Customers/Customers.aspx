@@ -16,7 +16,7 @@
         <div>
             <asp:Button ID="btnNewCustomer" runat="server" OnClick="btnNewCustomer_Click" Text="Add New" />
             <br />
-            <asp:DetailsView ID="dvCustomerNew" runat="server" AutoGenerateRows="False" DataKeyNames="id" DataSourceID="dsCustomer" DefaultMode="Insert" Height="50px" OnItemCommand="dvCustomerNew_ItemCommand" Visible="False" Width="125px">
+            <asp:DetailsView ID="dvCustomerNew" runat="server" AutoGenerateRows="False" DataKeyNames="id" DataSourceID="dsCustomers" DefaultMode="Insert" Height="50px" OnItemCommand="dvCustomerNew_ItemCommand" Visible="False" Width="125px">
                 <Fields>
                     <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
                     <asp:DynamicField DataField="custFirst" HeaderText="First Name" SortExpression="custFirst" />
@@ -46,7 +46,7 @@
                 </asp:DropDownList>
             </asp:Panel>               
             <br />
-            <asp:GridView ID="gvCustomers" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="dsCustomersAll" OnSelectedIndexChanged="gvCustomers_SelectedIndexChanged" EnableViewState="False">
+            <asp:GridView ID="gvCustomers" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="dsCustomers" OnSelectedIndexChanged="gvCustomers_SelectedIndexChanged">
                 <Columns>
                     <asp:CommandField ShowSelectButton="True" ButtonType="Button" SelectText="Details"></asp:CommandField>
                     <asp:BoundField DataField="custName" HeaderText="Name" ReadOnly="True" SortExpression="custName"></asp:BoundField>
@@ -59,10 +59,7 @@
             </asp:GridView>
             <br />
         </div>
-        <asp:ObjectDataSource ID="dsCustomersAll" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.customersAllTableAdapter" UpdateMethod="Update">
-            <DeleteParameters>
-                <asp:Parameter Name="Original_id" Type="Int32" />
-            </DeleteParameters>
+        <asp:SqlDataSource ID="dsCustomers" runat="server" ConnectionString="<%$ ConnectionStrings:EmmasConnectionString %>" SelectCommand="SELECT id, custFirst + ' ' + custLast AS custName, custFirst, custLast, custPhone, custAddress, custCity, custPostal, custEmail FROM customer WHERE (custCity = @Param1) OR (@Param1 = 'All') ORDER BY custFirst, custLast" InsertCommand="INSERT INTO [customer] ([custFirst], [custLast], [custPhone], [custAddress], [custCity], [custPostal], [custEmail]) VALUES (@custFirst, @custLast, @custPhone, @custAddress, @custCity, @custPostal, @custEmail)">
             <InsertParameters>
                 <asp:Parameter Name="custFirst" Type="String" />
                 <asp:Parameter Name="custLast" Type="String" />
@@ -73,58 +70,11 @@
                 <asp:Parameter Name="custEmail" Type="String" />
             </InsertParameters>
             <SelectParameters>
-                <asp:ControlParameter ControlID="ddlCity" DefaultValue="All" Name="Param1" PropertyName="SelectedValue" Type="String" />
+                <asp:ControlParameter ControlID="ddlCity" DefaultValue="All" Name="Param1" PropertyName="SelectedValue" />
             </SelectParameters>
-            <UpdateParameters>
-                <asp:Parameter Name="custFirst" Type="String" />
-                <asp:Parameter Name="custLast" Type="String" />
-                <asp:Parameter Name="custPhone" Type="String" />
-                <asp:Parameter Name="custAddress" Type="String" />
-                <asp:Parameter Name="custCity" Type="String" />
-                <asp:Parameter Name="custPostal" Type="String" />
-                <asp:Parameter Name="custEmail" Type="String" />
-                <asp:Parameter Name="Original_id" Type="Int32" />
-            </UpdateParameters>
-        </asp:ObjectDataSource>
-        <asp:ObjectDataSource ID="dsCity" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.cityTableAdapter"></asp:ObjectDataSource>
-        <asp:ObjectDataSource ID="dsCustomer" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.customerNewTableAdapter" UpdateMethod="Update">
-            <DeleteParameters>
-                <asp:Parameter Name="Original_id" Type="Int32" />
-                <asp:Parameter Name="Original_custFirst" Type="String" />
-                <asp:Parameter Name="Original_custLast" Type="String" />
-                <asp:Parameter Name="Original_custPhone" Type="String" />
-                <asp:Parameter Name="Original_custAddress" Type="String" />
-                <asp:Parameter Name="Original_custCity" Type="String" />
-                <asp:Parameter Name="Original_custPostal" Type="String" />
-                <asp:Parameter Name="Original_custEmail" Type="String" />
-            </DeleteParameters>
-            <InsertParameters>
-                <asp:Parameter Name="custFirst" Type="String" />
-                <asp:Parameter Name="custLast" Type="String" />
-                <asp:Parameter Name="custPhone" Type="String" />
-                <asp:Parameter Name="custAddress" Type="String" />
-                <asp:Parameter Name="custCity" Type="String" />
-                <asp:Parameter Name="custPostal" Type="String" />
-                <asp:Parameter Name="custEmail" Type="String" />
-            </InsertParameters>
-            <UpdateParameters>
-                <asp:Parameter Name="custFirst" Type="String" />
-                <asp:Parameter Name="custLast" Type="String" />
-                <asp:Parameter Name="custPhone" Type="String" />
-                <asp:Parameter Name="custAddress" Type="String" />
-                <asp:Parameter Name="custCity" Type="String" />
-                <asp:Parameter Name="custPostal" Type="String" />
-                <asp:Parameter Name="custEmail" Type="String" />
-                <asp:Parameter Name="Original_id" Type="Int32" />
-                <asp:Parameter Name="Original_custFirst" Type="String" />
-                <asp:Parameter Name="Original_custLast" Type="String" />
-                <asp:Parameter Name="Original_custPhone" Type="String" />
-                <asp:Parameter Name="Original_custAddress" Type="String" />
-                <asp:Parameter Name="Original_custCity" Type="String" />
-                <asp:Parameter Name="Original_custPostal" Type="String" />
-                <asp:Parameter Name="Original_custEmail" Type="String" />
-            </UpdateParameters>
-        </asp:ObjectDataSource>
+        </asp:SqlDataSource>
+        <asp:SqlDataSource ID="dsCity" runat="server" ConnectionString="<%$ ConnectionStrings:EmmasConnectionString %>" SelectCommand="SELECT DISTINCT [custCity] FROM [customer] ORDER BY [custCity]"></asp:SqlDataSource>
+        <br />
     </form>
 </body>
 </html>
