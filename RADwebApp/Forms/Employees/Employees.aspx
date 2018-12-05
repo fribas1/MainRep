@@ -8,7 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-         <% if(flag == false) { %>
+         <% if(flagNew == false) { %>
                <h2>Employees</h2>
          <% } else { %>
                <h2>Add New Employee</h2>
@@ -45,6 +45,7 @@
                 </Fields>
             </asp:DetailsView>
             <asp:ValidationSummary ID="ValidationSummary1" runat="server" HeaderText="Please fix the following:" />
+            <br />
             <asp:Panel ID="panelFilters" runat="server">
                 <asp:Label ID="lblFilterPosition" runat="server" Text="Filter by Position:"></asp:Label>
                 <asp:DropDownList ID="ddlPosition" runat="server" AppendDataBoundItems="True" AutoPostBack="True" DataSourceID="dsPosition" DataTextField="posName" DataValueField="id">
@@ -52,9 +53,17 @@
                 </asp:DropDownList>
             </asp:Panel>               
             <br />
-            <asp:GridView ID="gvEmployees" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="dsSearchEmployee" OnSelectedIndexChanged="gvEmployees_SelectedIndexChanged1" EnableViewState="False">
+            <asp:GridView ID="gvEmployees" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="dsSearchEmployee" OnSelectedIndexChanged="gvEmployees_SelectedIndexChanged" EnableViewState="False">
                 <Columns>
-                    <asp:CommandField ShowSelectButton="True" ButtonType="Button" SelectText="Details" />
+                    <asp:HyperLinkField DataNavigateUrlFields="id" DataNavigateUrlFormatString="EmployeeDetails.aspx?id={0}" Text="Details" />
+                    <asp:TemplateField ShowHeader="False">
+                        <ItemTemplate>                           
+                            <% if(flagEdit == true) { %>
+                                   <asp:Button ID="btnEdit" runat="server" CausesValidation="False" CommandName="Select" Text="Edit" />
+                                   <asp:Button ID="btnDelete" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" OnClientClick='return confirm("Are you sure you want to delete this employee?");' />
+                            <% } %>                            
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:BoundField DataField="empName" HeaderText="Name" ReadOnly="True" SortExpression="empName" />
                     <asp:BoundField DataField="posName" HeaderText="Position" SortExpression="posName" />
                     <asp:HyperLinkField DataNavigateUrlFields="id, empFirst, empLast, posID"

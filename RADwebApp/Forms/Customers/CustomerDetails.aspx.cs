@@ -18,6 +18,10 @@ namespace RADwebApp.Forms.Customers
         {
             if (IsPostBack) return;
             int id = Convert.ToInt32(Request.QueryString["id"]);
+            if (Request.QueryString["mode"] == "edit")
+            {
+                this.dvEditCustomer.DefaultMode = DetailsViewMode.Edit;
+            }
         }
 
         protected void btnBack_Click(object sender, EventArgs e)
@@ -33,6 +37,12 @@ namespace RADwebApp.Forms.Customers
         protected void dvEditCustomer_ItemUpdated(object sender, DetailsViewUpdatedEventArgs e)
         {
             dvEditCustomer.DefaultMode = DetailsViewMode.ReadOnly;
+        }
+
+        protected void dvEditCustomer_ItemCommand(object sender, DetailsViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Cancel")
+                dvEditCustomer.DefaultMode = DetailsViewMode.ReadOnly;
         }
     }
 }

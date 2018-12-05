@@ -10,6 +10,8 @@ namespace Logintesting
 {
     public partial class Welcome : System.Web.UI.Page
     {
+        public string type; //for querystring
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //if (User.Identity.IsAuthenticated)
@@ -48,20 +50,22 @@ namespace Logintesting
             Response.Redirect("~/Forms/Customers/Customers.aspx");
         }
 
-        protected void btnEditCustomerton2_Click(object sender, EventArgs e)
+        protected void btnEditCustomer_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Forms/Customers/Customers.aspx");
+            type = "edit";
+            Response.Redirect("~/Forms/Customers/Customers.aspx?mode=" + type);
         }
 
         protected void btnNewCustomer_Click(object sender, EventArgs e)
         {
-            string add = "addNew";
-            Response.Redirect("~/Forms/Customers/Customers.aspx?mode=" + add);
+            type = "addNew";
+            Response.Redirect("~/Forms/Customers/Customers.aspx?mode=" + type);
         }
 
         protected void btnDeleteCustomer_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Forms/Customers/Customers.aspx");
+            type = "delete";
+            Response.Redirect("~/Forms/Customers/Customers.aspx?mode=" + type);
         }
 
         protected void btnSearchEmployee_Click(object sender, EventArgs e)
@@ -71,7 +75,8 @@ namespace Logintesting
 
         protected void btnEditEmployee_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Forms/Employees/Employees.aspx");
+            type = "edit";
+            Response.Redirect("~/Forms/Employees/Employees.aspx?mode=" + type);
         }
 
         protected void btnAddEmployee_Click(object sender, EventArgs e)
@@ -82,7 +87,8 @@ namespace Logintesting
 
         protected void btnDeleteEmployee_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Forms/Employees/Employees.aspx");
+            type = "delete";
+            Response.Redirect("~/Forms/Employees/Employees.aspx?mode=" + type);
         }
     }
 }

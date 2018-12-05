@@ -49,13 +49,13 @@ namespace Logintesting {
         protected global::System.Web.UI.WebControls.Button btnSearchCustomer;
         
         /// <summary>
-        /// btnEditCustomerton2 control.
+        /// btnEditCustomer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEditCustomerton2;
+        protected global::System.Web.UI.WebControls.Button btnEditCustomer;
         
         /// <summary>
         /// btnNewCustomer control.

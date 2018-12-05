@@ -8,7 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <% if(flag == false) { %>
+        <% if(flagNew == false) { %>
                <h2>Customers</h2>
         <% } else { %>
                <h2>Add New Customer</h2>
@@ -48,7 +48,15 @@
             <br />
             <asp:GridView ID="gvCustomers" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="dsSearchCustomer" OnSelectedIndexChanged="gvCustomers_SelectedIndexChanged" EnableViewState="False">
                 <Columns>
-                    <asp:CommandField ShowSelectButton="True" ButtonType="Button" SelectText="Details"></asp:CommandField>
+                    <asp:HyperLinkField DataNavigateUrlFields="id" DataNavigateUrlFormatString="CustomerDetails.aspx?id={0}" Text="Details" />
+                    <asp:TemplateField ShowHeader="False">
+                        <ItemTemplate>                           
+                            <% if(flagEdit == true) { %>
+                                   <asp:Button ID="btnEdit" runat="server" CausesValidation="False" CommandName="Select" Text="Edit" />
+                                   <asp:Button ID="btnDelete" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" OnClientClick='return confirm("Are you sure you want to delete this customer?");' />
+                            <% } %>                            
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:BoundField DataField="custName" HeaderText="Name" ReadOnly="True" SortExpression="custName"></asp:BoundField>
                     <asp:BoundField DataField="custCity" HeaderText="City" ReadOnly="True" SortExpression="custCity"></asp:BoundField>
                     <asp:BoundField DataField="custEmail" HeaderText="E-mail" SortExpression="custEmail"></asp:BoundField>

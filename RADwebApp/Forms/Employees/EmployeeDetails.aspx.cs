@@ -19,6 +19,10 @@ namespace RADwebApp.Forms.Employees
         {
             if (IsPostBack) return;
             int id = Convert.ToInt32(Request.QueryString["id"]);
+            if (Request.QueryString["mode"] == "edit")
+            {
+                this.dvEditEmployee.DefaultMode = DetailsViewMode.Edit;
+            }
         }
 
         protected void btnBack_Click(object sender, EventArgs e)
@@ -34,6 +38,12 @@ namespace RADwebApp.Forms.Employees
         protected void dvEditEmployee_ItemUpdated(object sender, DetailsViewUpdatedEventArgs e)
         {
             dvEditEmployee.DefaultMode = DetailsViewMode.ReadOnly;
+        }
+
+        protected void dvEditEmployee_ItemCommand(object sender, DetailsViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Cancel")
+                dvEditEmployee.DefaultMode = DetailsViewMode.ReadOnly;
         }
     }
 }
