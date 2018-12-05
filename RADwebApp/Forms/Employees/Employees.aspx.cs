@@ -10,7 +10,8 @@ namespace RADwebApp.Forms.Employees
 {
     public partial class Employees : System.Web.UI.Page
     {
-        public bool flag = false;
+        public bool flagNew = false; //true: Add New / False: Normal
+        public bool flagEdit = false; //true: Edit-Delete / False: Normal
 
         protected void Page_Init(object sender, EventArgs e)
         {
@@ -19,13 +20,18 @@ namespace RADwebApp.Forms.Employees
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString["mode"] != null)
+            if ((Request.QueryString["mode"] == "edit") || (Request.QueryString["mode"] == "delete"))
+            {
+                this.btnNewEmployee.Visible = false;
+                flagEdit = true;
+            }                
+            else if (Request.QueryString["mode"] == "addNew")
             {
                 this.gvEmployees.Visible = false;
                 this.dvEmployeeNew.Visible = true;
                 this.btnNewEmployee.Visible = false;
                 this.panelFilters.Visible = false;
-                flag = true;
+                flagNew = true;
             }
         }
 
@@ -35,14 +41,15 @@ namespace RADwebApp.Forms.Employees
             this.dvEmployeeNew.Visible = true;
             this.btnNewEmployee.Visible = false;
             this.panelFilters.Visible = false;
-            flag = true;
+            flagNew = true;
         }
 
         protected void gvEmployees_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = gvEmployees.SelectedRow.RowIndex;
             string id = gvEmployees.DataKeys[index][0].ToString();
-            Response.Redirect("~/Forms/Customers/CustomerDetails.aspx?id=" + id);
+            string edit = "edit";
+            Response.Redirect("~/Forms/Employees/EmployeeDetails.aspx?mode=" + edit + "&id=" + id);
         }
 
         protected void dvEmployeeNew_ItemCommand(object sender, DetailsViewCommandEventArgs e)
@@ -51,14 +58,8 @@ namespace RADwebApp.Forms.Employees
             this.dvEmployeeNew.Visible = false;
             this.btnNewEmployee.Visible = true;
             this.panelFilters.Visible = true;
-            flag = false;
-        }
-
-        protected void gvEmployees_SelectedIndexChanged1(object sender, EventArgs e)
-        {
-            int index = gvEmployees.SelectedRow.RowIndex;
-            string id = gvEmployees.DataKeys[index][0].ToString();
-            Response.Redirect("~/Forms/Employees/EmployeeDetails.aspx?id=" + id);
+            flagNew = false;
+            flagEdit = false;
         }
     }
 }

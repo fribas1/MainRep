@@ -9,7 +9,8 @@ namespace RADwebApp.Forms.CustomerPages
 {
     public partial class Customers : System.Web.UI.Page
     {
-        public bool flag = false;
+        public bool flagNew = false; //true: Add New / False: Normal
+        public bool flagEdit = false; //true: Edit-Delete / False: Normal
 
         protected void Page_Init(object sender, EventArgs e)
         {
@@ -18,13 +19,18 @@ namespace RADwebApp.Forms.CustomerPages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString["mode"] != null)
+            if ((Request.QueryString["mode"] == "edit") || (Request.QueryString["mode"] == "delete"))
+            {
+                this.btnNewCustomer.Visible = false;
+                flagEdit = true;
+            }                                                           
+            else if (Request.QueryString["mode"] == "addNew")
             {
                 this.gvCustomers.Visible = false;
                 this.dvCustomerNew.Visible = true;
                 this.btnNewCustomer.Visible = false;
                 this.panelFilters.Visible = false;
-                flag = true;
+                flagNew = true;
             }
         }
 
@@ -34,14 +40,15 @@ namespace RADwebApp.Forms.CustomerPages
             this.dvCustomerNew.Visible = true;
             this.btnNewCustomer.Visible = false;
             this.panelFilters.Visible = false;
-            flag = true;
+            flagNew = true;
         }
 
         protected void gvCustomers_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = gvCustomers.SelectedRow.RowIndex;
             string id = gvCustomers.DataKeys[index][0].ToString();
-            Response.Redirect("~/Forms/Customers/CustomerDetails.aspx?id=" + id);
+            string edit = "edit";
+            Response.Redirect("~/Forms/Customers/CustomerDetails.aspx?mode=" + edit + "&id=" + id);
         }
 
         protected void dvCustomerNew_ItemCommand(object sender, DetailsViewCommandEventArgs e)
@@ -50,7 +57,8 @@ namespace RADwebApp.Forms.CustomerPages
             this.dvCustomerNew.Visible = false;
             this.btnNewCustomer.Visible = true;
             this.panelFilters.Visible = true;
-            flag = false;
+            flagNew = false;
+            flagEdit = false;
         }
     }
 }

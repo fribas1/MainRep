@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:DetailsView ID="dvEditCustomer" runat="server" AutoGenerateRows="False" DataKeyNames="id" DataSourceID="dsCustomer" OnItemDeleted="dvEditCustomer_ItemDeleted" OnItemUpdated="dvEditCustomer_ItemUpdated" >
+            <asp:DetailsView ID="dvEditCustomer" runat="server" AutoGenerateRows="False" DataKeyNames="id" DataSourceID="dsCustomer" OnItemDeleted="dvEditCustomer_ItemDeleted" OnItemUpdated="dvEditCustomer_ItemUpdated" OnItemCommand="dvEditCustomer_ItemCommand" >
                 <Fields>
                     <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
                     <asp:DynamicField DataField="custFirst" HeaderText="custFirst" />
