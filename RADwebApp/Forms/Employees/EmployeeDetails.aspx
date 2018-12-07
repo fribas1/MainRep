@@ -11,10 +11,10 @@
         <div>
             <asp:DetailsView ID="dvEditEmployee" runat="server" AutoGenerateRows="False" DataKeyNames="id" DataSourceID="dsEmployee" OnItemDeleted="dvEditEmployee_ItemDeleted" OnItemUpdated="dvEditEmployee_ItemUpdated" OnItemCommand="dvEditEmployee_ItemCommand" >
                 <Fields>
-                    <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
-                    <asp:DynamicField DataField="empFirst" HeaderText="empFirst" />
-                    <asp:DynamicField DataField="empLast" HeaderText="empLast" />
-                    <asp:TemplateField HeaderText="posID" SortExpression="posID">
+                    <asp:BoundField DataField="id" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="id" />
+                    <asp:DynamicField DataField="empFirst" HeaderText="First Name" />
+                    <asp:DynamicField DataField="empLast" HeaderText="Last Name" />
+                    <asp:TemplateField HeaderText="Position" SortExpression="posID">
                         <EditItemTemplate>
                             <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="dsPosition" DataTextField="posName" DataValueField="id" SelectedValue='<%# Bind("posID") %>'>
                             </asp:DropDownList>

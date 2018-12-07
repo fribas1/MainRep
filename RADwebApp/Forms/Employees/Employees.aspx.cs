@@ -32,7 +32,7 @@ namespace RADwebApp.Forms.Employees
                 this.btnNewEmployee.Visible = false;
                 this.panelFilters.Visible = false;
                 flagNew = true;
-            }
+            }            
         }
 
         protected void btnNewEmployee_Click(object sender, EventArgs e)
@@ -44,7 +44,7 @@ namespace RADwebApp.Forms.Employees
             flagNew = true;
         }
 
-        protected void gvEmployees_SelectedIndexChanged(object sender, EventArgs e)
+        protected void gvEmployees_SelectedIndexChanged(object sender, EventArgs e) //button Edit click
         {
             int index = gvEmployees.SelectedRow.RowIndex;
             string id = gvEmployees.DataKeys[index][0].ToString();
@@ -58,8 +58,37 @@ namespace RADwebApp.Forms.Employees
             this.dvEmployeeNew.Visible = false;
             this.btnNewEmployee.Visible = true;
             this.panelFilters.Visible = true;
+            this.Clear();
             flagNew = false;
-            flagEdit = false;
+            flagEdit = false;            
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            //used for filter
+        }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            this.Clear();
+        }
+
+        protected void gvEmployees_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Delete")
+                this.gvEmployees.DataSourceID = "dsEmployee";
+        }
+
+        protected void gvEmployees_RowDeleted(object sender, GridViewDeletedEventArgs e)
+        {
+            this.gvEmployees.DataSourceID = "dsSearchEmployee";
+        }
+
+        private void Clear()
+        {
+            this.txtFirst.Text = "";
+            this.txtLast.Text = "";
+            this.ddlPosition.SelectedIndex = 0;
         }
     }
 }
