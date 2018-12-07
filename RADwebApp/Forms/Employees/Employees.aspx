@@ -47,13 +47,21 @@
             <asp:ValidationSummary ID="ValidationSummary1" runat="server" HeaderText="Please fix the following:" />
             <br />
             <asp:Panel ID="panelFilters" runat="server">
-                <asp:Label ID="lblFilterPosition" runat="server" Text="Filter by Position:"></asp:Label>
-                <asp:DropDownList ID="ddlPosition" runat="server" AppendDataBoundItems="True" AutoPostBack="True" DataSourceID="dsPosition" DataTextField="posName" DataValueField="id">
+                <p>Filter by:</p>
+                <asp:Label ID="lblFirst" runat="server" Text="First Name:"></asp:Label>
+                <asp:TextBox ID="txtFirst" runat="server"></asp:TextBox>
+                <asp:Label ID="lblLast" runat="server" Text="Last Name:"></asp:Label>
+                <asp:TextBox ID="txtLast" runat="server"></asp:TextBox>
+                <asp:Label ID="lblPosition" runat="server" Text="Position:"></asp:Label>
+                <asp:DropDownList ID="ddlPosition" runat="server" AppendDataBoundItems="True" DataSourceID="dsPosition" DataTextField="posName" DataValueField="id">
                     <asp:ListItem Selected="True" Value="0">All</asp:ListItem>
                 </asp:DropDownList>
+                <br />
+                <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" />
+                <asp:Button ID="btnClear" runat="server" OnClick="btnClear_Click" Text="Clear" />
             </asp:Panel>               
             <br />
-            <asp:GridView ID="gvEmployees" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="dsSearchEmployee" OnSelectedIndexChanged="gvEmployees_SelectedIndexChanged" EnableViewState="False">
+            <asp:GridView ID="gvEmployees" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="dsSearchEmployee" OnSelectedIndexChanged="gvEmployees_SelectedIndexChanged" EnableViewState="False" OnRowCommand="gvEmployees_RowCommand" OnRowDeleted="gvEmployees_RowDeleted">
                 <Columns>
                     <asp:HyperLinkField DataNavigateUrlFields="id" DataNavigateUrlFormatString="EmployeeDetails.aspx?id={0}" Text="Details" />
                     <asp:TemplateField ShowHeader="False">
@@ -70,11 +78,16 @@
                     DataNavigateUrlFormatString="EmployeeServices.aspx?id={0}&first={1}&last={2}&role={3}"
                       Text="View Services" />
                 </Columns>
+                <EmptyDataTemplate>
+                    No employee has matched your searching criteria.
+                </EmptyDataTemplate>
             </asp:GridView>
         </div>
          <asp:ObjectDataSource ID="dsSearchEmployee" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.searchEmployeeTableAdapter">
              <SelectParameters>
-                 <asp:ControlParameter ControlID="ddlPosition" DefaultValue="0" Name="Param1" PropertyName="SelectedValue" Type="Int32" />
+                 <asp:ControlParameter ControlID="ddlPosition" DefaultValue="0" Name="posID" PropertyName="SelectedValue" Type="Int32" />
+                 <asp:ControlParameter ControlID="txtFirst" ConvertEmptyStringToNull="False" DefaultValue="" Name="empFirst" PropertyName="Text" Type="String" />
+                 <asp:ControlParameter ControlID="txtLast" ConvertEmptyStringToNull="False" Name="empLast" PropertyName="Text" Type="String" />
              </SelectParameters>
          </asp:ObjectDataSource>
          <asp:ObjectDataSource ID="dsEmployee" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.employeeTableAdapter" UpdateMethod="Update">
