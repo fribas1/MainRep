@@ -38,12 +38,21 @@
                 </Fields>
             </asp:DetailsView>
             <asp:ValidationSummary ID="ValidationSummary1" runat="server" HeaderText="Please fix the following:" />
-            <br />
             <asp:Panel ID="panelFilters" runat="server">
-                <asp:Label ID="lblFilterCity" runat="server" Text="Filter by City:"></asp:Label>
-                <asp:DropDownList ID="ddlCity" runat="server" AppendDataBoundItems="True" AutoPostBack="True" DataSourceID="dsCity" DataTextField="custCity" DataValueField="custCity" EnableViewState="False">
-                    <asp:ListItem Selected="True">All</asp:ListItem>
+                <p>Filter by:</p>
+                <asp:Label ID="lblFirst" runat="server" Text="First Name:"></asp:Label>
+                <asp:TextBox ID="txtFirst" runat="server"></asp:TextBox>
+                <asp:Label ID="lblLast" runat="server" Text="Last Name:"></asp:Label>
+                <asp:TextBox ID="txtLast" runat="server"></asp:TextBox>
+                <asp:Label ID="lblEmail" runat="server" Text="E-mail:"></asp:Label>
+                <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+                <asp:Label ID="lblCity" runat="server" Text="City:"></asp:Label>
+                <asp:DropDownList ID="ddlCity" runat="server" AppendDataBoundItems="True" DataSourceID="dsCity" DataTextField="custCity" DataValueField="custCity" EnableViewState="False">
+                    <asp:ListItem Selected="True" Value="All">All</asp:ListItem>
                 </asp:DropDownList>
+                <br />
+                <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" />
+                <asp:Button ID="btnClear" runat="server" Text="Clear" OnClick="btnClear_Click" />
             </asp:Panel>               
             <br />
             <asp:GridView ID="gvCustomers" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="dsSearchCustomer" OnSelectedIndexChanged="gvCustomers_SelectedIndexChanged" EnableViewState="False">
@@ -57,17 +66,19 @@
                             <% } %>                            
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:BoundField DataField="custName" HeaderText="Name" ReadOnly="True" SortExpression="custName"></asp:BoundField>
-                    <asp:BoundField DataField="custCity" HeaderText="City" ReadOnly="True" SortExpression="custCity"></asp:BoundField>
-                    <asp:BoundField DataField="custEmail" HeaderText="E-mail" SortExpression="custEmail"></asp:BoundField>
+                    <asp:BoundField DataField="custName" HeaderText="Name" ReadOnly="True" SortExpression="custName" />
+                    <asp:BoundField DataField="custEmail" HeaderText="E-mail" SortExpression="custEmail" />
+                    <asp:BoundField DataField="custCity" HeaderText="City" ReadOnly="True" SortExpression="custCity" />
                     <asp:HyperLinkField DataNavigateUrlFields="id, custFirst, custLast"
                     DataNavigateUrlFormatString="CustomerOrders.aspx?id={0}&first={1}&last={2}"
                       Text="View Orders" />
                 </Columns>
+                <EmptyDataTemplate>
+                    No customer has matched your searching criteria.
+                </EmptyDataTemplate>
             </asp:GridView>
-            <br />
         </div>
-        <asp:ObjectDataSource ID="dsSearchCustomer" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.searchCustomerTableAdapter">
+        <asp:ObjectDataSource ID="dsSearchCustomer" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.searchCustomerTableAdapter" UpdateMethod="Update">
             <DeleteParameters>
                 <asp:Parameter Name="Original_id" Type="Int32" />
             </DeleteParameters>
@@ -81,7 +92,10 @@
                 <asp:Parameter Name="custEmail" Type="String" />
             </InsertParameters>
             <SelectParameters>
-                <asp:ControlParameter ControlID="ddlCity" DefaultValue="All" Name="Param1" PropertyName="SelectedValue" Type="String" />
+                <asp:ControlParameter ControlID="ddlCity" DefaultValue="All" Name="custCity" PropertyName="SelectedValue" Type="String" />
+                <asp:ControlParameter ControlID="txtFirst" ConvertEmptyStringToNull="False" DefaultValue="" Name="custFirst" PropertyName="Text" Type="String" />
+                <asp:ControlParameter ControlID="txtLast" ConvertEmptyStringToNull="False" Name="custLast" PropertyName="Text" Type="String" />
+                <asp:ControlParameter ControlID="txtEmail" ConvertEmptyStringToNull="False" Name="custEmail" PropertyName="Text" Type="String" />
             </SelectParameters>
             <UpdateParameters>
                 <asp:Parameter Name="custFirst" Type="String" />

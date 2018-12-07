@@ -57,8 +57,27 @@ namespace RADwebApp.Forms.CustomerPages
             this.dvCustomerNew.Visible = false;
             this.btnNewCustomer.Visible = true;
             this.panelFilters.Visible = true;
+            this.Clear();
             flagNew = false;
             flagEdit = false;
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            //used for filter.
+        }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            this.Clear();
+        }
+
+        private void Clear()
+        {
+            this.txtFirst.Text = "";
+            this.txtLast.Text = "";
+            this.txtEmail.Text = "";
+            this.ddlCity.SelectedIndex = 0;
         }
     }
 }
