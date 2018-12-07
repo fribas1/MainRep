@@ -9,15 +9,16 @@
 <body>
     <form id="form1" runat="server">
         <h2><%=Request.QueryString["first"] + " " + Request.QueryString["last"] + "'s Orders" %></h2>
-        <div>
+        <div>           
             <asp:GridView ID="gvCustomerOrders" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="dsCustomerOrders">
                 <Columns>
-                    <asp:BoundField DataField="ordDate" DataFormatString="{0:d}" HeaderText="Date" SortExpression="ordDate" />
                     <asp:BoundField DataField="ordNumber" HeaderText="Order #" SortExpression="ordNumber" />
+                    <asp:BoundField DataField="ordDate" DataFormatString="{0:d}" HeaderText="Date" SortExpression="ordDate" />
                     <asp:BoundField DataField="prodName" HeaderText="Product" SortExpression="prodName" />
-                    <asp:BoundField DataField="orlPrice" DataFormatString="{0:C}" HeaderText="Total" SortExpression="orlPrice" />
-                    <asp:BoundField DataField="payType" HeaderText="Payment Type" SortExpression="payType" />
-                    <asp:BoundField DataField="empName" HeaderText="Employee" ReadOnly="True" SortExpression="empName" />
+                    <asp:BoundField DataField="prodBrand" HeaderText="Brand" SortExpression="prodBrand" />
+                    <asp:BoundField DataField="orlQuantity" HeaderText="Quantity" SortExpression="orlQuantity" />
+                    <asp:BoundField DataField="orlPrice" DataFormatString="{0:C}" HeaderText="Price" SortExpression="orlPrice" />
+                    <asp:BoundField DataField="empFull" HeaderText="Employee" ReadOnly="True" SortExpression="empFull" />
                 </Columns>
                 <EmptyDataTemplate>
                     This customer does not have any orders yet.
@@ -25,12 +26,12 @@
             </asp:GridView>
             <br />
             <asp:Button ID="btnBack" runat="server" OnClick="btnBack_Click" Text="Back" />
+            <asp:ObjectDataSource ID="dsCustomerOrders" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.customerOrdersTableAdapter">
+                <SelectParameters>
+                    <asp:QueryStringParameter DefaultValue="0" Name="Param1" QueryStringField="id" Type="Int32" />
+                </SelectParameters>
+            </asp:ObjectDataSource>
         </div>
-        <asp:ObjectDataSource ID="dsCustomerOrders" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.customerOrdersTableAdapter">
-            <SelectParameters>
-                <asp:QueryStringParameter DefaultValue="0" Name="Param1" QueryStringField="id" Type="Int32" />
-            </SelectParameters>
-        </asp:ObjectDataSource>
     </form>
 </body>
 </html>

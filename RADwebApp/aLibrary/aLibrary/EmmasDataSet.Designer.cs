@@ -1966,15 +1966,17 @@ namespace aLibrary {
             
             private global::System.Data.DataColumn columnordDate;
             
-            private global::System.Data.DataColumn columnpayType;
-            
-            private global::System.Data.DataColumn columnempName;
-            
             private global::System.Data.DataColumn columnorlPrice;
             
             private global::System.Data.DataColumn columnprodName;
             
             private global::System.Data.DataColumn columncustID;
+            
+            private global::System.Data.DataColumn columnorlQuantity;
+            
+            private global::System.Data.DataColumn columnprodBrand;
+            
+            private global::System.Data.DataColumn columnempFull;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -2043,22 +2045,6 @@ namespace aLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn payTypeColumn {
-                get {
-                    return this.columnpayType;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn empNameColumn {
-                get {
-                    return this.columnempName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn orlPriceColumn {
                 get {
                     return this.columnorlPrice;
@@ -2078,6 +2064,30 @@ namespace aLibrary {
             public global::System.Data.DataColumn custIDColumn {
                 get {
                     return this.columncustID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn orlQuantityColumn {
+                get {
+                    return this.columnorlQuantity;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn prodBrandColumn {
+                get {
+                    return this.columnprodBrand;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn empFullColumn {
+                get {
+                    return this.columnempFull;
                 }
             }
             
@@ -2118,18 +2128,19 @@ namespace aLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public customerOrdersRow AddcustomerOrdersRow(string custFirst, string custLast, string ordNumber, System.DateTime ordDate, string payType, string empName, decimal orlPrice, string prodName, int custID) {
+            public customerOrdersRow AddcustomerOrdersRow(string custFirst, string custLast, string ordNumber, System.DateTime ordDate, decimal orlPrice, string prodName, int custID, int orlQuantity, string prodBrand, string empFull) {
                 customerOrdersRow rowcustomerOrdersRow = ((customerOrdersRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         custFirst,
                         custLast,
                         ordNumber,
                         ordDate,
-                        payType,
-                        empName,
                         orlPrice,
                         prodName,
-                        custID};
+                        custID,
+                        orlQuantity,
+                        prodBrand,
+                        empFull};
                 rowcustomerOrdersRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowcustomerOrdersRow);
                 return rowcustomerOrdersRow;
@@ -2156,11 +2167,12 @@ namespace aLibrary {
                 this.columncustLast = base.Columns["custLast"];
                 this.columnordNumber = base.Columns["ordNumber"];
                 this.columnordDate = base.Columns["ordDate"];
-                this.columnpayType = base.Columns["payType"];
-                this.columnempName = base.Columns["empName"];
                 this.columnorlPrice = base.Columns["orlPrice"];
                 this.columnprodName = base.Columns["prodName"];
                 this.columncustID = base.Columns["custID"];
+                this.columnorlQuantity = base.Columns["orlQuantity"];
+                this.columnprodBrand = base.Columns["prodBrand"];
+                this.columnempFull = base.Columns["empFull"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2174,24 +2186,26 @@ namespace aLibrary {
                 base.Columns.Add(this.columnordNumber);
                 this.columnordDate = new global::System.Data.DataColumn("ordDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnordDate);
-                this.columnpayType = new global::System.Data.DataColumn("payType", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnpayType);
-                this.columnempName = new global::System.Data.DataColumn("empName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnempName);
                 this.columnorlPrice = new global::System.Data.DataColumn("orlPrice", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnorlPrice);
                 this.columnprodName = new global::System.Data.DataColumn("prodName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnprodName);
                 this.columncustID = new global::System.Data.DataColumn("custID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncustID);
+                this.columnorlQuantity = new global::System.Data.DataColumn("orlQuantity", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnorlQuantity);
+                this.columnprodBrand = new global::System.Data.DataColumn("prodBrand", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprodBrand);
+                this.columnempFull = new global::System.Data.DataColumn("empFull", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnempFull);
                 this.columncustFirst.MaxLength = 30;
                 this.columncustLast.MaxLength = 50;
                 this.columnordNumber.MaxLength = 20;
-                this.columnpayType.MaxLength = 20;
-                this.columnempName.ReadOnly = true;
-                this.columnempName.MaxLength = 81;
                 this.columnprodName.MaxLength = 50;
                 this.columncustID.AllowDBNull = false;
+                this.columnprodBrand.MaxLength = 50;
+                this.columnempFull.ReadOnly = true;
+                this.columnempFull.MaxLength = 81;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4774,38 +4788,6 @@ namespace aLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string payType {
-                get {
-                    try {
-                        return ((string)(this[this.tablecustomerOrders.payTypeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'payType\' in table \'customerOrders\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablecustomerOrders.payTypeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string empName {
-                get {
-                    try {
-                        return ((string)(this[this.tablecustomerOrders.empNameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'empName\' in table \'customerOrders\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablecustomerOrders.empNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public decimal orlPrice {
                 get {
                     try {
@@ -4844,6 +4826,54 @@ namespace aLibrary {
                 }
                 set {
                     this[this.tablecustomerOrders.custIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int orlQuantity {
+                get {
+                    try {
+                        return ((int)(this[this.tablecustomerOrders.orlQuantityColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'orlQuantity\' in table \'customerOrders\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablecustomerOrders.orlQuantityColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string prodBrand {
+                get {
+                    try {
+                        return ((string)(this[this.tablecustomerOrders.prodBrandColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'prodBrand\' in table \'customerOrders\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablecustomerOrders.prodBrandColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string empFull {
+                get {
+                    try {
+                        return ((string)(this[this.tablecustomerOrders.empFullColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'empFull\' in table \'customerOrders\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablecustomerOrders.empFullColumn] = value;
                 }
             }
             
@@ -4897,30 +4927,6 @@ namespace aLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IspayTypeNull() {
-                return this.IsNull(this.tablecustomerOrders.payTypeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetpayTypeNull() {
-                this[this.tablecustomerOrders.payTypeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsempNameNull() {
-                return this.IsNull(this.tablecustomerOrders.empNameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetempNameNull() {
-                this[this.tablecustomerOrders.empNameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsorlPriceNull() {
                 return this.IsNull(this.tablecustomerOrders.orlPriceColumn);
             }
@@ -4941,6 +4947,42 @@ namespace aLibrary {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetprodNameNull() {
                 this[this.tablecustomerOrders.prodNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsorlQuantityNull() {
+                return this.IsNull(this.tablecustomerOrders.orlQuantityColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetorlQuantityNull() {
+                this[this.tablecustomerOrders.orlQuantityColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsprodBrandNull() {
+                return this.IsNull(this.tablecustomerOrders.prodBrandColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetprodBrandNull() {
+                this[this.tablecustomerOrders.prodBrandColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsempFullNull() {
+                return this.IsNull(this.tablecustomerOrders.empFullColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetempFullNull() {
+                this[this.tablecustomerOrders.empFullColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -6398,24 +6440,47 @@ SELECT id, custFirst + ' ' + custLast AS custName, custFirst, custLast, custPhon
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id, custFirst + \' \' + custLast AS custName, custFirst, custLast, custPhone" +
-                ", custAddress, custCity, custPostal, custEmail FROM customer WHERE (custCity = @" +
-                "Param1) OR (@Param1 = \'All\') ORDER BY custFirst, custLast";
+            this._commandCollection[0].CommandText = @"SELECT        id, custFirst + ' ' + custLast AS custName, custFirst, custLast, custPhone, custAddress, custCity, custPostal, custEmail
+FROM            customer
+WHERE        (custCity = @custCity OR
+                         @custCity = 'All') AND (custFirst LIKE '%' + @custFirst + '%') AND (custLast LIKE '%' + @custLast + '%') AND (custEmail LIKE '%' + @custEmail + '%')
+ORDER BY custFirst, custLast";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Param1", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "custCity", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@custCity", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "custCity", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@custFirst", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "custFirst", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@custLast", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "custLast", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@custEmail", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "custEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(EmmasDataSet.searchCustomerDataTable dataTable, string Param1) {
+        public virtual int Fill(EmmasDataSet.searchCustomerDataTable dataTable, string custCity, string custFirst, string custLast, string custEmail) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Param1 == null)) {
+            if ((custCity == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Param1));
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(custCity));
+            }
+            if ((custFirst == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(custFirst));
+            }
+            if ((custLast == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(custLast));
+            }
+            if ((custEmail == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(custEmail));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -6428,13 +6493,31 @@ SELECT id, custFirst + ' ' + custLast AS custName, custFirst, custLast, custPhon
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual EmmasDataSet.searchCustomerDataTable GetData(string Param1) {
+        public virtual EmmasDataSet.searchCustomerDataTable GetData(string custCity, string custFirst, string custLast, string custEmail) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Param1 == null)) {
+            if ((custCity == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Param1));
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(custCity));
+            }
+            if ((custFirst == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(custFirst));
+            }
+            if ((custLast == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(custLast));
+            }
+            if ((custEmail == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(custEmail));
             }
             EmmasDataSet.searchCustomerDataTable dataTable = new EmmasDataSet.searchCustomerDataTable();
             this.Adapter.Fill(dataTable);
@@ -7304,11 +7387,12 @@ SELECT id, custFirst, custLast, custPhone, custAddress, custCity, custPostal, cu
             tableMapping.ColumnMappings.Add("custLast", "custLast");
             tableMapping.ColumnMappings.Add("ordNumber", "ordNumber");
             tableMapping.ColumnMappings.Add("ordDate", "ordDate");
-            tableMapping.ColumnMappings.Add("payType", "payType");
-            tableMapping.ColumnMappings.Add("empName", "empName");
             tableMapping.ColumnMappings.Add("orlPrice", "orlPrice");
             tableMapping.ColumnMappings.Add("prodName", "prodName");
             tableMapping.ColumnMappings.Add("custID", "custID");
+            tableMapping.ColumnMappings.Add("orlQuantity", "orlQuantity");
+            tableMapping.ColumnMappings.Add("prodBrand", "prodBrand");
+            tableMapping.ColumnMappings.Add("empFull", "empFull");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -7325,10 +7409,10 @@ SELECT id, custFirst, custLast, custPhone, custAddress, custCity, custPostal, cu
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        customer.custFirst, customer.custLast, receipt.ordNumber, receipt.ordDate, payment.payType, employee.empFirst + ' ' + employee.empLast AS empName, order_line.orlPrice, product.prodName, receipt.custID
+            this._commandCollection[0].CommandText = @"SELECT        customer.custFirst, customer.custLast, receipt.ordNumber, receipt.ordDate, employee.empFirst + ' ' + employee.empLast AS empFull, order_line.orlPrice, product.prodName, receipt.custID, order_line.orlQuantity, 
+                         product.prodBrand
 FROM            employee INNER JOIN
                          receipt ON employee.id = receipt.empID INNER JOIN
-                         payment ON receipt.paymentID = payment.id INNER JOIN
                          order_line ON receipt.id = order_line.receiptID INNER JOIN
                          inventory ON order_line.inventoryID = inventory.id INNER JOIN
                          product ON inventory.productID = product.id INNER JOIN
