@@ -93,6 +93,8 @@
     <Content Include="Forms\RepairPages\AllRepairs.aspx" />
     <Content Include="Forms\RepairPages\OrderTools.aspx" />
     <Content Include="Forms\RepairPages\Warranty.aspx" />
+    <Content Include="Forms\Sales\SalesNew.aspx" />
+    <Content Include="Forms\Sales\SalesReport.aspx" />
     <Content Include="Forms\Sales\searchSales.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Images\btnEmployee.png" />
@@ -172,6 +174,20 @@
     </Compile>
     <Compile Include="Forms\Employees\EmployeeServices.aspx.designer.cs">
       <DependentUpon>EmployeeServices.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Sales\SalesNew.aspx.cs">
+      <DependentUpon>SalesNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Sales\SalesNew.aspx.designer.cs">
+      <DependentUpon>SalesNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Sales\SalesReport.aspx.cs">
+      <DependentUpon>SalesReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Sales\SalesReport.aspx.designer.cs">
+      <DependentUpon>SalesReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Sales\searchSales.aspx.cs">
       <DependentUpon>searchSales.aspx</DependentUpon>

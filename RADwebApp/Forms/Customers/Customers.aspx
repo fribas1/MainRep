@@ -71,6 +71,9 @@
                     <asp:BoundField DataField="custCity" HeaderText="City" ReadOnly="True" SortExpression="custCity" />
                     <asp:HyperLinkField DataNavigateUrlFields="id, custFirst, custLast"
                     DataNavigateUrlFormatString="CustomerOrders.aspx?id={0}&first={1}&last={2}"
+                      Text="New Order" />
+                    <asp:HyperLinkField DataNavigateUrlFields="id, custFirst, custLast"
+                    DataNavigateUrlFormatString="CustomerOrders.aspx?id={0}&first={1}&last={2}"
                       Text="View Orders" />
                 </Columns>
                 <EmptyDataTemplate>
