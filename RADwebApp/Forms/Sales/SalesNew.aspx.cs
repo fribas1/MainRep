@@ -21,10 +21,10 @@ namespace RADwebApp.Forms.Sales
         {
             date = DateTime.Now;
             this.txtDate.Text = date.ToShortDateString();
-            this.txtCustFirst.Text = "Fabio";            
-            this.txtCustLast.Text = "Ribas";
-            this.txtEmpFirst.Text = "Beatriz";
-            this.txtEmpLast.Text = "Krich";            
+            this.txtCustFirst.Text = "Bob";            
+            this.txtCustLast.Text = "Underhill";
+            this.txtEmpFirst.Text = "Wendy";
+            this.txtEmpLast.Text = "Tutti";            
             DataView customer = (DataView)dsSalesCustomer.Select();
             custID = Convert.ToInt32(customer[0][0]); // Get custID
             this.txtCustID.Text = customer[0][0].ToString();
