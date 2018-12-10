@@ -19,7 +19,7 @@ namespace RADwebApp.Forms.CustomerPages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.ddlCity.SelectedValue = "Welland";
+            //this.ddlCity.SelectedValue = "Welland";
             if ((Request.QueryString["mode"] == "edit") || (Request.QueryString["mode"] == "delete"))
             {
                 this.btnNewCustomer.Visible = false;
