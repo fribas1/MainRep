@@ -23,6 +23,7 @@ namespace RADwebApp.Forms.Employees
             if ((Request.QueryString["mode"] == "edit") || (Request.QueryString["mode"] == "delete"))
             {
                 this.btnNewEmployee.Visible = false;
+                this.gvEmployees.Visible = false;
                 flagEdit = true;
             }                
             else if (Request.QueryString["mode"] == "addNew")
@@ -65,7 +66,7 @@ namespace RADwebApp.Forms.Employees
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            //used for filter
+            this.gvEmployees.Visible = true;
         }
 
         protected void btnClear_Click(object sender, EventArgs e)

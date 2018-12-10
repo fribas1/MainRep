@@ -19,9 +19,11 @@ namespace RADwebApp.Forms.CustomerPages
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.ddlCity.SelectedValue = "Welland";
             if ((Request.QueryString["mode"] == "edit") || (Request.QueryString["mode"] == "delete"))
             {
                 this.btnNewCustomer.Visible = false;
+                this.gvCustomers.Visible = false;
                 flagEdit = true;
             }                                                           
             else if (Request.QueryString["mode"] == "addNew")
@@ -64,7 +66,7 @@ namespace RADwebApp.Forms.CustomerPages
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            //used for filter.
+            this.gvCustomers.Visible = true;
         }
 
         protected void btnClear_Click(object sender, EventArgs e)
