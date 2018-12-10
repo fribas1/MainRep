@@ -151,7 +151,7 @@
                             <a class="dropdown-item" href="#">Delete Employee</a>
                         </div>
                     </li>
-                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Inventory</a>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Orders</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#">Inventory</a>
                             <div class="dropdown-divider"></div>
@@ -189,11 +189,29 @@
                 </div>
                 <div class="col-lg-4 text-center">
                     <div class="container">
-                        <a href="" class="btn btn-outline-info mb-3">SERVICES
+                        <a href="#collapse1" class="btn btn-outline-info mb-3" data-toggle="collapse" aria-expanded="false" aria-controls="collapse1">SERVICES
                         </a>
                         <br />
-                        <a href="">
+                        <a href="#collapse1" data-toggle="collapse" aria-expanded="false" aria-controls="collapse1">
                             <asp:Image src="Images/services-icon.png" Alt="Services-icon" ID="imgServices" runat="server" CssClass="" /></a>
+                    </div>
+                    <div class="collapse" id="collapse1">
+                        <div class="row mt-2">
+                            <div class="col">
+                                <h4 class="">Repairs</h4>
+                                <div class="btn-group">
+                                    <asp:Button CssClass="btn" Text="Search" runat="server" />
+                                    <asp:Button CssClass="btn" Text="New" runat="server" />
+                                </div>
+                            </div>
+                            <div class="col">
+                                <h4 class="">Sales</h4>
+                                <div class="btn-group">
+                                    <asp:Button CssClass="btn" Text="Search" runat="server" />
+                                    <asp:Button CssClass="btn" Text="New" runat="server" />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-4 text-center">
@@ -202,7 +220,7 @@
                         </a>
                         <br />
                         <a href="Forms/Employees/Employees.aspx">
-                        <asp:Image src="Images/employees-icon.png" Alt="Employees-icon" ID="imgEmployees" runat="server" CssClass="mb-2" /></a>
+                            <asp:Image src="Images/employees-icon.png" Alt="Employees-icon" ID="imgEmployees" runat="server" CssClass="mb-2" /></a>
                     </div>
                 </div>
             </div>
@@ -214,16 +232,23 @@
                         </a>
                         <br />
                         <a href="">
-                        <asp:Image src="Images/inventory-icon.png" Alt="Inventory-icon" ID="imgInventory" runat="server" CssClass="mb-1" /></a>
+                            <asp:Image src="Images/inventory-icon.png" Alt="Inventory-icon" ID="imgInventory" runat="server" CssClass="mb-1" /></a>
                     </div>
                 </div>
                 <div class="col-lg-4 text-center">
                     <div class="container ">
-                        <a href="" class="btn btn-outline-info mb-3">DOCUMENTS
+                        <a href="#collapse2" class="btn btn-outline-info mb-3" data-toggle="collapse" aria-expanded="false" aria-controls="collapse2">DOCUMENTS
                         </a>
                         <br />
-                        <a href="Forms/Sales/SalesReport.aspx">
-                        <asp:Image src="Images/reports-icon.png" Alt="Reports-icon" ID="imgReports" runat="server" CssClass="mb-1" /></a>
+                        <a href="#collapse2" data-toggle="collapse" aria-expanded="false" aria-controls="collapse2">
+                            <asp:Image src="Images/reports-icon.png" Alt="Reports-icon" ID="imgReports" runat="server" CssClass="mb-1" /></a>
+                    </div>
+                    <div class="collapse" id="collapse2">
+                        <div class="btn-group mt-2">
+                        <asp:Button CssClass="btn" Text="Reports" runat="server" />
+                        <asp:Button CssClass="btn" Text="Warranty Records" runat="server" />
+                        <asp:Button CssClass="btn" Text="Policies" runat="server" />
+                            </div>
                     </div>
                 </div>
                 <div class="col-lg-2"></div>
