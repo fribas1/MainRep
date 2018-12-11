@@ -121,9 +121,8 @@
     <Content Include="Forms\RepairPages\AllRepairs.aspx" />
     <Content Include="Forms\RepairPages\OrderTools.aspx" />
     <Content Include="Forms\RepairPages\Warranty.aspx" />
-    <Content Include="Forms\Sales\orderRequest.aspx" />
     <Content Include="Forms\Sales\SalesNew.aspx" />
-    <Content Include="Forms\Sales\SalesReport.aspx" />
+    <Content Include="Forms\Reports\SalesRepairReport.aspx" />
     <Content Include="Forms\Sales\searchSales.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Images\btnEmployee.png" />
@@ -212,13 +211,6 @@
     <Compile Include="Forms\Inventory\Inventory.aspx.designer.cs">
       <DependentUpon>Inventory.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Sales\orderRequest.aspx.cs">
-      <DependentUpon>orderRequest.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Forms\Sales\orderRequest.aspx.designer.cs">
-      <DependentUpon>orderRequest.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Sales\SalesNew.aspx.cs">
       <DependentUpon>SalesNew.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -226,12 +218,12 @@
     <Compile Include="Forms\Sales\SalesNew.aspx.designer.cs">
       <DependentUpon>SalesNew.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Sales\SalesReport.aspx.cs">
-      <DependentUpon>SalesReport.aspx</DependentUpon>
+    <Compile Include="Forms\Reports\SalesRepairReport.aspx.cs">
+      <DependentUpon>SalesRepairReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Forms\Sales\SalesReport.aspx.designer.cs">
-      <DependentUpon>SalesReport.aspx</DependentUpon>
+    <Compile Include="Forms\Reports\SalesRepairReport.aspx.designer.cs">
+      <DependentUpon>SalesRepairReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Sales\searchSales.aspx.cs">
       <DependentUpon>searchSales.aspx</DependentUpon>
