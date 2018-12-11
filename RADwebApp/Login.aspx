@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LOG.aspx.cs" Inherits="RADwebApp.LOG" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="RADwebApp.LOG" %>
 
 <!DOCTYPE html>
 

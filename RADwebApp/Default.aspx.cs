@@ -16,7 +16,7 @@ namespace MovieWeb
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/LOG.aspx");
+            Response.Redirect("~/Login.aspx");
         }
     }
 }
