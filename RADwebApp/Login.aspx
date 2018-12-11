@@ -18,15 +18,10 @@
             max-width: 100%;
             height: 100%;
             background-size: cover;
+            background-image: url("images/car-background.png");
+            
         }
-
-        .time {
-            padding-left: 20px;
-        }     
-
-        p {
-            padding-bottom: 50px;
-        }
+       
 
         .center {
            
@@ -34,7 +29,14 @@
             width: 30%;
             padding: 70px 0;
             text-align: center;
+            position: center;
         }
+        .txtbox {
+                -webkit-border-radius: 5px;
+                -moz-border-radius: 5px;
+                border-radius: 5px;
+                width: 150px;
+            }
     </style>
 </head>
 <body>
@@ -45,11 +47,11 @@
             <form class="text-center" id="form1" runat="server">
                 
             <asp:Image src="Images/emmas-logo.png" Alt="emmas-logo" ID="logo" runat="server" /><br /><br />
-            <asp:TextBox ID="txtUser" placeholder="Username" runat="server" CssClass="form-control input-lg" Width="250px" TabIndex="1" OnTextChanged="txtUser_TextChanged" style="text-align: center"></asp:TextBox><br /><br />
-            <asp:TextBox ID="txtPass" placeholder="Password" runat="server" TextMode="Password" CssClass="form-control input-lg" Width="250px" TabIndex="1" OnTextChanged="txtPass_TextChanged" style="text-align: center"></asp:TextBox><br /><br />
-            <asp:Button CssClass="btn btn-secondary mt-5" ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" Height="50px" Width="120px" /> 
+            <asp:TextBox ID="txtUser" placeholder="Username" runat="server" TabIndex="1" CssClass="txtbox" OnTextChanged="txtUser_TextChanged" style="text-align: center" ></asp:TextBox><br /><br />
+            <asp:TextBox ID="txtPass" placeholder="Password" runat="server" TextMode="Password" TabIndex="1" CssClass="txtbox" OnTextChanged="txtPass_TextChanged" style="text-align: center"></asp:TextBox><br /><br />
+            <asp:Button CssClass="btn btn-secondary mt-5" ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" style="text-align: center" Height="50px" Width="120px" /> 
             <br />
-            <asp:Label ID="lblMessage" runat="server" Visible="True"></asp:Label>
+            <asp:Label ID="lblMessage" runat="server" CssClass="alert-danger"></asp:Label>
     </form>
             </div>
 </body>
