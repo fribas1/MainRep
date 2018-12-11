@@ -77,6 +77,7 @@
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="dsSearchSales" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
+                <asp:CommandField ShowEditButton="True" />
                 <asp:BoundField DataField="ordNumber" HeaderText="Order #" SortExpression="ordNumber" />
                 <asp:BoundField DataField="ordDate" DataFormatString="{0:d}" HeaderText="Date" SortExpression="ordDate" />
                 <asp:CheckBoxField DataField="ordPaid" HeaderText="Paid?" SortExpression="ordPaid" />
