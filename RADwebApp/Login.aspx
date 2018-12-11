@@ -48,7 +48,8 @@
             <asp:TextBox ID="txtUser" placeholder="Username" runat="server" CssClass="form-control input-lg" Width="250px" TabIndex="1" OnTextChanged="txtUser_TextChanged" style="text-align: center"></asp:TextBox><br /><br />
             <asp:TextBox ID="txtPass" placeholder="Password" runat="server" TextMode="Password" CssClass="form-control input-lg" Width="250px" TabIndex="1" OnTextChanged="txtPass_TextChanged" style="text-align: center"></asp:TextBox><br /><br />
             <asp:Button CssClass="btn btn-secondary mt-5" ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" Height="50px" Width="120px" /> 
-
+            <br />
+            <asp:Label ID="lblMessage" runat="server" Visible="True"></asp:Label>
     </form>
             </div>
 </body>
