@@ -38,7 +38,6 @@
                         <asp:BoundField DataField="empLast" HeaderText="empLast" SortExpression="empLast" />
                         <asp:BoundField DataField="serName" HeaderText="serName" SortExpression="serName" />
                         <asp:BoundField DataField="serPrice" HeaderText="serPrice" SortExpression="serPrice" />
-                        <asp:BoundField DataField="custID" HeaderText="custID" SortExpression="custID" />
                         <asp:BoundField DataField="eqtType" HeaderText="eqtType" SortExpression="eqtType" />
                     </Columns>
                 </asp:GridView>
