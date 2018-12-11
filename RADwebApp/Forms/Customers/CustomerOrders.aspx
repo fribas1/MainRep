@@ -11,7 +11,7 @@
         <h2><%=Request.QueryString["first"] + " " + Request.QueryString["last"] + "'s Orders" %></h2>
         <div>      
             <asp:Panel ID="panelSales" runat="server">
-                <h2>Sales</h2>
+                <h3>Sales</h3>
                 <asp:GridView ID="gvCustomerOrders" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="dsCustomerOrders">
                     <Columns>
                         <asp:BoundField DataField="ordNumber" HeaderText="Order #" SortExpression="ordNumber" />
@@ -24,11 +24,12 @@
                         <asp:BoundField DataField="empFull" HeaderText="Employee" ReadOnly="True" SortExpression="empFull" />
                     </Columns>
                     <EmptyDataTemplate>
-                        This customer does not have any orders yet.
+                        This customer does not have any sales orders yet.
                     </EmptyDataTemplate>
                 </asp:GridView>
             </asp:Panel>
             <asp:Panel ID="panelRepairs" runat="server">
+                <h3>Repairs</h3>
                 <asp:GridView ID="gvCustomerRepairs" runat="server" AutoGenerateColumns="False" DataSourceID="dsCustomerRepairs">
                     <Columns>
                         <asp:BoundField DataField="ordNumber" HeaderText="ordNumber" SortExpression="ordNumber" />
@@ -40,6 +41,9 @@
                         <asp:BoundField DataField="serPrice" HeaderText="serPrice" SortExpression="serPrice" />
                         <asp:BoundField DataField="eqtType" HeaderText="eqtType" SortExpression="eqtType" />
                     </Columns>
+                    <EmptyDataTemplate>
+                        This customer does not have any repairs orders yet.
+                    </EmptyDataTemplate>
                 </asp:GridView>
             </asp:Panel>
             <br />
