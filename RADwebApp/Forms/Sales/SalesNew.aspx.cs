@@ -5,54 +5,107 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using aLibrary;
+using aLibrary.EmmasDataSetTableAdapters;
 
 namespace RADwebApp.Forms.Sales
 {
     public partial class SalesNew : System.Web.UI.Page
     {
+        private static EmmasDataSet dsAddSale;
+
         public int orderNum;
+        public int lastID;
         public DateTime date;
-        public bool paid;
         public int payTypeID;
         public int custID;
         public int empID;
+        public int prodID;
+        public decimal price;
+        public Boolean orderReq;
+
+        static SalesNew()
+        {
+            dsAddSale = new EmmasDataSet();
+            receiptTableAdapter daReceipt = new receiptTableAdapter();
+            orderLineTableAdapter daOrderLine = new orderLineTableAdapter();
+            try
+            {
+                daReceipt.Fill(dsAddSale.receipt);
+                daOrderLine.Fill(dsAddSale.orderLine);
+            }
+            catch { }
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            date = DateTime.Now;
-            this.txtDate.Text = date.ToShortDateString();
-            this.txtCustFirst.Text = "Bob";            
-            this.txtCustLast.Text = "Underhill";
-            this.txtEmpFirst.Text = "Wendy";
-            this.txtEmpLast.Text = "Tutti";            
-            DataView customer = (DataView)dsSalesCustomer.Select();
-            custID = Convert.ToInt32(customer[0][0]); // Get custID
-            this.txtCustID.Text = customer[0][0].ToString();
-            DataView employee = (DataView)dsSalesEmployee.Select();
-            empID = Convert.ToInt32(employee[0][0]); // Get empID
-            this.txtEmpID.Text = employee[0][0].ToString();
-            DataView receiptID = (DataView)dsReceiptID.Select();
-            orderNum = Convert.ToInt32(receiptID[0][0]); //Get new Order #
+            date = DateTime.Now; // Get Date Now.
+            DataView nextOrder = (DataView)dsNextOrder.Select();
+            orderNum = Convert.ToInt32(nextOrder[0][0]); //Get new Order #
+            DataView lastReceiptID = (DataView)dsLastReceiptID.Select();
+            lastID = Convert.ToInt32(lastReceiptID[0][0]); //Get last ID added from receipt
+
+            txtOrderNumber.Text = Convert.ToString(orderNum);
+            txtOrderDate.Text = date.ToString("MM/dd/yyyy");
+            txtQuantity.Text = Convert.ToString(1);
+            lbltest.Text = Convert.ToString(lastID);
         }
+
 
         protected void btnAddNew_Click(object sender, EventArgs e)
         {
-            if (this.rblPaid.SelectedValue == "0")
-                paid = false;
-            else
-                paid = true;
+            payTypeID = Convert.ToInt32(this.ddlPaymentType.SelectedValue);
+            custID = Convert.ToInt32(this.ddlCustomer.SelectedValue);
+            empID = Convert.ToInt32(this.ddlEmployee.SelectedValue);
+            prodID = Convert.ToInt32(this.ddlProduct.SelectedValue);
+            orderReq = Convert.ToBoolean(this.rblOrderReq.SelectedValue);
+            price = Convert.ToDecimal(20); // NOT WORKING !!!!!
 
-            payTypeID = Convert.ToInt32(this.ddlPayment.SelectedValue);
+            try
+            {
+                // Receipt Table
+                DataRow r = dsAddSale.receipt.NewRow();
+                r[1] = this.txtOrderNumber.Text;
+                r[2] = this.txtOrderDate.Text;
+                r[4] = payTypeID;
+                r[5] = custID;
+                r[6] = empID;
+                dsAddSale.receipt.Rows.Add(r);
+                Save();
 
-
-            //this.dsReceipt.InsertParameters.Add("ordNumber", TypeCode.Int32, orderNum.ToString());
-            //this.dsReceipt.InsertParameters.Add("ordDate", TypeCode.DateTime, date.ToString());
-            //this.dsReceipt.InsertParameters.Add("ordPaid", TypeCode.Boolean, paid.ToString());
-            //this.dsReceipt.InsertParameters.Add("paymentID", TypeCode.Int32, payTypeID.ToString());
-            //this.dsReceipt.InsertParameters.Add("custID", TypeCode.Int32, custID.ToString());
-            //this.dsReceipt.InsertParameters.Add("empID", TypeCode.Int32, empID.ToString());
-            this.dsReceipt.Insert();
+                // Order Line Table
+                DataRow o = dsAddSale.orderLine.NewRow();
+                o[1] = "20.00";
+                o[2] = this.txtQuantity.Text;
+                o[3] = orderReq;
+                o[4] = this.txtOrderNote.Text;
+                o[5] = prodID;
+                o[6] = lastID + 1;
+                dsAddSale.orderLine.Rows.Add(o);
+                Save();
+            }
+            catch
+            {
+                this.lblSave.Text = "Unable to update - Invalid Input";
+            }
         }
-   
+
+        private void Save()
+        {
+            receiptTableAdapter daReceipt = new receiptTableAdapter();
+            orderLineTableAdapter daOrderLine = new orderLineTableAdapter();
+            try
+            {
+                daReceipt.Update(dsAddSale.receipt);
+                daOrderLine.Update(dsAddSale.orderLine);
+                dsAddSale.AcceptChanges();
+                this.lblSave.Text = "Data Saved";
+            }
+            catch
+            {
+                dsAddSale.RejectChanges();
+                this.lblSave.Text = "Unable to update";
+            }
+        }
     }
 }

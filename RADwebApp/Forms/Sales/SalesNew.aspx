@@ -121,7 +121,9 @@
                     <td class="auto-style13">
                         <asp:TextBox ID="txtOrderNumber" runat="server" BackColor="Silver" ReadOnly="True" Width="55px"></asp:TextBox>
                     </td>
-                    <td class="auto-style32">&nbsp;</td>
+                    <td class="auto-style32">
+                        <asp:Label ID="lbltest" runat="server" Text="Label"></asp:Label>
+                    </td>
                     <td class="auto-style16">&nbsp;</td>
                     <td class="auto-style24">&nbsp;</td>
                     <td class="auto-style28">&nbsp;</td>
@@ -291,16 +293,16 @@
             <br />
             <asp:Label ID="lblSave" runat="server" Text="Label"></asp:Label>
             <br />
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="dsOrderLine">
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="dsReceipt">
                 <Columns>
                     <asp:CommandField ShowDeleteButton="True" />
-                    <asp:BoundField DataField="orlPrice" HeaderText="orlPrice" SortExpression="orlPrice" />
-                    <asp:BoundField DataField="orlQuantity" HeaderText="orlQuantity" SortExpression="orlQuantity" />
-                    <asp:CheckBoxField DataField="orlOrderReq" HeaderText="orlOrderReq" SortExpression="orlOrderReq" />
-                    <asp:BoundField DataField="orlNote" HeaderText="orlNote" SortExpression="orlNote" />
-                    <asp:BoundField DataField="inventoryID" HeaderText="inventoryID" SortExpression="inventoryID" />
-                    <asp:BoundField DataField="receiptID" HeaderText="receiptID" SortExpression="receiptID" />
-                    <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
+                    <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" InsertVisible="False" ReadOnly="True" />
+                    <asp:BoundField DataField="ordNumber" HeaderText="ordNumber" SortExpression="ordNumber" />
+                    <asp:BoundField DataField="ordDate" HeaderText="ordDate" SortExpression="ordDate" />
+                    <asp:CheckBoxField DataField="ordPaid" HeaderText="ordPaid" SortExpression="ordPaid" />
+                    <asp:BoundField DataField="paymentID" HeaderText="paymentID" SortExpression="paymentID" />
+                    <asp:BoundField DataField="custID" HeaderText="custID" SortExpression="custID" />
+                    <asp:BoundField DataField="empID" HeaderText="empID" SortExpression="empID" />
                 </Columns>
             </asp:GridView>
             <br />
@@ -333,7 +335,7 @@
         </asp:ObjectDataSource>
         <asp:ObjectDataSource ID="dsSalesEmployee" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.salesEmployeeTableAdapter">
         </asp:ObjectDataSource>
-        <asp:ObjectDataSource ID="dsReceiptID" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.receiptNextIDTableAdapter"></asp:ObjectDataSource>
+        <asp:ObjectDataSource ID="dsNextOrder" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.receiptNextOrderTableAdapter"></asp:ObjectDataSource>
         <asp:ObjectDataSource ID="dsDDLSalesProducts" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.ddlSalesProductsTableAdapter"></asp:ObjectDataSource>
         <asp:ObjectDataSource ID="dsDVSalesProducts" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.detailsSalesProductTableAdapter">
             <SelectParameters>
@@ -362,6 +364,7 @@
                 <asp:Parameter Name="Original_id" Type="Int32" />
             </UpdateParameters>
         </asp:ObjectDataSource>
+        <asp:ObjectDataSource ID="dsLastReceiptID" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.receiptLastIDTableAdapter"></asp:ObjectDataSource>
     </form>
 </body>
 </html>
