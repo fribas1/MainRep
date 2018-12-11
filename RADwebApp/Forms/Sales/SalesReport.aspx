@@ -40,7 +40,8 @@
             </asp:Panel>
             <br />
             <br />
-            <asp:GridView ID="gvSalesReport" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="dsSalesReport">
+            <asp:GridView ID="gvSalesReport" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="dsSalesReport" CellPadding="4" ForeColor="#333333" GridLines="None">
+                <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:BoundField DataField="ordNumber" HeaderText="Order #" SortExpression="ordNumber" />
                     <asp:BoundField DataField="ordDate" HeaderText="Date" SortExpression="ordDate" DataFormatString="{0:d}" />
@@ -49,14 +50,24 @@
                     <asp:BoundField DataField="empFull" HeaderText="Employee" ReadOnly="True" SortExpression="empFull" />
                     <asp:BoundField DataField="custFull" HeaderText="Customer" ReadOnly="True" SortExpression="custFull" />
                 </Columns>
+                <EditRowStyle BackColor="#2461BF" />
                 <EmptyDataTemplate>
                     No order has matched your criteria.
                 </EmptyDataTemplate>
+                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#EFF3FB" />
+                <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                <SortedDescendingHeaderStyle BackColor="#4870BE" />
             </asp:GridView>
             <br />
             <asp:Panel ID="panelTotal" runat="server">
                 <asp:Label ID="Label1" runat="server" Text="Total of orders in the period:"></asp:Label>
-                <asp:TextBox ID="txtTotalNum" runat="server" ReadOnly="True"></asp:TextBox>
+                <asp:TextBox ID="txtTotalNum" runat="server" ReadOnly="True" OnTextChanged="txtTotalNum_TextChanged"></asp:TextBox>
                 <br />
                 <asp:Label ID="Label2" runat="server" Text="Total Amount in the period:"></asp:Label>
                 <asp:TextBox ID="txtTotalAmount" runat="server" ReadOnly="True"></asp:TextBox>
