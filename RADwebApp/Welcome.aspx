@@ -125,11 +125,34 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#customers">Customers</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#employees">Employees</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#inventory">Inventory</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#reports">Reports</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Forms/Customers/Customers.aspx">Customers</a>
+                    </li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Services</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="Forms/RepairPages/AllRepairs.aspx">Repairs</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="Forms/Sales/searchSales.aspx">Search for a Sale</a>
+                            <a class="dropdown-item" href="Forms/Sales/SalesNew.aspx">New Sale</a>
+
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="Forms/Employees/Employees.aspx">Employees</a>
+                    </li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Orders</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Inventory</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="Forms/RepairPages/OrderTools.aspx">Order Tools</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Documents</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Reports</a>
+                            <a class="dropdown-item" href="Forms/RepairPages/Warranty.aspx">Warranty Records</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Policies</a>
+                        </div>
+                    </li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
@@ -144,52 +167,46 @@
             <div class="row form-group container mt-5">
                 <div class="col-lg-4  text-center">
                     <div class="container ">
-                        <a href="Forms/Customers/Customers.aspx" class="h3">CUSTOMERS<br />
+                        <a href="Forms/Customers/Customers.aspx" class="btn btn-outline-info mb-3">CUSTOMERS
                         </a>
+                        <br />
                         <a href="Forms/Customers/Customers.aspx">
-                            <asp:Image src="Images/customers-icon.png" Alt="Customers-icon" ID="imgCustomer" runat="server" CssClass="mb-2" /></a><br />
-                        <div class="btn-group mt-4">
-                            <asp:Button ID="btnSearchCustomer" Text="Search" runat="server" CssClass="btn" OnClick="btnSearchCustomer_Click" />
-                            <asp:Button ID="btnEditCustomer" Text="Edit" runat="server" CssClass="btn" OnClick="btnEditCustomer_Click" />
-                            <asp:Button ID="btnNewCustomer" Text="Add New" runat="server" CssClass="btn" OnClick="btnNewCustomer_Click" />
-                            <asp:Button ID="btnDeleteCustomer" Text="Delete" runat="server" CssClass="btn" OnClick="btnDeleteCustomer_Click" />
+                            <asp:Image src="Images/customers-icon.png" Alt="Customers-icon" ID="imgCustomer" runat="server" CssClass="mb-2" /></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <div class="container">
+                        <a href="#collapse1" class="btn btn-outline-info mb-3" data-toggle="collapse" aria-expanded="false" aria-controls="collapse1">SERVICES
+                        </a>
+                        <br />
+                        <a href="#collapse1" data-toggle="collapse" aria-expanded="false" aria-controls="collapse1">
+                            <asp:Image src="Images/services-icon.png" Alt="Services-icon" ID="imgServices" runat="server" CssClass="" /></a>
+                    </div>
+                    <div class="collapse" id="collapse1">
+                        <div class="row mt-2">
+                            <div class="col">
+                                <h4 class="">Repairs</h4>
+                                <div class="btn-group">
+                                    <asp:Button CssClass="btn" Text="Search" runat="server" />
+                                </div>
+                            </div>
+                            <div class="col">
+                                <h4 class="">Sales</h4>
+                                <div class="btn-group">
+                                    <asp:Button CssClass="btn" Text="Search" runat="server" />
+                                    <asp:Button CssClass="btn" Text="New" runat="server" />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 text-center">
                     <div class="container ">
-                        <h3>SERVICES</h3>
-                        <asp:Image src="Images/services-icon.png" Alt="Services-icon" ID="imgServices" runat="server" CssClass="" />
-                        <div class="row">
-                            <div class="submenu-item col-sm-6">
-                                Repairs<br />
-                                <div class="btn-group">
-                                    <asp:Button ID="btnRepairs" Text="Search" runat="server" CssClass="btn" />
-                                    <asp:Button ID="btnNewRepair" Text="New" runat="server" CssClass="btn" />
-                                </div>
-                            </div>
-                            <div class="submenu-item col-sm-6">
-                                Sales<br />
-                                <div class="btn-group">
-                                    <asp:Button ID="btnSales" Text="Search" runat="server" CssClass="btn" />
-                                    <asp:Button ID="btnNewSale" Text="New" runat="server" CssClass="btn" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 text-center">
-                    <div class="container ">
-                        <strong class="h3">EMPLOYEES</strong><br />
-                        <asp:Image src="Images/employees-icon.png" Alt="Employees-icon" ID="imgEmployees" runat="server" CssClass="mb-2" /><br />
-                        <div>
-                            <div class="btn-group mt-4">
-                                <asp:Button ID="btnSearchEmployee" Text="Search" runat="server" CssClass="btn" OnClick="btnSearchEmployee_Click" />
-                                <asp:Button ID="btnEditEmployee" Text="Edit" runat="server" CssClass="btn" OnClick="btnEditEmployee_Click" />
-                                <asp:Button ID="btnAddEmployee" Text="Add New" runat="server" CssClass="btn" OnClick="btnAddEmployee_Click" />
-                                <asp:Button ID="btnDeleteEmployee" Text="Delete" runat="server" CssClass="btn" OnClick="btnDeleteEmployee_Click" />
-                            </div>
-                        </div>
+                        <a href="Forms/Employees/Employees.aspx" class="btn btn-outline-info mb-3">EMPLOYEES
+                        </a>
+                        <br />
+                        <a href="Forms/Employees/Employees.aspx">
+                            <asp:Image src="Images/employees-icon.png" Alt="Employees-icon" ID="imgEmployees" runat="server" CssClass="mb-2" /></a>
                     </div>
                 </div>
             </div>
@@ -197,34 +214,27 @@
                 <div class="col-lg-2"></div>
                 <div class="col-lg-4 text-center">
                     <div class="container ">
-                        <strong class="h3 ">INVENTORY</strong><br />
-                        <asp:Image src="Images/inventory-icon.png" Alt="Inventory-icon" ID="imgInventory" runat="server" CssClass="mb-1" /><br />
-                        <div class="row text-center">
-                            <div class="submenu-item col-sm-6">
-                                Products<br />
-                                <asp:Button ID="btnSearchItem" Text="Search" runat="server" CssClass="btn" />
-                            </div>
-                            <div class="submenu-item col-sm-6">
-                                Orders<br />
-                                <div class="btn-group">
-                                    <asp:Button ID="btnSearchOrder" Text="Search" runat="server" CssClass="btn" />
-                                    <asp:Button ID="btnNewOrder" Text="New" runat="server" CssClass="btn" />
-                                </div>
-                            </div>
-                        </div>
+                        <a href="" class="btn btn-outline-info mb-3">INVENTORY
+                        </a>
+                        <br />
+                        <a href="">
+                            <asp:Image src="Images/inventory-icon.png" Alt="Inventory-icon" ID="imgInventory" runat="server" CssClass="mb-1" /></a>
                     </div>
                 </div>
                 <div class="col-lg-4 text-center">
                     <div class="container ">
-                        <strong class="h3 ">DOCUMENTS</strong><br />
-                        <asp:Image src="Images/reports-icon.png" Alt="Reports-icon" ID="imgReports" runat="server" CssClass="mb-1" /><br />
-                        <div style="margin-top: 21px;">
-                            <div class="btn-group">
-                                <asp:Button ID="btnReports" Text="Reports" runat="server" CssClass="btn" />
-                                <asp:Button ID="btnEmmasRep" Text="Emma's" runat="server" CssClass="btn" />
-                                <asp:Button ID="btnPolicy" Text="Policies" runat="server" CssClass="btn" />
+                        <a href="#collapse2" class="btn btn-outline-info mb-3" data-toggle="collapse" aria-expanded="false" aria-controls="collapse2">DOCUMENTS
+                        </a>
+                        <br />
+                        <a href="#collapse2" data-toggle="collapse" aria-expanded="false" aria-controls="collapse2">
+                            <asp:Image src="Images/reports-icon.png" Alt="Reports-icon" ID="imgReports" runat="server" CssClass="mb-1" /></a>
+                    </div>
+                    <div class="collapse" id="collapse2">
+                        <div class="btn-group mt-2">
+                            <a href="Forms/Sales/SalesReport.aspx"><asp:Button CssClass="btn" Text="Reports" runat="server" /></a>
+                            <a href="Forms/RepairPages/Warranty.aspx"><asp:Button CssClass="btn" Text="Warranty Records" runat="server" /></a>
+                            <a href=""><asp:Button CssClass="btn" Text="Policies" runat="server" /></a>
                             </div>
-                        </div>
                     </div>
                 </div>
                 <div class="col-lg-2"></div>

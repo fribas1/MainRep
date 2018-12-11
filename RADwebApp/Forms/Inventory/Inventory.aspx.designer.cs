@@ -7,63 +7,90 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Logintesting {
+namespace RADwebApp.Forms.Inventory {
     
     
-    public partial class Welcome {
+    public partial class Inventory {
         
         /// <summary>
-        /// form2 control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form2;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// imgCustomer control.
+        /// panelFilter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgCustomer;
+        protected global::System.Web.UI.WebControls.Panel panelFilter;
         
         /// <summary>
-        /// imgServices control.
+        /// ddlBrands control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgServices;
+        protected global::System.Web.UI.WebControls.DropDownList ddlBrands;
         
         /// <summary>
-        /// imgEmployees control.
+        /// txtName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgEmployees;
+        protected global::System.Web.UI.WebControls.TextBox txtName;
         
         /// <summary>
-        /// imgInventory control.
+        /// btnSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgInventory;
+        protected global::System.Web.UI.WebControls.Button btnSearch;
         
         /// <summary>
-        /// imgReports control.
+        /// btnClear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgReports;
+        protected global::System.Web.UI.WebControls.Button btnClear;
+        
+        /// <summary>
+        /// gvInventory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvInventory;
+        
+        /// <summary>
+        /// dsInventory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource dsInventory;
+        
+        /// <summary>
+        /// dsBrands control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource dsBrands;
     }
 }
