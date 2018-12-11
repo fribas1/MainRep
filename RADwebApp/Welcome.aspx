@@ -124,7 +124,7 @@
             <a class="navbar-brand" href="#">Emma's Kiosk</a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Welcome.aspx">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="Forms/Customers/Customers.aspx">Customers</a>
                     </li>
                     <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Services</a>
@@ -140,7 +140,7 @@
                     </li>
                     <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Orders</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Inventory</a>
+                            <a class="dropdown-item" href="/Forms/Inventory/Inventory.aspx">Inventory</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="Forms/RepairPages/OrderTools.aspx">Order Tools</a>
                         </div>
@@ -231,10 +231,13 @@
                     </div>
                     <div class="collapse" id="collapse2">
                         <div class="btn-group mt-2">
-                            <a href="Forms/Sales/SalesReport.aspx"><asp:Button CssClass="btn" Text="Reports" runat="server" /></a>
-                            <a href="Forms/RepairPages/Warranty.aspx"><asp:Button CssClass="btn" Text="Warranty Records" runat="server" /></a>
-                            <a href=""><asp:Button CssClass="btn" Text="Policies" runat="server" /></a>
-                            </div>
+                            <a href="Forms/Sales/SalesReport.aspx">
+                                <asp:Button CssClass="btn" Text="Reports" runat="server" /></a>
+                            <a href="Forms/RepairPages/Warranty.aspx">
+                                <asp:Button CssClass="btn" Text="Warranty Records" runat="server" /></a>
+                            <a href="">
+                                <asp:Button CssClass="btn" Text="Policies" runat="server" /></a>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-2"></div>
