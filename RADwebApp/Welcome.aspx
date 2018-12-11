@@ -125,43 +125,30 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Customers</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Search</a>
-                            <a class="dropdown-item" href="#">Edit</a>
-                            <a class="dropdown-item" href="#">Add new Customer</a>
-                            <a class="dropdown-item" href="#">Delete Customer</a>
-                        </div>
+                    <li class="nav-item"><a class="nav-link" href="Forms/Customers/Customers.aspx">Customers</a>
                     </li>
                     <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Services</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Search for a Repair</a>
-                            <a class="dropdown-item" href="#">New Repair</a>
+                            <a class="dropdown-item" href="Forms/RepairPages/AllRepairs.aspx">Repairs</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Search for a Sale</a>
-                            <a class="dropdown-item" href="#">New Sale</a>
+                            <a class="dropdown-item" href="Forms/Sales/searchSales.aspx">Search for a Sale</a>
+                            <a class="dropdown-item" href="Forms/Sales/SalesNew.aspx">New Sale</a>
 
                         </div>
                     </li>
-                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Employees</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Search</a>
-                            <a class="dropdown-item" href="#">Edit</a>
-                            <a class="dropdown-item" href="#">Add new Employee</a>
-                            <a class="dropdown-item" href="#">Delete Employee</a>
-                        </div>
+                    <li class="nav-item"><a class="nav-link" href="Forms/Employees/Employees.aspx">Employees</a>
                     </li>
                     <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Orders</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#">Inventory</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Order Tools</a>
+                            <a class="dropdown-item" href="Forms/RepairPages/OrderTools.aspx">Order Tools</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Documents</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#">Reports</a>
-                            <a class="dropdown-item" href="#">Warranty Records</a>
+                            <a class="dropdown-item" href="Forms/RepairPages/Warranty.aspx">Warranty Records</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Policies</a>
                         </div>
@@ -201,7 +188,6 @@
                                 <h4 class="">Repairs</h4>
                                 <div class="btn-group">
                                     <asp:Button CssClass="btn" Text="Search" runat="server" />
-                                    <asp:Button CssClass="btn" Text="New" runat="server" />
                                 </div>
                             </div>
                             <div class="col">
@@ -245,9 +231,9 @@
                     </div>
                     <div class="collapse" id="collapse2">
                         <div class="btn-group mt-2">
-                        <asp:Button CssClass="btn" Text="Reports" runat="server" />
-                        <asp:Button CssClass="btn" Text="Warranty Records" runat="server" />
-                        <asp:Button CssClass="btn" Text="Policies" runat="server" />
+                            <a href="Forms/Sales/SalesReport.aspx"><asp:Button CssClass="btn" Text="Reports" runat="server" /></a>
+                            <a href="Forms/RepairPages/Warranty.aspx"><asp:Button CssClass="btn" Text="Warranty Records" runat="server" /></a>
+                            <a href=""><asp:Button CssClass="btn" Text="Policies" runat="server" /></a>
                             </div>
                     </div>
                 </div>
