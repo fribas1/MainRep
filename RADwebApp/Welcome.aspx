@@ -36,26 +36,26 @@
                         </li>
                         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Services</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="Forms/RepairPages/AllRepairs.aspx">Repairs</a>
+                                <a class="dropdown-item" href="/Forms/RepairPages/AllRepairs.aspx">Repairs</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="Forms/Sales/searchSales.aspx">Search for a Sale</a>
+                                <a class="dropdown-item" href="/Forms/Sales/searchSales.aspx">Search for a Sale</a>
                                 <%if (User.Identity.Name == "admin")
                                     { %>
-                                <a class="dropdown-item" href="Forms/Sales/SalesNew.aspx">New Sale</a>
+                                <a class="dropdown-item" href="/Forms/Sales/SalesNew.aspx">New Sale</a>
                                 <% } %>
                             </div>
                         </li>
                         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Employees</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="Forms/Employees/Employees.aspx">Search</a>
+                                <a class="dropdown-item" href="/Forms/Employees/Employees.aspx">Search</a>
                                 <div class="dropdown-divider"></div>
                                 <%if ((User.Identity.Name == "admin") || (User.Identity.Name == "manager"))
                                     { %>
-                                <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=addNew">Add New</a>
-                                <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=edit">Edit</a>
+                                <a class="dropdown-item" href="/Forms/Customers/Customers.aspx?mode=addNew">Add New</a>
+                                <a class="dropdown-item" href="/Forms/Customers/Customers.aspx?mode=edit">Edit</a>
                                 <%if (User.Identity.Name == "admin")
                                     { %>
-                                <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=delete">Remove</a>
+                                <a class="dropdown-item" href="/Forms/Customers/Customers.aspx?mode=delete">Remove</a>
                                 <% } %>
                                 <% } %>
                             </div>
@@ -64,16 +64,16 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/Forms/Inventory/Inventory.aspx">Inventory</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="Forms/RepairPages/OrderTools.aspx">Order Tools</a>
+                                <a class="dropdown-item" href="/Forms/RepairPages/OrderTools.aspx">Order Tools</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Documents</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Reports</a>
-                                <a class="dropdown-item" href="Forms/RepairPages/Warranty.aspx">Warranty Records</a>
+                                <a class="dropdown-item" href="/Forms/Reports/SalesRepairReport.aspx">Reports</a>
+                                <a class="dropdown-item" href="/Forms/Reports/warrantyReport.aspx">Warranty Records</a>
                                 <div class="dropdown-divider"></div>
                                 
-                                <a class="dropdown-item" href="Forms/RepairPages/Policies.aspx">Policies</a>
+                                <a class="dropdown-item" href="/Forms/RepairPages/Policies.aspx">Policies</a>
                             </div>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
@@ -83,6 +83,9 @@
                     </form>
                 </div>
             </nav>
+
+            <%--END OF NAV BAR--%>
+
             <div class="container text-center display-3 mt-3">
                 <strong>Welcome</strong>
             </div>
@@ -137,10 +140,10 @@
                     <div class="col-lg-2"></div>
                     <div class="col-lg-4 text-center">
                         <div class="container ">
-                            <a href="" class="btn btn-outline-info mb-3">INVENTORY
+                            <a href="/Forms/Inventory/Inventory.aspx" class="btn btn-outline-info mb-3">INVENTORY
                             </a>
                             <br />
-                            <a href="">
+                            <a href="/Forms/Inventory/Inventory.aspx">
                                 <asp:Image src="Images/inventory-icon.png" Alt="Inventory-icon" ID="imgInventory" runat="server" CssClass="mb-1" /></a>
                         </div>
                     </div>
@@ -154,11 +157,11 @@
                         </div>
                         <div class="collapse" id="collapse2">
                             <div class="btn-group mt-2">
-                                <a href="Forms/Sales/SalesReport.aspx">
+                                <a href="/Forms/Reports/SalesRepairReport.aspx">
                                     <asp:Button CssClass="btn" Text="Reports" runat="server" /></a>
-                                <a href="Forms/RepairPages/Warranty.aspx">
+                                <a href="/Forms/Reports/warrantyReport.aspx">
                                     <asp:Button CssClass="btn" Text="Warranty Records" runat="server" /></a>
-                                <a href="">
+                                <a href="/Forms/RepairPages/Policies.aspx">
                                     <asp:Button CssClass="btn" Text="Policies" runat="server" /></a>
                             </div>
                         </div>

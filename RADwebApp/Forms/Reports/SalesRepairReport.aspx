@@ -13,76 +13,77 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <%--        START OF NAVIGATION--%>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="Welcome.aspx">Emma's Kiosk</a>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item"><a class="nav-link" href="/Welcome.aspx">Home</a></li>
-                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Customers</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="Forms/Customers/Customers.aspx">Search</a>
-                            <div class="dropdown-divider"></div>
-                            <%if ((User.Identity.Name == "admin") || (User.Identity.Name == "manager") || (User.Identity.Name == "sales"))
-                                { %>
-                            <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=addNew">Add New</a>
-                            <%if (User.Identity.Name == "admin")
-                                { %>
-                            <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=edit">Edit</a>
-                            <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=delete">Remove</a>
-                            <% } %>
-                            <% } %>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Services</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="Forms/RepairPages/AllRepairs.aspx">Repairs</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="Forms/Sales/searchSales.aspx">Search for a Sale</a>
-                            <%if (User.Identity.Name == "admin")
-                                { %>
-                            <a class="dropdown-item" href="Forms/Sales/SalesNew.aspx">New Sale</a>
-                            <% } %>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Employees</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="Forms/Employees/Employees.aspx">Search</a>
-                            <div class="dropdown-divider"></div>
-                            <%if ((User.Identity.Name == "admin") || (User.Identity.Name == "manager"))
-                                { %>
-                            <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=addNew">Add New</a>
-                            <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=edit">Edit</a>
-                            <%if (User.Identity.Name == "admin")
-                                { %>
-                            <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=delete">Remove</a>
-                            <% } %>
-                            <% } %>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Orders</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/Forms/Inventory/Inventory.aspx">Inventory</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="Forms/RepairPages/OrderTools.aspx">Order Tools</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Documents</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Reports</a>
-                            <a class="dropdown-item" href="Forms/RepairPages/Warranty.aspx">Warranty Records</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Policies</a>
-                        </div>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <asp:Button runat="server" ID="btnLogout" OnClick="btnLogout_Click" CssClass="btn btn-outline-danger my-2 my-sm-0" Text="Log Out"></asp:Button>
-                </form>
-            </div>
-        </nav>
-        <%--END OF NAVIGATION--%>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="Welcome.aspx">Emma's Kiosk</a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item"><a class="nav-link" href="/Welcome.aspx">Home</a></li>
+                        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Customers</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="Forms/Customers/Customers.aspx">Search</a>
+                                <div class="dropdown-divider"></div>
+                                <%if ((User.Identity.Name == "admin") || (User.Identity.Name == "manager") || (User.Identity.Name == "sales"))
+                                    { %>
+                                <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=addNew">Add New</a>
+                                <%if (User.Identity.Name == "admin")
+                                    { %>
+                                <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=edit">Edit</a>
+                                <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=delete">Remove</a>
+                                <% } %>
+                                <% } %>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Services</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/Forms/RepairPages/AllRepairs.aspx">Repairs</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/Forms/Sales/searchSales.aspx">Search for a Sale</a>
+                                <%if (User.Identity.Name == "admin")
+                                    { %>
+                                <a class="dropdown-item" href="/Forms/Sales/SalesNew.aspx">New Sale</a>
+                                <% } %>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Employees</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/Forms/Employees/Employees.aspx">Search</a>
+                                <div class="dropdown-divider"></div>
+                                <%if ((User.Identity.Name == "admin") || (User.Identity.Name == "manager"))
+                                    { %>
+                                <a class="dropdown-item" href="/Forms/Customers/Customers.aspx?mode=addNew">Add New</a>
+                                <a class="dropdown-item" href="/Forms/Customers/Customers.aspx?mode=edit">Edit</a>
+                                <%if (User.Identity.Name == "admin")
+                                    { %>
+                                <a class="dropdown-item" href="/Forms/Customers/Customers.aspx?mode=delete">Remove</a>
+                                <% } %>
+                                <% } %>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Orders</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/Forms/Inventory/Inventory.aspx">Inventory</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/Forms/RepairPages/OrderTools.aspx">Order Tools</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Documents</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/Forms/Reports/SalesRepairReport.aspx">Reports</a>
+                                <a class="dropdown-item" href="/Forms/Reports/warrantyReport.aspx">Warranty Records</a>
+                                <div class="dropdown-divider"></div>
+                                
+                                <a class="dropdown-item" href="/Forms/RepairPages/Policies.aspx">Policies</a>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <asp:Button runat="server" ID="btnLogout" OnClick="btnLogout_Click" CssClass="btn btn-outline-danger my-2 my-sm-0" Text="Log Out"></asp:Button>
+                    </form>
+                </div>
+            </nav>
+
+            <%--END OF NAV BAR--%>
 
         <div class="container">
             <h2 class="mt-3">Reports</h2>
@@ -213,23 +214,23 @@
             </asp:Panel>
             <br />
             <br />
-                                                <div class="row">
-                        <div class="col-lg-4 ">
+            <div class="row">
+                <div class="col-lg-4 ">
 
-            <asp:Panel CssClass="mb-4 rounded" ID="panelTotal" runat="server" BorderStyle="Groove">
-                <div class=" m-2">
-                <h3 class="mb-2">Total</h3>
-                <asp:Label ID="Label5" runat="server" Text="Total of services in the period:"></asp:Label>
-                <asp:TextBox CssClass="form-control mb-2" ID="txtTotalNum" runat="server" ReadOnly="True"></asp:TextBox>
-                <asp:Label ID="Label6" runat="server" Text="Total Amount in the period:"></asp:Label>
-                <asp:TextBox CssClass="form-control mb-2" ID="txtTotalAmount" runat="server" ReadOnly="True"></asp:TextBox>
-                <asp:Label ID="Label7" runat="server" Text="Emma's 0.02%:"></asp:Label>
-                <asp:TextBox CssClass="form-control mb-2" ID="txtEmma" runat="server" ReadOnly="True"></asp:TextBox>
-                <br />
-                    </div>
-            </asp:Panel>
-                                                                                </div>
-                    </div>
+                    <asp:Panel CssClass="mb-4 rounded" ID="panelTotal" runat="server" BorderStyle="Groove">
+                        <div class=" m-2">
+                            <h3 class="mb-2">Total</h3>
+                            <asp:Label ID="Label5" runat="server" Text="Total of services in the period:"></asp:Label>
+                            <asp:TextBox CssClass="form-control mb-2" ID="txtTotalNum" runat="server" ReadOnly="True"></asp:TextBox>
+                            <asp:Label ID="Label6" runat="server" Text="Total Amount in the period:"></asp:Label>
+                            <asp:TextBox CssClass="form-control mb-2" ID="txtTotalAmount" runat="server" ReadOnly="True"></asp:TextBox>
+                            <asp:Label ID="Label7" runat="server" Text="Emma's 0.02%:"></asp:Label>
+                            <asp:TextBox CssClass="form-control mb-2" ID="txtEmma" runat="server" ReadOnly="True"></asp:TextBox>
+                            <br />
+                        </div>
+                    </asp:Panel>
+                </div>
+            </div>
 
         </div>
 
