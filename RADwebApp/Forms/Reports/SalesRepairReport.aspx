@@ -5,41 +5,127 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <h2>Report</h2>
+        <%--        START OF NAVIGATION--%>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="Welcome.aspx">Emma's Kiosk</a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" href="/Welcome.aspx">Home</a></li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Customers</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="Forms/Customers/Customers.aspx">Search</a>
+                            <div class="dropdown-divider"></div>
+                            <%if ((User.Identity.Name == "admin") || (User.Identity.Name == "manager") || (User.Identity.Name == "sales"))
+                                { %>
+                            <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=addNew">Add New</a>
+                            <%if (User.Identity.Name == "admin")
+                                { %>
+                            <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=edit">Edit</a>
+                            <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=delete">Remove</a>
+                            <% } %>
+                            <% } %>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Services</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="Forms/RepairPages/AllRepairs.aspx">Repairs</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="Forms/Sales/searchSales.aspx">Search for a Sale</a>
+                            <%if (User.Identity.Name == "admin")
+                                { %>
+                            <a class="dropdown-item" href="Forms/Sales/SalesNew.aspx">New Sale</a>
+                            <% } %>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Employees</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="Forms/Employees/Employees.aspx">Search</a>
+                            <div class="dropdown-divider"></div>
+                            <%if ((User.Identity.Name == "admin") || (User.Identity.Name == "manager"))
+                                { %>
+                            <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=addNew">Add New</a>
+                            <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=edit">Edit</a>
+                            <%if (User.Identity.Name == "admin")
+                                { %>
+                            <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=delete">Remove</a>
+                            <% } %>
+                            <% } %>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Orders</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/Forms/Inventory/Inventory.aspx">Inventory</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="Forms/RepairPages/OrderTools.aspx">Order Tools</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Documents</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Reports</a>
+                            <a class="dropdown-item" href="Forms/RepairPages/Warranty.aspx">Warranty Records</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Policies</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <asp:Button runat="server" ID="btnLogout" OnClick="btnLogout_Click" CssClass="btn btn-outline-danger my-2 my-sm-0" Text="Log Out"></asp:Button>
+                </form>
+            </div>
+        </nav>
+        <%--END OF NAVIGATION--%>
+
+        <div class="container">
+            <h2 class="mt-3">Reports</h2>
             <asp:Panel ID="panelFilters" runat="server">
-                <p>Filter by:</p>
-                <asp:DropDownList ID="ddlYears" runat="server">
-                    <asp:ListItem Selected="True" Value="0">All Years</asp:ListItem>
-                    <asp:ListItem>2017</asp:ListItem>
-                    <asp:ListItem>2018</asp:ListItem>
-                </asp:DropDownList>
-                <asp:DropDownList ID="ddlMonths" runat="server">
-                    <asp:ListItem Selected="True" Value="0">All Months</asp:ListItem>
-                    <asp:ListItem Value="1">January</asp:ListItem>
-                    <asp:ListItem Value="2">February</asp:ListItem>
-                    <asp:ListItem Value="3">March</asp:ListItem>
-                    <asp:ListItem Value="4">April</asp:ListItem>
-                    <asp:ListItem Value="5">May</asp:ListItem>
-                    <asp:ListItem Value="6">June</asp:ListItem>
-                    <asp:ListItem Value="7">July</asp:ListItem>
-                    <asp:ListItem Value="8">August</asp:ListItem>
-                    <asp:ListItem Value="9">September</asp:ListItem>
-                    <asp:ListItem Value="10">October</asp:ListItem>
-                    <asp:ListItem Value="11">November</asp:ListItem>
-                    <asp:ListItem Value="12">December</asp:ListItem>
-                </asp:DropDownList>            
-                <asp:DropDownList ID="ddlPayment" runat="server" AppendDataBoundItems="True" DataSourceID="dsPayment" DataTextField="payType" DataValueField="id">
-                    <asp:ListItem Selected="True" Value="0">All Types</asp:ListItem>
-                </asp:DropDownList>                
-                <asp:Button ID="btnSearch" runat="server" Text="Search" />
+                <p class="mt-2">Filter by:</p>
+
+
+                <div class="row">
+                    <div class="col-lg-4">
+
+                        <asp:DropDownList CssClass="form-control mt-2" ID="ddlYears" runat="server">
+                            <asp:ListItem Selected="True" Value="0">All Years</asp:ListItem>
+                            <asp:ListItem>2017</asp:ListItem>
+                            <asp:ListItem>2018</asp:ListItem>
+                        </asp:DropDownList>
+                        <asp:DropDownList CssClass="form-control mt-2" ID="ddlMonths" runat="server">
+                            <asp:ListItem Selected="True" Value="0">All Months</asp:ListItem>
+                            <asp:ListItem Value="1">January</asp:ListItem>
+                            <asp:ListItem Value="2">February</asp:ListItem>
+                            <asp:ListItem Value="3">March</asp:ListItem>
+                            <asp:ListItem Value="4">April</asp:ListItem>
+                            <asp:ListItem Value="5">May</asp:ListItem>
+                            <asp:ListItem Value="6">June</asp:ListItem>
+                            <asp:ListItem Value="7">July</asp:ListItem>
+                            <asp:ListItem Value="8">August</asp:ListItem>
+                            <asp:ListItem Value="9">September</asp:ListItem>
+                            <asp:ListItem Value="10">October</asp:ListItem>
+                            <asp:ListItem Value="11">November</asp:ListItem>
+                            <asp:ListItem Value="12">December</asp:ListItem>
+                        </asp:DropDownList>
+                        <asp:DropDownList CssClass="form-control mt-2" ID="ddlPayment" runat="server" AppendDataBoundItems="True" DataSourceID="dsPayment" DataTextField="payType" DataValueField="id">
+                            <asp:ListItem Selected="True" Value="0">All Types</asp:ListItem>
+                        </asp:DropDownList>
+                        <asp:Button CssClass="btn mt-2" ID="btnSearch" runat="server" Text="Search" />
+                    </div>
+                </div>
+
+
+
             </asp:Panel>
             <asp:Panel ID="panelSales" runat="server">
-                <h3>Sales</h3>
-                <asp:GridView ID="gvSalesReport" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="dsSalesReport">
+                <h3 class="mt-4">Sales</h3>
+                <asp:GridView CssClass="table table-striped table-bordered table-responsive-lg" ID="gvSalesReport" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="dsSalesReport">
                     <Columns>
                         <asp:BoundField DataField="ordNumber" HeaderText="Order #" SortExpression="ordNumber" />
                         <asp:BoundField DataField="ordDate" HeaderText="Date" SortExpression="ordDate" DataFormatString="{0:d}" />
@@ -50,20 +136,26 @@
                     </Columns>
                     <EmptyDataTemplate>
                         No service has matched your criteria.
-                    </EmptyDataTemplate>            
-                </asp:GridView>            
+                    </EmptyDataTemplate>
+                </asp:GridView>
                 <br />
                 <asp:Panel ID="panelSalesTotal" runat="server">
-                    <asp:Label ID="Label1" runat="server" Text="Total Orders:"></asp:Label>
-                    <asp:TextBox ID="txtSalesTotalNum" runat="server" ReadOnly="True"></asp:TextBox>
-                    <br />
-                    <asp:Label ID="Label2" runat="server" Text="Total Sales Amount:"></asp:Label>
-                    <asp:TextBox ID="txtSalesTotalAmount" runat="server" ReadOnly="True"></asp:TextBox>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <asp:Label ID="Label1" runat="server" Text="Total Orders:"></asp:Label>
+                            <asp:TextBox CssClass="form-control mb-2" ID="txtSalesTotalNum" runat="server" ReadOnly="True"></asp:TextBox>
+                            <asp:Label ID="Label2" runat="server" Text="Total Sales Amount:"></asp:Label>
+                            <asp:TextBox CssClass="form-control" ID="txtSalesTotalAmount" runat="server" ReadOnly="True"></asp:TextBox>
+                        </div>
+                    </div>
                 </asp:Panel>
             </asp:Panel>
             <asp:Panel ID="panelRepairs" runat="server">
-                <h3>Repairs</h3>
-                <asp:GridView ID="gvRepairsReport" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="dsRepairsReport">
+
+
+
+                <h3 class="mt-4">Repairs</h3>
+                <asp:GridView CssClass="table table-striped table-bordered table-responsive-lg" ID="gvRepairsReport" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="dsRepairsReport">
                     <Columns>
                         <asp:BoundField DataField="ordNumber" HeaderText="Order #" SortExpression="ordNumber" />
                         <asp:BoundField DataField="ordDate" HeaderText="Date" SortExpression="ordDate" DataFormatString="{0:d}" />
@@ -78,16 +170,22 @@
                 </asp:GridView>
                 <br />
                 <asp:Panel ID="panelRepairsTotal" runat="server">
-                    <asp:Label ID="Label3" runat="server" Text="Total Repairs:"></asp:Label>
-                    <asp:TextBox ID="txtRepairsTotalNum" runat="server" ReadOnly="True"></asp:TextBox>
-                    <br />
-                    <asp:Label ID="Label4" runat="server" Text="Total Amount:"></asp:Label>
-                    <asp:TextBox ID="txtRepairsTotalAmount" runat="server" ReadOnly="True"></asp:TextBox>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <asp:Label ID="Label3" runat="server" Text="Total Repairs:"></asp:Label>
+                            <asp:TextBox CssClass="form-control mb-2" ID="txtRepairsTotalNum" runat="server" ReadOnly="True"></asp:TextBox>
+                            <asp:Label ID="Label4" runat="server" Text="Total Amount:"></asp:Label>
+                            <asp:TextBox CssClass="form-control" ID="txtRepairsTotalAmount" runat="server" ReadOnly="True"></asp:TextBox>
+                        </div>
+                    </div>
                 </asp:Panel>
-            </asp:Panel>            
+            </asp:Panel>
             <asp:Panel ID="panelOrders" runat="server">
-                <h3>Orders</h3>
-                <asp:GridView ID="gvOrders" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="dsOrders">
+
+
+
+                <h3 class="mt-4">Orders</h3>
+                <asp:GridView CssClass="table table-striped table-bordered table-responsive-lg" ID="gvOrders" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="dsOrders">
                     <Columns>
                         <asp:BoundField DataField="onordInvoiceNum" HeaderText="Invoice #" SortExpression="onordInvoiceNum" />
                         <asp:BoundField DataField="onordArriveDate" HeaderText="Arriving Date" SortExpression="onordArriveDate" DataFormatString="{0:d}" />
@@ -96,33 +194,47 @@
                     </Columns>
                     <EmptyDataTemplate>
                         No order has matched your criteria.
-                    </EmptyDataTemplate>            
-                </asp:GridView>            
+                    </EmptyDataTemplate>
+                </asp:GridView>
                 <br />
                 <asp:Panel ID="panelOrdersTotal" runat="server">
-                    <asp:Label ID="Label8" runat="server" Text="Total of Items Ordered:"></asp:Label>
-                    <asp:TextBox ID="txtItemsTotal" runat="server" ReadOnly="True"></asp:TextBox>
-                    <br />
-                    <asp:Label ID="Label9" runat="server" Visible="false" Text="Total Sales Amount:"></asp:Label>
-                    <asp:TextBox ID="txtTotalSpent" Visible="false" runat="server" ReadOnly="True"></asp:TextBox>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <asp:Label ID="Label8" runat="server" Text="Total of Items Ordered:"></asp:Label>
+                            <asp:TextBox CssClass="form-control mb-2" ID="txtItemsTotal" runat="server" ReadOnly="True"></asp:TextBox>
+                            <asp:Label ID="Label9" runat="server" Visible="false" Text="Total Sales Amount:"></asp:Label>
+                            <asp:TextBox CssClass="form-control" ID="txtTotalSpent" Visible="false" runat="server" ReadOnly="True"></asp:TextBox>
+                        </div>
+                    </div>
                 </asp:Panel>
+
+
+
             </asp:Panel>
             <br />
             <br />
-            <asp:Panel ID="panelTotal" runat="server" BorderStyle="Groove">
-                <h3>Total</h3>
+                                                <div class="row">
+                        <div class="col-lg-4 ">
+
+            <asp:Panel CssClass="mb-4 rounded" ID="panelTotal" runat="server" BorderStyle="Groove">
+                <div class=" m-2">
+                <h3 class="mb-2">Total</h3>
                 <asp:Label ID="Label5" runat="server" Text="Total of services in the period:"></asp:Label>
-                <asp:TextBox ID="txtTotalNum" runat="server" ReadOnly="True"></asp:TextBox>
-                <br />
+                <asp:TextBox CssClass="form-control mb-2" ID="txtTotalNum" runat="server" ReadOnly="True"></asp:TextBox>
                 <asp:Label ID="Label6" runat="server" Text="Total Amount in the period:"></asp:Label>
-                <asp:TextBox ID="txtTotalAmount" runat="server" ReadOnly="True"></asp:TextBox>
-                <br />
-                <br />
+                <asp:TextBox CssClass="form-control mb-2" ID="txtTotalAmount" runat="server" ReadOnly="True"></asp:TextBox>
                 <asp:Label ID="Label7" runat="server" Text="Emma's 0.02%:"></asp:Label>
-                <asp:TextBox ID="txtEmma" runat="server" ReadOnly="True"></asp:TextBox>
+                <asp:TextBox CssClass="form-control mb-2" ID="txtEmma" runat="server" ReadOnly="True"></asp:TextBox>
                 <br />
+                    </div>
             </asp:Panel>
+                                                                                </div>
+                    </div>
+
         </div>
+
+
+
         <asp:ObjectDataSource ID="dsSalesReport" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.salesReportTableAdapter">
             <SelectParameters>
                 <asp:ControlParameter ControlID="ddlYears" DefaultValue="0" Name="year" PropertyName="SelectedValue" Type="Decimal" />

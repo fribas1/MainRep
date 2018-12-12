@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -13,94 +13,95 @@
 </head>
 <body>
     <form id="form1" runat="server">
-<%--        START OF NAVIGATION--%>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="Welcome.aspx">Emma's Kiosk</a>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item"><a class="nav-link" href="/Welcome.aspx">Home</a></li>
-                        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Customers</a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="Forms/Customers/Customers.aspx">Search</a>
-                                <div class="dropdown-divider"></div>
-                                <%if ((User.Identity.Name == "admin") || (User.Identity.Name == "manager") || (User.Identity.Name == "sales"))
+        <%--        START OF NAVIGATION--%>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="Welcome.aspx">Emma's Kiosk</a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" href="/Welcome.aspx">Home</a></li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Customers</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="Forms/Customers/Customers.aspx">Search</a>
+                            <div class="dropdown-divider"></div>
+                            <%if ((User.Identity.Name == "admin") || (User.Identity.Name == "manager") || (User.Identity.Name == "sales"))
                                     { %>
-                                <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=addNew">Add New</a>
-                                <%if (User.Identity.Name == "admin")
+                            <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=addNew">Add New</a>
+                            <%if (User.Identity.Name == "admin")
                                     { %>
-                                <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=edit">Edit</a>
-                                <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=delete">Remove</a>
-                                <% } %>
-                                <% } %>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Services</a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="Forms/RepairPages/AllRepairs.aspx">Repairs</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="Forms/Sales/searchSales.aspx">Search for a Sale</a>
-                                <%if (User.Identity.Name == "admin")
+                            <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=edit">Edit</a>
+                            <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=delete">Remove</a>
+                            <% } %>
+                            <% } %>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Services</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="Forms/RepairPages/AllRepairs.aspx">Repairs</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="Forms/Sales/searchSales.aspx">Search for a Sale</a>
+                            <%if (User.Identity.Name == "admin")
                                     { %>
-                                <a class="dropdown-item" href="Forms/Sales/SalesNew.aspx">New Sale</a>
-                                <% } %>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Employees</a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="Forms/Employees/Employees.aspx">Search</a>
-                                <div class="dropdown-divider"></div>
-                                <%if ((User.Identity.Name == "admin") || (User.Identity.Name == "manager"))
+                            <a class="dropdown-item" href="Forms/Sales/SalesNew.aspx">New Sale</a>
+                            <% } %>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Employees</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="Forms/Employees/Employees.aspx">Search</a>
+                            <div class="dropdown-divider"></div>
+                            <%if ((User.Identity.Name == "admin") || (User.Identity.Name == "manager"))
                                     { %>
-                                <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=addNew">Add New</a>
-                                <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=edit">Edit</a>
-                                <%if (User.Identity.Name == "admin")
+                            <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=addNew">Add New</a>
+                            <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=edit">Edit</a>
+                            <%if (User.Identity.Name == "admin")
                                     { %>
-                                <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=delete">Remove</a>
-                                <% } %>
-                                <% } %>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Orders</a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/Forms/Inventory/Inventory.aspx">Inventory</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="Forms/RepairPages/OrderTools.aspx">Order Tools</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Documents</a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Reports</a>
-                                <a class="dropdown-item" href="Forms/RepairPages/Warranty.aspx">Warranty Records</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Policies</a>
-                            </div>
-                        </li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                        <asp:Button runat="server" ID="btnLogout" OnClick="btnLogout_Click" CssClass="btn btn-outline-danger my-2 my-sm-0" Text="Log Out"></asp:Button>
-                    </form>
-                </div>
-            </nav>        <%--END OF NAVIGATION--%>
-         <% if(flagNew == false) { %>
+                            <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=delete">Remove</a>
+                            <% } %>
+                            <% } %>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Orders</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/Forms/Inventory/Inventory.aspx">Inventory</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="Forms/RepairPages/OrderTools.aspx">Order Tools</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Documents</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Reports</a>
+                            <a class="dropdown-item" href="Forms/RepairPages/Warranty.aspx">Warranty Records</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Policies</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <asp:Button runat="server" ID="btnLogout" OnClick="btnLogout_Click" CssClass="btn btn-outline-danger my-2 my-sm-0" Text="Log Out"></asp:Button>
+                </form>
+            </div>
+        </nav>
+        <%--END OF NAVIGATION--%>
+        <% if(flagNew == false) { %>
         <div class="container mt-4">
             <div class="row">
-            <div class="col-lg-4 text-center m-auto">
-        <h2>Employees</h2>
+                <div class="col-lg-4 text-center m-auto">
+                    <h2>Employees</h2>
+                </div>
             </div>
-            </div>
-            </div>
-         <% } else { %>
-               <h2>Add New Employee</h2>
-         <% } %>
+        </div>
+        <% } else { %>
+        <h2>Add New Employee</h2>
+        <% } %>
         <div>
-                    <div class="container mt-3">
-            <div class="row">
-            <div class="col-lg-4 text-center m-auto">
-            <asp:Button CssClass="btn" ID="btnNewEmployee" runat="server" OnClick="btnNewEmployee_Click" Text="Add New" />
-            <br />
-                            </div>
-            </div>
+            <div class="container mt-3">
+                <div class="row">
+                    <div class="col-lg-4 text-center m-auto">
+                        <asp:Button CssClass="btn" ID="btnNewEmployee" runat="server" OnClick="btnNewEmployee_Click" Text="Add New" />
+                        <br />
+                    </div>
+                </div>
             </div>
             <asp:DetailsView ID="dvEmployeeNew" runat="server" AutoGenerateRows="False" DataKeyNames="id" DataSourceID="dsEmployee" DefaultMode="Insert" Height="50px" OnItemCommand="dvEmployeeNew_ItemCommand" Visible="False" Width="125px">
                 <Fields>
@@ -119,7 +120,7 @@
                             <asp:Label ID="Label1" runat="server" Text='<%# Bind("posID") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                   <asp:TemplateField ShowHeader="False">
+                    <asp:TemplateField ShowHeader="False">
                         <InsertItemTemplate>
                             <asp:Button ID="btnIsert" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
                             &nbsp;<asp:Button ID="btnCancel" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
@@ -139,79 +140,80 @@
                     <div class="row">
                         <div class="col-lg-4 text-center m-auto">
                             <br />
-                <h3> <span class="">Search For an Existing</span></h3>
-                <asp:Label CssClass="" ID="lblFirst" runat="server" Text="First Name:"></asp:Label>
-                <asp:TextBox CssClass="form-control" ID="txtFirst" runat="server"></asp:TextBox><br />
-                <asp:Label CssClass="" ID="lblLast" runat="server" Text="Last Name:"></asp:Label>
-                <asp:TextBox CssClass="form-control mb-3" ID="txtLast" runat="server"></asp:TextBox>
-                <asp:Label ID="lblPosition" runat="server" Text="Position:"></asp:Label>
-                <asp:DropDownList CssClass="form-control" ID="ddlPosition" runat="server" AppendDataBoundItems="True" DataSourceID="dsPosition" DataTextField="posName" DataValueField="id">
-                    <asp:ListItem Selected="True" Value="0">All</asp:ListItem>
-                </asp:DropDownList>
-                <br />
+                            <h3><span class="">Search For an Existing</span></h3>
+                            <asp:Label CssClass="" ID="lblFirst" runat="server" Text="First Name:"></asp:Label>
+                            <asp:TextBox CssClass="form-control" ID="txtFirst" runat="server"></asp:TextBox><br />
+                            <asp:Label CssClass="" ID="lblLast" runat="server" Text="Last Name:"></asp:Label>
+                            <asp:TextBox CssClass="form-control mb-3" ID="txtLast" runat="server"></asp:TextBox>
+                            <asp:Label ID="lblPosition" runat="server" Text="Position:"></asp:Label>
+                            <asp:DropDownList CssClass="form-control" ID="ddlPosition" runat="server" AppendDataBoundItems="True" DataSourceID="dsPosition" DataTextField="posName" DataValueField="id">
+                                <asp:ListItem Selected="True" Value="0">All</asp:ListItem>
+                            </asp:DropDownList>
+                            <br />
                             <div class="btn-group">
-                <asp:Button CssClass="btn " ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" />
-                <asp:Button CssClass="btn " ID="btnClear" runat="server" OnClick="btnClear_Click" Text="Clear" />
-                                </div>
-                    </div>
+                                <asp:Button CssClass="btn " ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" />
+                                <asp:Button CssClass="btn " ID="btnClear" runat="server" OnClick="btnClear_Click" Text="Clear" />
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </asp:Panel>               
+            </asp:Panel>
             <br />
 
 
-                    <div class="container mt-4">
-            <div class="row">
-            <div class="col-lg-8 text-center m-auto">
-            <asp:GridView CssClass="table table-striped table-bordered table-responsive-lg" ID="gvEmployees" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="dsSearchEmployee" OnSelectedIndexChanged="gvEmployees_SelectedIndexChanged" EnableViewState="False" OnRowCommand="gvEmployees_RowCommand" OnRowDeleted="gvEmployees_RowDeleted">
-                <Columns>
-                    <asp:HyperLinkField DataNavigateUrlFields="id" DataNavigateUrlFormatString="EmployeeDetails.aspx?id={0}" Text="Details" />
-                    <asp:TemplateField ShowHeader="False">
-                        <ItemTemplate>                           
-                            <% if(flagEdit == true) { %>
-                                   <asp:Button ID="btnEdit" runat="server" CausesValidation="False" CommandName="Select" Text="Edit" />
-                                   <asp:Button ID="btnDelete" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" OnClientClick='return confirm("Are you sure you want to delete this employee?");' />
-                            <% } %>                            
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:BoundField DataField="empName" HeaderText="Name" ReadOnly="True" SortExpression="empName" />
-                    <asp:BoundField DataField="posName" HeaderText="Position" SortExpression="posName" />
-                    <asp:HyperLinkField DataNavigateUrlFields="id, empFirst, empLast, posID"
-                    DataNavigateUrlFormatString="EmployeeServices.aspx?id={0}&first={1}&last={2}&role={3}"
-                      Text="View Services" />
-                </Columns>
-                <EmptyDataTemplate>
-                    No employee has matched your searching criteria.
-                </EmptyDataTemplate>
-            </asp:GridView>
+            <div class="container mt-4">
+                <div class="row">
+                    <div class="col-lg-8 text-center m-auto">
+                        <asp:GridView CssClass="table table-striped table-bordered table-responsive-lg" ID="gvEmployees" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="dsSearchEmployee" OnSelectedIndexChanged="gvEmployees_SelectedIndexChanged" EnableViewState="False" OnRowCommand="gvEmployees_RowCommand" OnRowDeleted="gvEmployees_RowDeleted">
+                            <Columns>
+                                <asp:HyperLinkField DataNavigateUrlFields="id" DataNavigateUrlFormatString="EmployeeDetails.aspx?id={0}" Text="Details" />
+                                <asp:TemplateField ShowHeader="False">
+                                    <ItemTemplate>
+                                        <% if (flagEdit == true)
+                                        { %>
+                                        <asp:Button ID="btnEdit" runat="server" CausesValidation="False" CommandName="Select" Text="Edit" />
+                                        <asp:Button ID="btnDelete" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" OnClientClick='return confirm("Are you sure you want to delete this employee?");' />
+                                        <% } %>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:BoundField DataField="empName" HeaderText="Name" ReadOnly="True" SortExpression="empName" />
+                                <asp:BoundField DataField="posName" HeaderText="Position" SortExpression="posName" />
+                                <asp:HyperLinkField DataNavigateUrlFields="id, empFirst, empLast, posID"
+                                    DataNavigateUrlFormatString="EmployeeServices.aspx?id={0}&first={1}&last={2}&role={3}"
+                                    Text="View Services" />
+                            </Columns>
+                            <EmptyDataTemplate>
+                                No employee has matched your searching criteria.
+                            </EmptyDataTemplate>
+                        </asp:GridView>
+                    </div>
                 </div>
-                </div>
-                        </div>
+            </div>
         </div>
-         <asp:ObjectDataSource ID="dsSearchEmployee" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.searchEmployeeTableAdapter">
-             <SelectParameters>
-                 <asp:ControlParameter ControlID="ddlPosition" DefaultValue="0" Name="posID" PropertyName="SelectedValue" Type="Int32" />
-                 <asp:ControlParameter ControlID="txtFirst" ConvertEmptyStringToNull="False" DefaultValue="" Name="empFirst" PropertyName="Text" Type="String" />
-                 <asp:ControlParameter ControlID="txtLast" ConvertEmptyStringToNull="False" Name="empLast" PropertyName="Text" Type="String" />
-             </SelectParameters>
-         </asp:ObjectDataSource>
-         <asp:ObjectDataSource ID="dsEmployee" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.employeeTableAdapter" UpdateMethod="Update">
-             <DeleteParameters>
-                 <asp:Parameter Name="Original_id" Type="Int32" />
-             </DeleteParameters>
-             <InsertParameters>
-                 <asp:Parameter Name="empFirst" Type="String" />
-                 <asp:Parameter Name="empLast" Type="String" />
-                 <asp:Parameter Name="posID" Type="Int32" />
-             </InsertParameters>
-             <UpdateParameters>
-                 <asp:Parameter Name="empFirst" Type="String" />
-                 <asp:Parameter Name="empLast" Type="String" />
-                 <asp:Parameter Name="posID" Type="Int32" />
-                 <asp:Parameter Name="Original_id" Type="Int32" />
-             </UpdateParameters>
-         </asp:ObjectDataSource>
-         <asp:ObjectDataSource ID="dsPosition" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.employeePositionTableAdapter"></asp:ObjectDataSource>
+        <asp:ObjectDataSource ID="dsSearchEmployee" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.searchEmployeeTableAdapter">
+            <SelectParameters>
+                <asp:ControlParameter ControlID="ddlPosition" DefaultValue="0" Name="posID" PropertyName="SelectedValue" Type="Int32" />
+                <asp:ControlParameter ControlID="txtFirst" ConvertEmptyStringToNull="False" DefaultValue="" Name="empFirst" PropertyName="Text" Type="String" />
+                <asp:ControlParameter ControlID="txtLast" ConvertEmptyStringToNull="False" Name="empLast" PropertyName="Text" Type="String" />
+            </SelectParameters>
+        </asp:ObjectDataSource>
+        <asp:ObjectDataSource ID="dsEmployee" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.employeeTableAdapter" UpdateMethod="Update">
+            <DeleteParameters>
+                <asp:Parameter Name="Original_id" Type="Int32" />
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:Parameter Name="empFirst" Type="String" />
+                <asp:Parameter Name="empLast" Type="String" />
+                <asp:Parameter Name="posID" Type="Int32" />
+            </InsertParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="empFirst" Type="String" />
+                <asp:Parameter Name="empLast" Type="String" />
+                <asp:Parameter Name="posID" Type="Int32" />
+                <asp:Parameter Name="Original_id" Type="Int32" />
+            </UpdateParameters>
+        </asp:ObjectDataSource>
+        <asp:ObjectDataSource ID="dsPosition" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.employeePositionTableAdapter"></asp:ObjectDataSource>
         <br />
     </form>
 </body>
