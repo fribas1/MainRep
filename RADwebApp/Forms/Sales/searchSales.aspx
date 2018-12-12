@@ -12,7 +12,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <style type="text/css">
         body{
-            background-color:#212529;
+            background-color:white;
         }
         .auto-style1 {
             width: 99px;
@@ -93,7 +93,7 @@
         </nav>
         <div>
                 
-            <table class="table table-striped table-dark">
+            <table border="0" class="table table-striped table-bordered table-responsive-lg">
                 <tr>
                     <td class="auto-style1">Search for Sales:</td>
                     <td class="auto-style2">&nbsp;</td>
@@ -145,7 +145,11 @@
             </table>
         </div>
         <br />
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="3" DataSourceID="dsSearchSales" ForeColor="Black" GridLines="Vertical" CssClass="table table-striped table-dark" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px">
+
+        <div class="row">
+            <div class="col-lg-8 text-center m-auto">
+
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="3" DataSourceID="dsSearchSales" ForeColor="Black" GridLines="Vertical" CssClass="table table-striped table-bordered table-responsive-lg" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px">
           
             <AlternatingRowStyle BackColor="#CCCCCC" />
           
@@ -160,16 +164,16 @@
                 <asp:BoundField DataField="orlQuantity" HeaderText="Quantity" SortExpression="orlQuantity" />
                 <asp:BoundField DataField="custFull" HeaderText="Customer" ReadOnly="True" SortExpression="custFull" />
                 <asp:BoundField DataField="empFull" HeaderText="Employee" SortExpression="empFull" ReadOnly="True" />
-            </Columns>
-            <FooterStyle BackColor="#CCCCCC" />
-            <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
-            <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
-            <SortedAscendingCellStyle BackColor="#F1F1F1" />
-            <SortedAscendingHeaderStyle BackColor="#808080" />
-            <SortedDescendingCellStyle BackColor="#CAC9C9" />
-            <SortedDescendingHeaderStyle BackColor="#383838" />
+             </Columns>
+                </asp:GridView>
+                                </div>
+                </div>
+                        </div>
+            
         </asp:GridView>
+
+
+
         <br />
         <asp:ObjectDataSource ID="dsSearchSales" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.searchSalesTableAdapter">
             <SelectParameters>
