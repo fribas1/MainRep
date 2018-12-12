@@ -42,8 +42,7 @@
                                 <%if (User.Identity.Name == "admin") { %>
                                     <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=edit">Edit</a>
                                     <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=delete">Remove</a>
-                                <% } %>
-                            <% } %>                                                        
+                                <% } %>                            <% } %>                                                        
                         </div>
                     </li>
                     <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Services</a>
@@ -65,8 +64,7 @@
                                 <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=edit">Edit</a>
                                 <%if (User.Identity.Name == "admin") { %>                                    
                                     <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=delete">Remove</a>
-                                <% } %>
-                            <% } %>                                                       
+                                <% } %>                            <% } %>                                                       
                         </div>
                     </li>
                     <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Orders</a>
@@ -127,18 +125,20 @@
                 <tr>
                     <td class="auto-style1">Date Between:</td>
                     <td class="auto-style2">
-                        <asp:TextBox ID="txtDateStart" runat="server" CssClass="form-control input-lg" Width="200px" Height="25px" TabIndex="1"></asp:TextBox>
+                        <asp:TextBox ID="txtDateStart" runat="server" CssClass="form-control input-lg" Width="200px" Height="25px" TabIndex="1" TextMode="Date"></asp:TextBox>
                     </td>
                     <td class="auto-style3">AND</td>
                     <td>
-                        <asp:TextBox ID="txtDateEnd" runat="server" CssClass="form-control input-lg" Width="200px" Height="25px" TabIndex="1"></asp:TextBox>
+                        <asp:TextBox ID="txtDateEnd" runat="server" CssClass="form-control input-lg" Width="200px" Height="25px" TabIndex="1" TextMode="Date"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style1">
                         <asp:Button ID="btnSearch" runat="server" Text="Search" class="btn btn-default" OnClick="btnSearch_Click" />
                     </td>
-                    <td class="auto-style2">&nbsp;</td>
+                    <td class="auto-style2">
+                        <asp:Button ID="btnClear" runat="server" OnClick="btnClear_Click" Text="Clear" class="btn btn-default" />
+                    </td>
                     <td class="auto-style3">&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>

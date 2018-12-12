@@ -18,5 +18,14 @@ namespace RADwebApp.Forms.Sales
         {
 
         }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            txtCustName.Text = "";
+            txtEmpName.Text = "";
+            txtOrderNum.Text = "";
+            txtDateEnd.Text = "";
+            txtDateStart.Text = "";
+        }
     }
 }
