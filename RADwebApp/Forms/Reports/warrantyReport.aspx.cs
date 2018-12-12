@@ -5,8 +5,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using aLibrary;
-using aLibrary.EmmasDataSetTableAdapters;
 
 namespace RADwebApp.Forms.Reports
 {
@@ -21,7 +19,7 @@ namespace RADwebApp.Forms.Reports
         {
             gvWarrantyReport.DataBind();
 
-            if( gvWarrantyReport.Rows.Count != 0)
+            if (gvWarrantyReport.Rows.Count != 0)
             {
                 lblMessage.Visible = false;
             }

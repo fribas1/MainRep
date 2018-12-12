@@ -221,6 +221,13 @@
     <Compile Include="Forms\RepairPages\Policies.aspx.designer.cs">
       <DependentUpon>Policies.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Reports\warrantyReport.aspx.cs">
+      <DependentUpon>warrantyReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\warrantyReport.aspx.designer.cs">
+      <DependentUpon>warrantyReport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Reports\weeklyReport.aspx.cs">
       <DependentUpon>weeklyReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
