@@ -21,69 +21,74 @@
 <body style="width: 100%">
     <form id="form2" runat="server">
         <asp:Panel ID="pnlContent" runat="server" Visible="True" Wrap="True">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="Welcome.aspx">Emma's Kiosk</a>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item"><a class="nav-link" href="/Welcome.aspx">Home</a></li>
-                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Customers</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="Forms/Customers/Customers.aspx">Search</a> 
-                            <div class="dropdown-divider"></div>
-                            <%if ((User.Identity.Name == "admin") || (User.Identity.Name == "manager") || (User.Identity.Name == "sales")) { %>                                
+         <%--        START OF NAVIGATION--%>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="Welcome.aspx">Emma's Kiosk</a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item"><a class="nav-link" href="/Welcome.aspx">Home</a></li>
+                        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Customers</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="Forms/Customers/Customers.aspx">Search</a>
+                                <div class="dropdown-divider"></div>
+                                <%if ((User.Identity.Name == "admin") || (User.Identity.Name == "manager") || (User.Identity.Name == "sales"))
+                                    { %>
                                 <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=addNew">Add New</a>
-                                <%if (User.Identity.Name == "admin") { %>
-                                    <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=edit">Edit</a>
-                                    <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=delete">Remove</a>
+                                <%if (User.Identity.Name == "admin")
+                                    { %>
+                                <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=edit">Edit</a>
+                                <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=delete">Remove</a>
                                 <% } %>
-                            <% } %>                                                        
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Services</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="Forms/RepairPages/AllRepairs.aspx">Repairs</a>
-                            <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="Forms/Sales/searchSales.aspx">Search for a Sale</a>
-                            <%if (User.Identity.Name == "admin") { %>                                
+                                <% } %>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Services</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="Forms/RepairPages/AllRepairs.aspx">Repairs</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="searchSales.aspx">Search for a Sale</a>
+                                <%if (User.Identity.Name == "admin")
+                                    { %>
                                 <a class="dropdown-item" href="Forms/Sales/SalesNew.aspx">New Sale</a>
-                            <% } %>                                                        
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Employees</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="Forms/Employees/Employees.aspx">Search</a>  
-                            <div class="dropdown-divider"></div>
-                            <%if ((User.Identity.Name == "admin") || (User.Identity.Name == "manager")) { %>                                
+                                <% } %>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Employees</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="Forms/Employees/Employees.aspx">Search</a>
+                                <div class="dropdown-divider"></div>
+                                <%if ((User.Identity.Name == "admin") || (User.Identity.Name == "manager"))
+                                    { %>
                                 <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=addNew">Add New</a>
                                 <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=edit">Edit</a>
-                                <%if (User.Identity.Name == "admin") { %>                                    
-                                    <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=delete">Remove</a>
+                                <%if (User.Identity.Name == "admin")
+                                    { %>
+                                <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=delete">Remove</a>
                                 <% } %>
-                            <% } %>                                                       
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Orders</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/Forms/Inventory/Inventory.aspx">Inventory</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="Forms/RepairPages/OrderTools.aspx">Order Tools</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Documents</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Reports</a>
-                            <a class="dropdown-item" href="Forms/RepairPages/Warranty.aspx">Warranty Records</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="Forms/RepairPages/Policies.aspx">Policies</a>
-                            
-                            
-                        </div>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
+                                <% } %>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Orders</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/Forms/Inventory/Inventory.aspx">Inventory</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="Forms/RepairPages/OrderTools.aspx">Order Tools</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Documents</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Reports</a>
+                                <a class="dropdown-item" href="Forms/RepairPages/Warranty.aspx">Warranty Records</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Policies</a>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    </ul>
+                    <asp:Button ID="btnLogout" runat="server" CssClass="btn btn-outline-danger my-2 my-sm-0" OnClick="btnLogout_Click" Text="Log Out" />
+                </div>
                 
-            </div>
-        </nav>
+            </nav>        <%--END OF NAVIGATION--%>
     </asp:Panel>
         <main role="main" class="container">
       <div class="starter-template">
