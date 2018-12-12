@@ -38,42 +38,7 @@
             </asp:GridView>
             <br />
             <br />
-            <asp:DetailsView ID="dvNewWarranty" runat="server" AutoGenerateRows="False" DataSourceID="dbWarranty" DefaultMode="Insert" DeleteMethod="warrantyTableAdapter.Fill();" Height="50px" Visible="False" Width="125px">
-                <Fields>
-                    <asp:TemplateField HeaderText="Customer" SortExpression="Customer">
-                        <EditItemTemplate>
-                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("Customer") %>'></asp:Label>
-                        </EditItemTemplate>
-                        <InsertItemTemplate>
-                            <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Customer") %>'></asp:TextBox>
-                        </InsertItemTemplate>
-                        <ItemTemplate>
-                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("Customer") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Warranty" SortExpression="Warranty">
-                        <EditItemTemplate>
-                            <asp:CheckBox ID="CheckBox1" runat="server" Checked='<%# Bind("Warranty") %>' />
-                        </EditItemTemplate>
-                        <InsertItemTemplate>
-                            <asp:CheckBox ID="CheckBox1" runat="server" Checked='<%# Bind("Warranty") %>' />
-                        </InsertItemTemplate>
-                        <ItemTemplate>
-                            <asp:CheckBox ID="CheckBox1" runat="server" Checked='<%# Bind("Warranty") %>' Enabled="false" />
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Service" SortExpression="Service">
-                        <EditItemTemplate>
-                            <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Service") %>'></asp:TextBox>
-                        </EditItemTemplate>
-                        <InsertItemTemplate>
-                            <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Service") %>'></asp:TextBox>
-                        </InsertItemTemplate>
-                        <ItemTemplate>
-                            <asp:Label ID="Label2" runat="server" Text='<%# Bind("Service") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                </Fields>
+            <asp:DetailsView ID="dvNewWarranty" runat="server" AutoGenerateRows="False" DefaultMode="Insert" DeleteMethod="warrantyTableAdapter.Fill();" Height="50px" Visible="False" Width="125px">
             </asp:DetailsView>
             <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Submit" Visible="False" />
             <br />

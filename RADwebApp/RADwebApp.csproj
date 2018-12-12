@@ -122,6 +122,7 @@
     <Content Include="Forms\RepairPages\OrderTools.aspx" />
     <Content Include="Forms\RepairPages\Policies.aspx" />
     <Content Include="Forms\RepairPages\Warranty.aspx" />
+    <Content Include="Forms\Reports\warrantyReport.aspx" />
     <Content Include="Forms\Reports\weeklyReport.aspx" />
     <Content Include="Forms\Sales\SalesNew.aspx" />
     <Content Include="Forms\Reports\SalesRepairReport.aspx" />

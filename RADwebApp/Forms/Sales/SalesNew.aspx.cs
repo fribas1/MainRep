@@ -37,6 +37,7 @@ namespace RADwebApp.Forms.Sales
             catch { }
         }
 
+
         protected void Page_Load(object sender, EventArgs e)
         {
             date = DateTime.Now; // Get Date Now.
@@ -48,7 +49,12 @@ namespace RADwebApp.Forms.Sales
             txtOrderNumber.Text = Convert.ToString(orderNum);
             txtOrderDate.Text = date.ToString("MM/dd/yyyy");
             txtQuantity.Text = Convert.ToString(1);
-            lbltest.Text = Convert.ToString(lastID);
+        }
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+            authenticationManager.SignOut();
+            Response.Redirect("~/Login.aspx");
         }
 
 
