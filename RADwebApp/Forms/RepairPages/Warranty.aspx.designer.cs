@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RADwebApp.Forms.RepairPages {
-    
-    
-    public partial class Warranty {
-        
+namespace RADwebApp.Forms.RepairPages
+{
+
+
+    public partial class Warranty
+    {
+
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace RADwebApp.Forms.RepairPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
+
         /// <summary>
         /// hlWarrantyHome control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace RADwebApp.Forms.RepairPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hlWarrantyHome;
-        
+
         /// <summary>
         /// hlWarrantyAllRepairs control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace RADwebApp.Forms.RepairPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hlWarrantyAllRepairs;
-        
+
         /// <summary>
         /// hlWarrantyOrder control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace RADwebApp.Forms.RepairPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hlWarrantyOrder;
-        
+
         /// <summary>
         /// btnNewWarranty control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace RADwebApp.Forms.RepairPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnNewWarranty;
-        
+
         /// <summary>
         /// gvWarranty control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace RADwebApp.Forms.RepairPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvWarranty;
-        
+
         /// <summary>
         /// dvNewWarranty control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace RADwebApp.Forms.RepairPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DetailsView dvNewWarranty;
-        
+
         /// <summary>
         /// btnSubmit control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace RADwebApp.Forms.RepairPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSubmit;
-        
+
         /// <summary>
         /// dbWarranty control.
         /// </summary>
