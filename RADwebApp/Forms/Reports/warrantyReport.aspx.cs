@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using aLibrary;
+using aLibrary.EmmasDataSetTableAdapters;
 
 namespace RADwebApp.Forms.Reports
 {
@@ -11,7 +14,22 @@ namespace RADwebApp.Forms.Reports
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            lblMessage.Visible = false;
+        }
 
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            gvWarrantyReport.DataBind();
+
+            if( gvWarrantyReport.Rows.Count != 0)
+            {
+                lblMessage.Visible = false;
+            }
+            else
+            {
+                lblMessage.Text = "The Order/Customer you searched has no warranties.";
+                lblMessage.Visible = true;
+            }
         }
     }
 }

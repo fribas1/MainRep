@@ -49,7 +49,6 @@ namespace RADwebApp.Forms.Sales
             txtOrderNumber.Text = Convert.ToString(orderNum);
             txtOrderDate.Text = date.ToString("MM/dd/yyyy");
             txtQuantity.Text = Convert.ToString(1);
-            lbltest.Text = Convert.ToString(lastID);
         }
         protected void btnLogout_Click(object sender, EventArgs e)
         {
