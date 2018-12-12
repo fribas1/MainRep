@@ -105,7 +105,6 @@
                     <asp:BoundField DataField="Equipment Type" HeaderText="Equipment Type" SortExpression="Equipment Type" />
                     <asp:BoundField DataField="Order Number" HeaderText="Order Number" SortExpression="Order Number" />
                     <asp:BoundField DataField="Order Date" HeaderText="Order Date" SortExpression="Order Date" />
-                    <asp:CheckBoxField DataField="Paid?" HeaderText="Paid?" SortExpression="Paid?" />
                 </Columns>
             </asp:GridView>
             <br />
@@ -160,7 +159,7 @@
                 </div>
             <br />
             <br />
-            <asp:ObjectDataSource ID="dbOrderTools" runat="server" DataObjectTypeName="aLibrary.EmmasDataSet+orderToolsSelectDataTable" InsertMethod="Fill" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.orderToolsSelectTableAdapter"></asp:ObjectDataSource>
+            <asp:ObjectDataSource ID="dbOrderTools" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.orderToolsSelectTableAdapter"></asp:ObjectDataSource>
         </div>
     </form>
 </body>
