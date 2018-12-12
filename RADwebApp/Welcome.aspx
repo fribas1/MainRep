@@ -72,7 +72,8 @@
                                 <a class="dropdown-item" href="#">Reports</a>
                                 <a class="dropdown-item" href="Forms/RepairPages/Warranty.aspx">Warranty Records</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Policies</a>
+                                
+                                <a class="dropdown-item" href="Forms/RepairPages/Policies.aspx">Policies</a>
                             </div>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
