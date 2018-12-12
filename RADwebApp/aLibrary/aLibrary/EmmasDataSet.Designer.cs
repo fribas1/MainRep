@@ -23432,7 +23432,6 @@ WHERE        (product.id = @prodID)";
         public virtual EmmasDataSet.orderToolsSelectDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             EmmasDataSet.orderToolsSelectDataTable dataTable = new EmmasDataSet.orderToolsSelectDataTable();
-            this.Adapter.Fill(dataTable);
             return dataTable;
         }
     }
