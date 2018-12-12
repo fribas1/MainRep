@@ -121,6 +121,7 @@
     <Content Include="Forms\RepairPages\AllRepairs.aspx" />
     <Content Include="Forms\RepairPages\OrderTools.aspx" />
     <Content Include="Forms\RepairPages\Warranty.aspx" />
+    <Content Include="Forms\Reports\warrantyReport.aspx" />
     <Content Include="Forms\Reports\weeklyReport.aspx" />
     <Content Include="Forms\Sales\SalesNew.aspx" />
     <Content Include="Forms\Reports\SalesRepairReport.aspx" />
@@ -211,6 +212,13 @@
     </Compile>
     <Compile Include="Forms\Inventory\Inventory.aspx.designer.cs">
       <DependentUpon>Inventory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reports\warrantyReport.aspx.cs">
+      <DependentUpon>warrantyReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\warrantyReport.aspx.designer.cs">
+      <DependentUpon>warrantyReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Reports\weeklyReport.aspx.cs">
       <DependentUpon>weeklyReport.aspx</DependentUpon>
