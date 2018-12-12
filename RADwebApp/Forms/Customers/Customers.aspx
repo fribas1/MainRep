@@ -68,10 +68,15 @@
                     </asp:TemplateField>
                     <asp:BoundField DataField="custName" HeaderText="Name" ReadOnly="True" SortExpression="custName" />
                     <asp:BoundField DataField="custEmail" HeaderText="E-mail" SortExpression="custEmail" />
-                    <asp:BoundField DataField="custCity" HeaderText="City" ReadOnly="True" SortExpression="custCity" />
-                    <asp:HyperLinkField DataNavigateUrlFields="id, custFirst, custLast"
+                    <asp:BoundField DataField="custCity" HeaderText="City" ReadOnly="True" SortExpression="custCity" />                    
+                    <%--<asp:HyperLinkField DataNavigateUrlFields="id, custFirst, custLast"
                     DataNavigateUrlFormatString="CustomerOrders.aspx?id={0}&first={1}&last={2}"
-                      Text="New Order" />
+                      Text="New Order" />--%>
+                    <asp:TemplateField ShowHeader="False">
+                        <ItemTemplate>
+                            <asp:LinkButton ID="lnkNewOrder" OnClick="lnkNewOrder_Click" runat="server" CausesValidation="false" CommandName="" Text="New Order"></asp:LinkButton>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:HyperLinkField DataNavigateUrlFields="id, custFirst, custLast"
                     DataNavigateUrlFormatString="CustomerOrders.aspx?id={0}&first={1}&last={2}"
                       Text="View Orders" />

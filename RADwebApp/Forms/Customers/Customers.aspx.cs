@@ -53,6 +53,11 @@ namespace RADwebApp.Forms.CustomerPages
             Response.Redirect("~/Forms/Customers/CustomerDetails.aspx?mode=" + edit + "&id=" + id);
         }
 
+        protected void lnkNewOrder_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Forms/Sales/SalesNew.aspx");
+        }
+
         protected void dvCustomerNew_ItemCommand(object sender, DetailsViewCommandEventArgs e)
         {
             this.gvCustomers.Visible = true;
