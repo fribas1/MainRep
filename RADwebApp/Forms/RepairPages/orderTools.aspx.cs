@@ -71,6 +71,13 @@ namespace RADwebApp.Forms.RepairPages
             btnNewOrder.Visible = true;
             gvToolOrders.Visible = true;
         }
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+            authenticationManager.SignOut();
+            Response.Redirect("~/Login.aspx");
+        }
+
 
         protected void btnNewOrder_Click(object sender, EventArgs e)
         {
