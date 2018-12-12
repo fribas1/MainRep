@@ -105,7 +105,7 @@
             <asp:GridView CssClass="table table-striped table-bordered table-responsive-lg" ID="gvWarranty" runat="server" AutoGenerateColumns="False" DataSourceID="dbWarranty">
                 <Columns>
                     <asp:BoundField DataField="Customer" HeaderText="Customer" ReadOnly="True" SortExpression="Customer" />
-                    <asp:CheckBoxField DataField="Warranty" HeaderText="Warranty" SortExpression="Warranty" Text="Yes" />
+                    <asp:CheckBoxField DataField="Warranty" HeaderText="Warranty" SortExpression="Warranty" />
                     <asp:BoundField DataField="Service" HeaderText="Service" SortExpression="Service" />
                 </Columns>
             </asp:GridView>
@@ -117,14 +117,7 @@
             <br />
             <br />
             <br />
-            <asp:ObjectDataSource ID="dbWarranty" runat="server" InsertMethod="Fill" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.WarrantyTableAdapter">
-                <InsertParameters>
-                    <asp:Parameter Name="dataTable" Type="Object" />
-                    <asp:Parameter Name="Param1" Type="Boolean" />
-                </InsertParameters>
-                <SelectParameters>
-                    <asp:Parameter DefaultValue="True" Name="Param1" Type="Boolean" />
-                </SelectParameters>
+            <asp:ObjectDataSource ID="dbWarranty" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.WarrantyTableAdapter">
             </asp:ObjectDataSource>
         </div>
     </form>

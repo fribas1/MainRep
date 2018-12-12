@@ -23846,43 +23846,16 @@ WHERE        (product.id = @prodID)";
             this._commandCollection[0].CommandText = @"SELECT        customer.custFirst + ' ' + customer.custLast AS Customer, service_order.serordWarranty AS Warranty, service.serName AS Service
 FROM            customer INNER JOIN
                          service_order ON customer.id = service_order.id INNER JOIN
-                         service ON service_order.serviceID = service.id
-WHERE        (service_order.serordWarranty = @Param1)";
+                         service ON service_order.serviceID = service.id";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Param1", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "Warranty", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(EmmasDataSet.WarrantyDataTable dataTable, global::System.Nullable<bool> Param1) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Param1.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((bool)(Param1.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual EmmasDataSet.WarrantyDataTable GetData(global::System.Nullable<bool> Param1) {
+        public virtual EmmasDataSet.WarrantyDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Param1.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((bool)(Param1.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
             EmmasDataSet.WarrantyDataTable dataTable = new EmmasDataSet.WarrantyDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
