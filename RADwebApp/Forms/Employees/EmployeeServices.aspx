@@ -10,9 +10,12 @@
     <form id="form1" runat="server">
         <h2><%=Request.QueryString["first"] + " " + Request.QueryString["last"] + "'s Services" %></h2>        
         <div>
+                        <div class="container mt-4">
+            <div class="row">
+            <div class="col-lg-6 text-center m-auto">
             <asp:Panel runat="server" ID="panelRepairs" Visible="False">
                 <h3>Repairs</h3>
-                <asp:GridView ID="gvEmployeeRepairs" runat="server" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="dsEmployeeRepairs">
+                <asp:GridView CssClass="table table-striped table-bordered table-responsive-lg" ID="gvEmployeeRepairs" runat="server" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="dsEmployeeRepairs">
                     <Columns>
                         <asp:BoundField DataField="ordNumber" HeaderText="Order #" SortExpression="ordNumber" />
                         <asp:BoundField DataField="ordDate" HeaderText="Date" SortExpression="ordDate" DataFormatString="{0:d}" />
@@ -24,10 +27,19 @@
                         This employee has no repairs services.
                     </EmptyDataTemplate>
                 </asp:GridView>
-            </asp:Panel>            
+
+            </asp:Panel>  
+                                </div>
+                </div>
+                </div>
+
+
+                                        <div class="container mt-4">
+            <div class="row">
+            <div class="col-lg-6 text-center m-auto">
             <asp:Panel runat="server" ID="panelSales" Visible="False">
                 <h3>Sales</h3>
-                <asp:GridView ID="gvEmployeeSales" runat="server" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="dsEmployeeSales">
+                <asp:GridView CssClass="table table-striped table-bordered table-responsive-lg" ID="gvEmployeeSales" runat="server" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="dsEmployeeSales">
                     <Columns>
                         <asp:BoundField DataField="ordNumber" HeaderText="Order #" SortExpression="ordNumber" />
                         <asp:BoundField DataField="ordDate" HeaderText="Date" SortExpression="ordDate" DataFormatString="{0:d}" />
@@ -41,6 +53,11 @@
                     </EmptyDataTemplate>
                 </asp:GridView>
             </asp:Panel>
+                                                </div>
+                </div>
+                </div>
+
+
             <asp:Panel runat="server" ID="panelNone" Visible="False">
                 <p>This employee is not directly related to any Sales or Repairs services.</p>
             </asp:Panel>

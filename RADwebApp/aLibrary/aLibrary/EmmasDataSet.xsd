@@ -897,6 +897,67 @@ FROM            receipt INNER JOIN
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="weeklySaleReportTableAdapter" GeneratorDataComponentClassName="weeklySaleReportTableAdapter" Name="weeklySaleReport" UserDataComponentName="weeklySaleReportTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="EmmasConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        receipt.ordNumber, receipt.ordDate, payment.payType, order_line.orlPrice, order_line.orlQuantity, order_line.orlQuantity * order_line.orlPrice AS orlTotal, employee.empFirst + ' ' + employee.empLast AS empFull, 
+                         customer.custFirst + ' ' + customer.custLast AS custFull
+FROM            receipt INNER JOIN
+                         order_line ON receipt.id = order_line.receiptID INNER JOIN
+                         employee ON receipt.empID = employee.id INNER JOIN
+                         customer ON receipt.custID = customer.id INNER JOIN
+                         payment ON receipt.paymentID = payment.id
+WHERE        (receipt.ordDate &gt;= DATEADD(day, - 7, GETDATE())) AND (receipt.ordDate &lt; GETDATE())
+ORDER BY receipt.ordNumber DESC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ordNumber" DataSetColumn="ordNumber" />
+              <Mapping SourceColumn="ordDate" DataSetColumn="ordDate" />
+              <Mapping SourceColumn="payType" DataSetColumn="payType" />
+              <Mapping SourceColumn="orlPrice" DataSetColumn="orlPrice" />
+              <Mapping SourceColumn="orlQuantity" DataSetColumn="orlQuantity" />
+              <Mapping SourceColumn="orlTotal" DataSetColumn="orlTotal" />
+              <Mapping SourceColumn="empFull" DataSetColumn="empFull" />
+              <Mapping SourceColumn="custFull" DataSetColumn="custFull" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="weeklyRepairReportTableAdapter" GeneratorDataComponentClassName="weeklyRepairReportTableAdapter" Name="weeklyRepairReport" UserDataComponentName="weeklyRepairReportTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="EmmasConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        { fn CONCAT(customer.custFirst + ' ', customer.custLast) } AS custFull, { fn CONCAT(employee.empFirst + ' ', employee.empLast) } AS empLast, receipt.ordDate AS [Order Date], service.serName AS Service, 
+                         service_order.serordDateIn AS [Date IN], service_order.serordDateOut AS [Date OUT], service_order.serordIssue AS [Issue description], service.serPrice
+FROM            receipt INNER JOIN
+                         service_order ON receipt.id = service_order.receiptID INNER JOIN
+                         service ON service_order.serviceID = service.id INNER JOIN
+                         employee ON receipt.empID = employee.id INNER JOIN
+                         customer ON receipt.custID = customer.id
+WHERE        (receipt.ordDate &gt;= DATEADD(day, - 7, GETDATE())) AND (receipt.ordDate &lt; GETDATE())</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Order Date" DataSetColumn="Order Date" />
+              <Mapping SourceColumn="Service" DataSetColumn="Service" />
+              <Mapping SourceColumn="Date IN" DataSetColumn="Date IN" />
+              <Mapping SourceColumn="Date OUT" DataSetColumn="Date OUT" />
+              <Mapping SourceColumn="Issue description" DataSetColumn="Issue description" />
+              <Mapping SourceColumn="serPrice" DataSetColumn="serPrice" />
+              <Mapping SourceColumn="custFull" DataSetColumn="custFull" />
+              <Mapping SourceColumn="empLast" DataSetColumn="empLast" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -1685,6 +1746,82 @@ FROM            receipt INNER JOIN
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="weeklySaleReport" msprop:Generator_TableClassName="weeklySaleReportDataTable" msprop:Generator_TableVarName="tableweeklySaleReport" msprop:Generator_TablePropName="weeklySaleReport" msprop:Generator_RowDeletingName="weeklySaleReportRowDeleting" msprop:Generator_RowChangingName="weeklySaleReportRowChanging" msprop:Generator_RowEvHandlerName="weeklySaleReportRowChangeEventHandler" msprop:Generator_RowDeletedName="weeklySaleReportRowDeleted" msprop:Generator_UserTableName="weeklySaleReport" msprop:Generator_RowChangedName="weeklySaleReportRowChanged" msprop:Generator_RowEvArgName="weeklySaleReportRowChangeEvent" msprop:Generator_RowClassName="weeklySaleReportRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ordNumber" msprop:Generator_ColumnVarNameInTable="columnordNumber" msprop:Generator_ColumnPropNameInRow="ordNumber" msprop:Generator_ColumnPropNameInTable="ordNumberColumn" msprop:Generator_UserColumnName="ordNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ordDate" msprop:Generator_ColumnVarNameInTable="columnordDate" msprop:Generator_ColumnPropNameInRow="ordDate" msprop:Generator_ColumnPropNameInTable="ordDateColumn" msprop:Generator_UserColumnName="ordDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="payType" msprop:Generator_ColumnVarNameInTable="columnpayType" msprop:Generator_ColumnPropNameInRow="payType" msprop:Generator_ColumnPropNameInTable="payTypeColumn" msprop:Generator_UserColumnName="payType" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="orlPrice" msprop:Generator_ColumnVarNameInTable="columnorlPrice" msprop:Generator_ColumnPropNameInRow="orlPrice" msprop:Generator_ColumnPropNameInTable="orlPriceColumn" msprop:Generator_UserColumnName="orlPrice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="orlQuantity" msprop:Generator_ColumnVarNameInTable="columnorlQuantity" msprop:Generator_ColumnPropNameInRow="orlQuantity" msprop:Generator_ColumnPropNameInTable="orlQuantityColumn" msprop:Generator_UserColumnName="orlQuantity" type="xs:int" minOccurs="0" />
+              <xs:element name="orlTotal" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnorlTotal" msprop:Generator_ColumnPropNameInRow="orlTotal" msprop:Generator_ColumnPropNameInTable="orlTotalColumn" msprop:Generator_UserColumnName="orlTotal" type="xs:decimal" minOccurs="0" />
+              <xs:element name="empFull" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnempFull" msprop:Generator_ColumnPropNameInRow="empFull" msprop:Generator_ColumnPropNameInTable="empFullColumn" msprop:Generator_UserColumnName="empFull" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="81" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="custFull" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columncustFull" msprop:Generator_ColumnPropNameInRow="custFull" msprop:Generator_ColumnPropNameInTable="custFullColumn" msprop:Generator_UserColumnName="custFull" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="81" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="weeklyRepairReport" msprop:Generator_TableClassName="weeklyRepairReportDataTable" msprop:Generator_TableVarName="tableweeklyRepairReport" msprop:Generator_TablePropName="weeklyRepairReport" msprop:Generator_RowDeletingName="weeklyRepairReportRowDeleting" msprop:Generator_RowChangingName="weeklyRepairReportRowChanging" msprop:Generator_RowEvHandlerName="weeklyRepairReportRowChangeEventHandler" msprop:Generator_RowDeletedName="weeklyRepairReportRowDeleted" msprop:Generator_UserTableName="weeklyRepairReport" msprop:Generator_RowChangedName="weeklyRepairReportRowChanged" msprop:Generator_RowEvArgName="weeklyRepairReportRowChangeEvent" msprop:Generator_RowClassName="weeklyRepairReportRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Order_x0020_Date" msprop:Generator_ColumnVarNameInTable="columnOrder_Date" msprop:Generator_ColumnPropNameInRow="Order_Date" msprop:Generator_ColumnPropNameInTable="Order_DateColumn" msprop:Generator_UserColumnName="Order Date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Service" msprop:Generator_ColumnVarNameInTable="columnService" msprop:Generator_ColumnPropNameInRow="Service" msprop:Generator_ColumnPropNameInTable="ServiceColumn" msprop:Generator_UserColumnName="Service" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Date_x0020_IN" msprop:Generator_ColumnVarNameInTable="columnDate_IN" msprop:Generator_ColumnPropNameInRow="Date_IN" msprop:Generator_ColumnPropNameInTable="Date_INColumn" msprop:Generator_UserColumnName="Date IN" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Date_x0020_OUT" msprop:Generator_ColumnVarNameInTable="columnDate_OUT" msprop:Generator_ColumnPropNameInRow="Date_OUT" msprop:Generator_ColumnPropNameInTable="Date_OUTColumn" msprop:Generator_UserColumnName="Date OUT" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Issue_x0020_description" msprop:Generator_ColumnVarNameInTable="columnIssue_description" msprop:Generator_ColumnPropNameInRow="Issue_description" msprop:Generator_ColumnPropNameInTable="Issue_descriptionColumn" msprop:Generator_UserColumnName="Issue description" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="serPrice" msprop:Generator_ColumnVarNameInTable="columnserPrice" msprop:Generator_ColumnPropNameInRow="serPrice" msprop:Generator_ColumnPropNameInTable="serPriceColumn" msprop:Generator_UserColumnName="serPrice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="custFull" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columncustFull" msprop:Generator_ColumnPropNameInRow="custFull" msprop:Generator_ColumnPropNameInTable="custFullColumn" msprop:Generator_UserColumnName="custFull" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="81" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="empLast" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnempLast" msprop:Generator_ColumnPropNameInRow="empLast" msprop:Generator_ColumnPropNameInTable="empLastColumn" msprop:Generator_UserColumnName="empLast" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="81" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

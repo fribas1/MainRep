@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RADwebApp.Forms.RepairPages {
+namespace RADwebApp.Forms.Reports {
     
     
-    public partial class AllRepairs {
+    public partial class weeklyReport {
         
         /// <summary>
         /// form1 control.
@@ -22,57 +22,39 @@ namespace RADwebApp.Forms.RepairPages {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// btnLogout control.
+        /// gvWeeklySaleReport control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogout;
+        protected global::System.Web.UI.WebControls.GridView gvWeeklySaleReport;
         
         /// <summary>
-        /// hlAllHome control.
+        /// GridView2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlAllHome;
+        protected global::System.Web.UI.WebControls.GridView GridView2;
         
         /// <summary>
-        /// hlAllOrder control.
+        /// dsWeeklySaleReport control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlAllOrder;
+        protected global::System.Web.UI.WebControls.ObjectDataSource dsWeeklySaleReport;
         
         /// <summary>
-        /// hlAllWarranty control.
+        /// ObjectDataSource1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlAllWarranty;
-        
-        /// <summary>
-        /// gvAllRepairs control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvAllRepairs;
-        
-        /// <summary>
-        /// dsAllRepairs control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource dsAllRepairs;
+        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSource1;
     }
 }
