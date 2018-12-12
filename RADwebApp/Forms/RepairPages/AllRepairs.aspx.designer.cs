@@ -31,15 +31,6 @@ namespace RADwebApp.Forms.RepairPages {
         protected global::System.Web.UI.WebControls.Button btnLogout;
         
         /// <summary>
-        /// hlAllHome control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlAllHome;
-        
-        /// <summary>
         /// hlAllOrder control.
         /// </summary>
         /// <remarks>
