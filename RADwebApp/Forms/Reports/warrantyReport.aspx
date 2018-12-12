@@ -56,14 +56,14 @@
                 </tr>
                 <tr>
                     <td class="auto-style3">
-                        <asp:Button ID="btnSearch" runat="server" Text="Search" />
+                        <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" />
                     </td>
                     <td class="auto-style4">&nbsp;</td>
                     <td class="auto-style5">&nbsp;</td>
                 </tr>
             </table>
             <br />
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="dsWarrantyReport" ForeColor="#333333" GridLines="None">
+            <asp:GridView ID="gvWarrantyReport" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="dsWarrantyReport" ForeColor="#333333" GridLines="None">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:BoundField DataField="ordNumber" HeaderText="Order #" SortExpression="ordNumber" />
@@ -82,6 +82,8 @@
                 <SortedDescendingCellStyle BackColor="#E9EBEF" />
                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
             </asp:GridView>
+            <asp:Label ID="lblMessage" runat="server" Text="Label"></asp:Label>
+            <br />
             <br />
             <asp:ObjectDataSource ID="dsWarrantyReport" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.warrantyReportTableAdapter">
                 <SelectParameters>

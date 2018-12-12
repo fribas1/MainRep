@@ -49,13 +49,22 @@ namespace RADwebApp.Forms.Reports {
         protected global::System.Web.UI.WebControls.Button btnSearch;
         
         /// <summary>
-        /// GridView1 control.
+        /// gvWarrantyReport control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView gvWarrantyReport;
+        
+        /// <summary>
+        /// lblMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMessage;
         
         /// <summary>
         /// dsWarrantyReport control.

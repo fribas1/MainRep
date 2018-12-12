@@ -82,21 +82,20 @@
                 </div>
             </nav>
 
+        <%--NAV BAR END--%>
 
-
-        <div>
-            <span class="auto-style1"><strong>All Repairs</strong></span><br />
+        <div class="container">
+            <H3 class="mt-4">Repairs</H3>
             <br />
-            <asp:HyperLink ID="hlAllHome" runat="server" NavigateUrl="~/Welcome.aspx">Home</asp:HyperLink>
+           
+            <asp:HyperLink CssClass="btn btn-light" ID="hlAllOrder" runat="server" NavigateUrl="~/Forms/RepairPages/OrderTools.aspx">Order Tools</asp:HyperLink>
             &nbsp;&nbsp;&nbsp;
            
-            <asp:HyperLink ID="hlAllOrder" runat="server" NavigateUrl="~/Forms/RepairPages/OrderTools.aspx">Order Tools</asp:HyperLink>
+            <asp:HyperLink CssClass="btn btn-light" ID="hlAllWarranty" runat="server" NavigateUrl="~/Forms/RepairPages/Warranty.aspx">Warranty</asp:HyperLink>
             &nbsp;&nbsp;&nbsp;
-           
-            <asp:HyperLink ID="hlAllWarranty" runat="server" NavigateUrl="~/Forms/RepairPages/Warranty.aspx">Warranty</asp:HyperLink>
+            <input class="btn btn-light" id="Button1" type="button" value="Create new " /><br />
             <br />
-            <br />
-            <asp:GridView ID="gvAllRepairs" runat="server" AutoGenerateColumns="False" DataSourceID="dsAllRepairs">
+            <asp:GridView CssClass="table table-striped table-bordered table-responsive-lg" ID="gvAllRepairs" runat="server" AutoGenerateColumns="False" DataSourceID="dsAllRepairs">
                 <Columns>
                     <asp:BoundField DataField="Customer" HeaderText="Customer" SortExpression="Customer" />
                     <asp:BoundField DataField="Employee" HeaderText="Employee" SortExpression="Employee" />
@@ -107,6 +106,7 @@
                     <asp:BoundField DataField="Issue description" HeaderText="Issue description" SortExpression="Issue description" />
                 </Columns>
             </asp:GridView>
+            <br />
             <br />
             <asp:ObjectDataSource ID="dsAllRepairs" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.AllRepairsTableAdapter"></asp:ObjectDataSource>
         </div>
