@@ -30,5 +30,12 @@ namespace RADwebApp.Forms.Reports
             else
                 this.panelRepair.Visible = false;
         }
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+            authenticationManager.SignOut();
+            Response.Redirect("~/Login.aspx");
+        }
+
     }
 }
