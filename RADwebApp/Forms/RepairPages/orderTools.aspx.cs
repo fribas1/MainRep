@@ -20,18 +20,20 @@ namespace RADwebApp.Forms.RepairPages
             orderToolsSelectTableAdapter daOrderTools = new orderToolsSelectTableAdapter();
             try
             {
-                daOrderTools.Fill(dsEmmas.orderToolsSelect);
+                //daOrderTools.Fill(dsEmmas.orderToolsSelect);
 
             }
             catch { }
         }
 
-
+        
 
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (this.IsPostBack) return;
+
+            gvToolOrders.Visible = true;
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -44,7 +46,7 @@ namespace RADwebApp.Forms.RepairPages
             string inpEqpMod = Convert.ToString(txtEqpMod.Text);
             string inpEqpSerial = Convert.ToString(txtEqpSerial.Text);
             string inpEqpType = Convert.ToString(txtEqpType.Text);
-            string inpOrdDate = Convert.ToString(txtOrdDate.Text);
+            DateTime inpOrdDate = Convert.ToDateTime(txtOrdDate.Text);
             string inpOrdNo = Convert.ToString(txtOrdNo.Text);
             bool inpPaid = Convert.ToBoolean(txtPaid.Text);
 

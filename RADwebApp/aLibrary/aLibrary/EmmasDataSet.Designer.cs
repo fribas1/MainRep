@@ -9170,6 +9170,8 @@ namespace aLibrary {
             
             private global::System.Data.DataColumn _columnPaid_;
             
+            private global::System.Data.DataColumn columnCustomer_Last_name;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public orderToolsSelectDataTable() {
@@ -9285,6 +9287,14 @@ namespace aLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn Customer_Last_nameColumn {
+                get {
+                    return this.columnCustomer_Last_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -9320,7 +9330,7 @@ namespace aLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public orderToolsSelectRow AddorderToolsSelectRow(string Customer_First_Name, string Customer_Last_Name, string Employee_First_Name, string Employee_Last_Name, string Equipment_Model, string Equipment_Serial_No, string Equipment_Type, string Order_Number, System.DateTime Order_Date, bool _Paid_) {
+            public orderToolsSelectRow AddorderToolsSelectRow(string Customer_First_Name, string Customer_Last_Name, string Employee_First_Name, string Employee_Last_Name, string Equipment_Model, string Equipment_Serial_No, string Equipment_Type, string Order_Number, System.DateTime Order_Date, bool _Paid_, string Customer_Last_name1) {
                 orderToolsSelectRow roworderToolsSelectRow = ((orderToolsSelectRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Customer_First_Name,
@@ -9332,7 +9342,8 @@ namespace aLibrary {
                         Equipment_Type,
                         Order_Number,
                         Order_Date,
-                        _Paid_};
+                        _Paid_,
+                        Customer_Last_name1};
                 roworderToolsSelectRow.ItemArray = columnValuesArray;
                 this.Rows.Add(roworderToolsSelectRow);
                 return roworderToolsSelectRow;
@@ -9365,6 +9376,7 @@ namespace aLibrary {
                 this.columnOrder_Number = base.Columns["Order Number"];
                 this.columnOrder_Date = base.Columns["Order Date"];
                 this._columnPaid_ = base.Columns["Paid?"];
+                this.columnCustomer_Last_name = base.Columns["Customer Last name"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9392,6 +9404,8 @@ namespace aLibrary {
                 this._columnPaid_.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnPaid_");
                 this._columnPaid_.ExtendedProperties.Add("Generator_UserColumnName", "Paid?");
                 base.Columns.Add(this._columnPaid_);
+                this.columnCustomer_Last_name = new global::System.Data.DataColumn("Customer Last name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCustomer_Last_name);
                 this.columnCustomer_First_Name.MaxLength = 30;
                 this.columnCustomer_Last_Name.MaxLength = 50;
                 this.columnEmployee_First_Name.MaxLength = 30;
@@ -9400,6 +9414,7 @@ namespace aLibrary {
                 this.columnEquipment_Serial_No.MaxLength = 30;
                 this.columnEquipment_Type.MaxLength = 30;
                 this.columnOrder_Number.MaxLength = 20;
+                this.columnCustomer_Last_name.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14194,6 +14209,22 @@ namespace aLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Customer_Last_name {
+                get {
+                    try {
+                        return ((string)(this[this.tableorderToolsSelect.Customer_Last_nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Customer Last name\' in table \'orderToolsSelect\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableorderToolsSelect.Customer_Last_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsCustomer_First_NameNull() {
                 return this.IsNull(this.tableorderToolsSelect.Customer_First_NameColumn);
             }
@@ -14310,6 +14341,18 @@ namespace aLibrary {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void Set_Paid_Null() {
                 this[this.tableorderToolsSelect._Paid_Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsCustomer_Last_nameNull() {
+                return this.IsNull(this.tableorderToolsSelect.Customer_Last_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetCustomer_Last_nameNull() {
+                this[this.tableorderToolsSelect.Customer_Last_nameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -21393,6 +21436,7 @@ WHERE        (product.id = @prodID)";
             tableMapping.ColumnMappings.Add("Order Number", "Order Number");
             tableMapping.ColumnMappings.Add("Order Date", "Order Date");
             tableMapping.ColumnMappings.Add("Paid?", "Paid?");
+            tableMapping.ColumnMappings.Add("Customer Last name", "Customer Last name");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -21411,20 +21455,7 @@ WHERE        (product.id = @prodID)";
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "dbo.sp_orderToolsSelect";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Variant, 0, global::System.Data.ParameterDirection.ReturnValue, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(EmmasDataSet.orderToolsSelectDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -21434,7 +21465,6 @@ WHERE        (product.id = @prodID)";
         public virtual EmmasDataSet.orderToolsSelectDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             EmmasDataSet.orderToolsSelectDataTable dataTable = new EmmasDataSet.orderToolsSelectDataTable();
-            this.Adapter.Fill(dataTable);
             return dataTable;
         }
     }
