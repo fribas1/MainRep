@@ -36,7 +36,7 @@ namespace RADwebApp.Forms.RepairPages
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-
+            /*
             string inpCustFirst = Convert.ToString(txtCustFirst.Text);
             string inpCustLast = Convert.ToString(txtCustLast.Text);
             string inpEmpFirst = Convert.ToString(txtEmpFirst.Text);
@@ -66,7 +66,7 @@ namespace RADwebApp.Forms.RepairPages
                 dsEmmas.orderToolsSelect.Rows.Add(drNew);
             }
             catch { }
-
+            */
             panelInsert.Visible = false;
             btnNewOrder.Visible = true;
             gvToolOrders.Visible = true;
