@@ -14,7 +14,7 @@ namespace RADwebApp.Forms.Sales
         {
             DataView salesTotalNum = (DataView)dsSalesTotalNum.Select();
             DataView repairsTotalNum = (DataView)dsRepairsTotalNum.Select();
-            DataView ordersTotalNum = (DataView)dsOrdersNum.Select();
+            DataView ordersTotalNum = (DataView)dsOrdersTotal.Select();
 
             this.txtSalesTotalNum.Text = salesTotalNum[0][0].ToString();
             this.txtRepairsTotalNum.Text = repairsTotalNum[0][0].ToString();

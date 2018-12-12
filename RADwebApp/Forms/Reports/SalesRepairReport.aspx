@@ -65,12 +65,13 @@
                 <h3>Repairs</h3>
                 <asp:GridView ID="gvRepairsReport" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="dsRepairsReport">
                     <Columns>
-                        <asp:BoundField DataField="ordNumber" HeaderText="Order #" SortExpression="ordNumber" />
-                        <asp:BoundField DataField="ordDate" HeaderText="Date" SortExpression="ordDate" DataFormatString="{0:d}" />
-                        <asp:BoundField DataField="payType" HeaderText="Payment" SortExpression="payType" />
-                        <asp:BoundField DataField="serPrice" HeaderText="Total" SortExpression="serPrice" />
-                        <asp:BoundField DataField="empName" HeaderText="Employee" SortExpression="empName" ReadOnly="True" />
-                        <asp:BoundField DataField="custName" HeaderText="Customer" SortExpression="custName" ReadOnly="True" />
+                        <asp:BoundField DataField="ordNumber" HeaderText="ordNumber" SortExpression="ordNumber" />
+                        <asp:BoundField DataField="ordDate" HeaderText="ordDate" SortExpression="ordDate" />
+                        <asp:BoundField DataField="payType" HeaderText="payType" SortExpression="payType" />
+                        <asp:BoundField DataField="empFull" HeaderText="empFull" SortExpression="empFull" ReadOnly="True" />
+                        <asp:BoundField DataField="custFull" HeaderText="custFull" SortExpression="custFull" ReadOnly="True" />
+                        <asp:BoundField DataField="serName" HeaderText="serName" SortExpression="serName" />
+                        <asp:BoundField DataField="serPrice" HeaderText="serPrice" SortExpression="serPrice" />
                     </Columns>
                     <EmptyDataTemplate>
                         No service has matched your criteria.
@@ -89,10 +90,10 @@
                 <h3>Orders</h3>
                 <asp:GridView ID="gvOrders" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="dsOrders">
                     <Columns>
-                        <asp:BoundField DataField="onordInvoiceNum" HeaderText="Invoice #" SortExpression="onordInvoiceNum" />
-                        <asp:BoundField DataField="onordArriveDate" HeaderText="Arriving Date" SortExpression="onordArriveDate" DataFormatString="{0:d}" />
-                        <asp:BoundField DataField="prodName" HeaderText="Product" SortExpression="prodName" ReadOnly="True" />
-                        <asp:BoundField DataField="onordNumInOrder" HeaderText="Quantity ordered" SortExpression="onordNumInOrder" />
+                        <asp:BoundField DataField="prodName" HeaderText="prodName" SortExpression="prodName" ReadOnly="True" />
+                        <asp:BoundField DataField="onordInvoiceNum" HeaderText="onordInvoiceNum" SortExpression="onordInvoiceNum" />
+                        <asp:BoundField DataField="onordArriveDate" HeaderText="onordArriveDate" SortExpression="onordArriveDate" />
+                        <asp:BoundField DataField="onordNumInOrder" HeaderText="onordNumInOrder" SortExpression="onordNumInOrder" />
                     </Columns>
                     <EmptyDataTemplate>
                         No order has matched your criteria.
@@ -151,7 +152,7 @@
                 <asp:ControlParameter ControlID="ddlPayment" DefaultValue="0" Name="payID" PropertyName="SelectedValue" Type="Int32" />
             </SelectParameters>
         </asp:ObjectDataSource>
-        <asp:ObjectDataSource ID="dsRepairsTotalAmount" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.repairsTotalAmountTableAdapter">
+        <asp:ObjectDataSource ID="dsRepairsTotalAmount" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.repairsTotalTableAdapter">
             <SelectParameters>
                 <asp:ControlParameter ControlID="ddlYears" DefaultValue="0" Name="year" PropertyName="SelectedValue" Type="Decimal" />
                 <asp:ControlParameter ControlID="ddlMonths" DefaultValue="0" Name="month" PropertyName="SelectedValue" Type="Decimal" />
@@ -165,13 +166,18 @@
                 <asp:ControlParameter ControlID="ddlPayment" DefaultValue="0" Name="payID" PropertyName="SelectedValue" Type="Int32" />
             </SelectParameters>
         </asp:ObjectDataSource>
-        <asp:ObjectDataSource ID="dsOrders" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.ordersTotalTableAdapter">
+        <asp:ObjectDataSource ID="dsOrders" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.ordersTableAdapter">
             <SelectParameters>
                 <asp:ControlParameter ControlID="ddlYears" DefaultValue="0" Name="year" PropertyName="SelectedValue" Type="Decimal" />
                 <asp:ControlParameter ControlID="ddlMonths" DefaultValue="0" Name="month" PropertyName="SelectedValue" Type="Decimal" />
             </SelectParameters>
         </asp:ObjectDataSource>
-        <asp:ObjectDataSource ID="dsOrdersNum" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.ordersTotalNumTableAdapter"></asp:ObjectDataSource>
+        <asp:ObjectDataSource ID="dsOrdersTotal" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.orderTotalTableAdapter">
+            <SelectParameters>
+                <asp:ControlParameter ControlID="ddlYears" DefaultValue="0" Name="year" PropertyName="SelectedValue" Type="Decimal" />
+                <asp:ControlParameter ControlID="ddlMonths" DefaultValue="0" Name="month" PropertyName="SelectedValue" Type="Decimal" />
+            </SelectParameters>
+        </asp:ObjectDataSource>
         <asp:ObjectDataSource ID="dsPayment" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.paymentTableAdapter"></asp:ObjectDataSource>
     </form>
 </body>
