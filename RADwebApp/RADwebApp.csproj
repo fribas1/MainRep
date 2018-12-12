@@ -93,6 +93,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <!--><<<<<<< Customers<-->
     <Content Include="App_Data\Emmas.mdf" />
     <Content Include="App_Data\Emmas_log.ldf">
       <DependentUpon>Emmas.mdf</DependentUpon>
@@ -101,7 +102,6 @@
     <Content Include="App_Data\Users_log.ldf">
       <DependentUpon>Users.mdf</DependentUpon>
     </Content>
-    <!--><<<<<<< Customers<-->
     <Content Include="Forms\Customers\CustomerDetails.aspx" />
     <!-->=======<-->
     <Content Include="Content\bootstrap-grid.css" />
