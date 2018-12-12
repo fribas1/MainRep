@@ -382,13 +382,13 @@ namespace RADwebApp.Forms.Sales {
         protected global::System.Web.UI.WebControls.ObjectDataSource dsOrders;
         
         /// <summary>
-        /// dsOrdersTotal control.
+        /// dsOrdersNum control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource dsOrdersTotal;
+        protected global::System.Web.UI.WebControls.ObjectDataSource dsOrdersNum;
         
         /// <summary>
         /// dsPayment control.
