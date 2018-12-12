@@ -15,6 +15,14 @@ namespace RADwebApp.Forms.Reports
             lblMessage.Visible = false;
         }
 
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+            authenticationManager.SignOut();
+            Response.Redirect("~/Login.aspx");
+        }
+
+
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             gvWarrantyReport.DataBind();
