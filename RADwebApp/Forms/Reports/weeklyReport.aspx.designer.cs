@@ -31,6 +31,24 @@ namespace RADwebApp.Forms.Reports {
         protected global::System.Web.UI.WebControls.GridView gvWeeklySaleReport;
         
         /// <summary>
+        /// panelSale control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panelSale;
+        
+        /// <summary>
+        /// txtTotalSaleAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTotalSaleAmount;
+        
+        /// <summary>
         /// GridView2 control.
         /// </summary>
         /// <remarks>
@@ -38,6 +56,24 @@ namespace RADwebApp.Forms.Reports {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridView2;
+        
+        /// <summary>
+        /// panelRepair control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panelRepair;
+        
+        /// <summary>
+        /// txtTotalRepairAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTotalRepairAmount;
         
         /// <summary>
         /// dsWeeklySaleReport control.
@@ -49,12 +85,30 @@ namespace RADwebApp.Forms.Reports {
         protected global::System.Web.UI.WebControls.ObjectDataSource dsWeeklySaleReport;
         
         /// <summary>
-        /// ObjectDataSource1 control.
+        /// dsWeeklyRepairReport control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSource1;
+        protected global::System.Web.UI.WebControls.ObjectDataSource dsWeeklyRepairReport;
+        
+        /// <summary>
+        /// dsTotalSaleAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource dsTotalSaleAmount;
+        
+        /// <summary>
+        /// dsTotalRepairAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource dsTotalRepairAmount;
     }
 }

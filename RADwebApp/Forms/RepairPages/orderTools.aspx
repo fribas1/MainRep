@@ -32,7 +32,7 @@
                     <asp:BoundField DataField="Employee First Name" HeaderText="Employee First Name" SortExpression="Employee First Name" />
                     <asp:BoundField DataField="Employee Last Name" HeaderText="Employee Last Name" SortExpression="Employee Last Name" />
                     <asp:BoundField DataField="Equipment Model" HeaderText="Equipment Model" SortExpression="Equipment Model" />
-                    <asp:BoundField DataField="Equipment Serial No_" HeaderText="Equipment Serial No_" SortExpression="Equipment Serial No_" />
+                    <asp:BoundField DataField="Equipment Serial No" HeaderText="Equipment Serial No" SortExpression="Equipment Serial No" />
                     <asp:BoundField DataField="Equipment Type" HeaderText="Equipment Type" SortExpression="Equipment Type" />
                     <asp:BoundField DataField="Order Number" HeaderText="Order Number" SortExpression="Order Number" />
                     <asp:BoundField DataField="Order Date" HeaderText="Order Date" SortExpression="Order Date" />
@@ -87,7 +87,7 @@
                 </div>
             <br />
             <br />
-            <asp:ObjectDataSource ID="dbOrderTools" runat="server" DataObjectTypeName="aLibrary.EmmasDataSet+sp_orderToolsSelectDataTable" InsertMethod="Fill" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.sp_orderToolsSelectTableAdapter"></asp:ObjectDataSource>
+            <asp:ObjectDataSource ID="dbOrderTools" runat="server" DataObjectTypeName="aLibrary.EmmasDataSet+orderToolsSelectDataTable" InsertMethod="Fill" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.orderToolsSelectTableAdapter"></asp:ObjectDataSource>
         </div>
     </form>
 </body>
