@@ -30,8 +30,7 @@
                                     { %>
                                 <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=edit">Edit</a>
                                 <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=delete">Remove</a>
-                                <% } %>
-                                <% } %>
+                                <% } %><% } %>
                             </div>
                         </li>
                         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Services</a>
@@ -56,8 +55,7 @@
                                 <%if (User.Identity.Name == "admin")
                                     { %>
                                 <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=delete">Remove</a>
-                                <% } %>
-                                <% } %>
+                                <% } %><% } %>
                             </div>
                         </li>
                         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Orders</a>
@@ -77,9 +75,8 @@
                         </li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                     </ul>
-                    <form class="form-inline my-2 my-lg-0">
+                    </nav>
                         <asp:Button runat="server" ID="btnLogout" OnClick="btnLogout_Click" CssClass="btn btn-outline-danger my-2 my-sm-0" Text="Log Out"></asp:Button>
-                    </form>
                 </div>
             </nav>        <%--END OF NAVIGATION--%>
 
@@ -113,54 +110,42 @@
             <br />
             <br />
             <br />
-            <div id="insertPanel" class="insertPanel">          
-            <asp:Panel ID="panelInsert" runat="server" Height="296px" Visible="False" Width="286px">
-                <div class="row">
-                <div class="form-group col-lg-4">
-                <asp:Label ID="lblCustFirst" runat="server" Text="Customer First Name:"></asp:Label>
-                <asp:TextBox CssClass="form-control" ID="txtCustFirst" runat="server"></asp:TextBox>
-                <br />
-                <asp:Label ID="lblCustLast" runat="server" Text="Customer Last Name:"></asp:Label>
-                <asp:TextBox CssClass="form-control" ID="txtCustLast" runat="server"></asp:TextBox>
-                <br />
-                <asp:Label ID="lblEmpFirst" runat="server" Text="Employee First Name:"></asp:Label>
-                <asp:TextBox CssClass="form-control" ID="txtEmpFirst" runat="server"></asp:TextBox>
-                <br />
-                <asp:Label ID="lblEmpLast" runat="server" Text="Employee Last Name:"></asp:Label>
-                <asp:TextBox CssClass="form-control" ID="txtEmpLast" runat="server"></asp:TextBox>
-                <br />
-                <asp:Label ID="lblEqpMod" runat="server" Text="Equipment Model:"></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:TextBox CssClass="form-control" ID="txtEqpMod" runat="server"></asp:TextBox>
-                <br />
-                <asp:Label ID="lblEqpSer" runat="server" Text="Equipment Serial No.:"></asp:Label>
-                &nbsp;<asp:TextBox CssClass="form-control" ID="txtEqpSerial" runat="server"></asp:TextBox>
-                <br />
-                <asp:Label ID="lblEqpType" runat="server" Text="Equipment Type:"></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:TextBox CssClass="form-control" ID="txtEqpType" runat="server"></asp:TextBox>
-                <br />
-                <asp:Label ID="lblOrdNum" runat="server" Text="Order Number:"></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:TextBox CssClass="form-control" ID="txtOrdNo" runat="server"></asp:TextBox>
-                <br />
-                <asp:Label ID="lblOrdDate" runat="server" Text="Order Date:"></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:TextBox CssClass="form-control" ID="txtOrdDate" runat="server"></asp:TextBox>
-                <br />
-                <asp:Label ID="lblPaid" runat="server" Text="Paid(true or false):"></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:TextBox CssClass="form-control" ID="txtPaid" runat="server"></asp:TextBox>
-                <br />
-                <asp:Button CssClass="btn btn-light" ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Submit" />
-                    </div>
-                    </div>
-            </asp:Panel>
+            <div id="insertPanel" class="insertPanel" >          
+                <asp:Label ID="lblCustFirst" runat="server" Text="Customer First Name"></asp:Label>
+                <asp:TextBox ID="txtCustFirst" runat="server"></asp:TextBox>
                 </div>
+            <asp:Label ID="lblCustLast" runat="server" Text="Customer Last Name"></asp:Label>
+            <asp:TextBox ID="txtCustLast" runat="server"></asp:TextBox>
             <br />
+            <asp:Label ID="lblEmpFirst" runat="server" Text="Employee First Name"></asp:Label>
+            <asp:TextBox ID="txtEmpFirst" runat="server"></asp:TextBox>
             <br />
+            <asp:Label ID="lblEmpLast" runat="server" Text="Employee Last Name"></asp:Label>
+            <asp:TextBox ID="txtEmpLast" runat="server"></asp:TextBox>
+            <br />
+            <asp:Label ID="lblEquipMod" runat="server" Text="Equipment Model"></asp:Label>
+            <asp:TextBox ID="txtEqpMod" runat="server"></asp:TextBox>
+            <br />
+            <asp:Label ID="lblEqpSerNo" runat="server" Text="Equipment Serial No"></asp:Label>
+            <asp:TextBox ID="txtEqpSerNo" runat="server"></asp:TextBox>
+            <br />
+            <asp:Label ID="lblEqpType" runat="server" Text="Equipment Type"></asp:Label>
+            <asp:TextBox ID="txtEqpType" runat="server"></asp:TextBox>
+            <br />
+            <asp:Label ID="lblOrNo" runat="server" Text="Order Number"></asp:Label>
+            <asp:TextBox ID="txtOrNo" runat="server"></asp:TextBox>
+            <br />
+            <asp:Label ID="lblOrDate" runat="server" Text="Order Date"></asp:Label>
+            <asp:TextBox ID="txtOrDate" runat="server"></asp:TextBox>
+            <br />
+            <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Submit" />
+            <br />
+
+
+            </div>
             <asp:ObjectDataSource ID="dbOrderTools" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.orderToolsSelectTableAdapter"></asp:ObjectDataSource>
-        </div>
+        
+    </form>
     </form>
 </body>
 </html>
