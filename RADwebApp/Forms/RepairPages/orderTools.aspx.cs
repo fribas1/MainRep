@@ -62,14 +62,34 @@ namespace RADwebApp.Forms.RepairPages
                 drNew.ItemArray[6] = inpEqpType;
                 drNew.ItemArray[7] = inpOrdDate;
                 drNew.ItemArray[8] = inpOrdNo;
-                drNew.ItemArray[9] = inpPaid;
                 dsEmmas.orderToolsSelect.Rows.Add(drNew);
             }
             catch { }
             */
-            panelInsert.Visible = false;
+            
             btnNewOrder.Visible = true;
             gvToolOrders.Visible = true;
+
+            lblCustFirst.Visible = false;
+            lblCustLast.Visible = false;
+            lblEmpFirst.Visible = false;
+            lblEmpLast.Visible = false;
+            lblEqpSerNo.Visible = false;
+            lblEqpType.Visible = false;
+            lblEquipMod.Visible = false;
+            lblOrDate.Visible = false;
+            lblOrNo.Visible = false;
+
+
+            txtCustFirst.Visible = false;
+            txtCustLast.Visible = false;
+            txtEmpFirst.Visible = false;
+            txtEmpLast.Visible = false;
+            txtEqpSerNo.Visible = false;
+            txtEqpType.Visible = false;
+            txtEqpMod.Visible = false;
+            txtOrDate.Visible = false;
+            txtOrNo.Visible = false;
         }
         protected void btnLogout_Click(object sender, EventArgs e)
         {
@@ -81,10 +101,32 @@ namespace RADwebApp.Forms.RepairPages
 
         protected void btnNewOrder_Click(object sender, EventArgs e)
         {
-            panelInsert.Visible = true;
+            
             btnNewOrder.Visible = false;
             gvToolOrders.Visible = false;
+            lblCustFirst.Visible = true;
+            lblCustLast.Visible = true;
+            lblEmpFirst.Visible = true;
+            lblEmpLast.Visible = true;
+            lblEqpSerNo.Visible = true;
+            lblEqpType.Visible = true;
+            lblEquipMod.Visible = true;
+            lblOrDate.Visible = true;
+            lblOrNo.Visible = true;
+
+ 
+            txtCustFirst.Visible = true;
+            txtCustLast.Visible = true;
+            txtEmpFirst.Visible = true;
+            txtEmpLast.Visible = true;
+            txtEqpSerNo.Visible = true;
+            txtEqpType.Visible = true;
+            txtEqpMod.Visible = true;
+            txtOrDate.Visible = true;
+            txtOrNo.Visible = true;
 
         }
+
+   
     }
 }

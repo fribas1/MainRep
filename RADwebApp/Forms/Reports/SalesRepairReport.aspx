@@ -69,8 +69,8 @@
                         <asp:BoundField DataField="ordDate" HeaderText="Date" SortExpression="ordDate" DataFormatString="{0:d}" />
                         <asp:BoundField DataField="payType" HeaderText="Payment" SortExpression="payType" />
                         <asp:BoundField DataField="serPrice" HeaderText="Total" SortExpression="serPrice" />
-                        <asp:BoundField DataField="empName" HeaderText="Employee" SortExpression="empName" ReadOnly="True" />
-                        <asp:BoundField DataField="custName" HeaderText="Customer" SortExpression="custName" ReadOnly="True" />
+                        <asp:BoundField DataField="empFull" HeaderText="Employee" SortExpression="empFull" ReadOnly="True" />
+                        <asp:BoundField DataField="custFull" HeaderText="Customer" SortExpression="custFull" ReadOnly="True" />
                     </Columns>
                     <EmptyDataTemplate>
                         No service has matched your criteria.
@@ -144,34 +144,39 @@
                 <asp:ControlParameter ControlID="ddlPayment" DefaultValue="0" Name="payID" PropertyName="SelectedValue" Type="Int32" />
             </SelectParameters>
         </asp:ObjectDataSource>
-        <asp:ObjectDataSource ID="dsRepairsReport" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.repairsReportTableAdapter">
+        <asp:ObjectDataSource ID="dsRepairsReport" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.repReportTableAdapter">
             <SelectParameters>
                 <asp:ControlParameter ControlID="ddlYears" DefaultValue="0" Name="year" PropertyName="SelectedValue" Type="Decimal" />
                 <asp:ControlParameter ControlID="ddlMonths" DefaultValue="0" Name="month" PropertyName="SelectedValue" Type="Decimal" />
                 <asp:ControlParameter ControlID="ddlPayment" DefaultValue="0" Name="payID" PropertyName="SelectedValue" Type="Int32" />
             </SelectParameters>
         </asp:ObjectDataSource>
-        <asp:ObjectDataSource ID="dsRepairsTotalAmount" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.repairsTotalAmountTableAdapter">
+        <asp:ObjectDataSource ID="dsRepairsTotalAmount" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.repTotalTableAdapter">
             <SelectParameters>
                 <asp:ControlParameter ControlID="ddlYears" DefaultValue="0" Name="year" PropertyName="SelectedValue" Type="Decimal" />
                 <asp:ControlParameter ControlID="ddlMonths" DefaultValue="0" Name="month" PropertyName="SelectedValue" Type="Decimal" />
                 <asp:ControlParameter ControlID="ddlPayment" DefaultValue="0" Name="payID" PropertyName="SelectedValue" Type="Int32" />
             </SelectParameters>
         </asp:ObjectDataSource>
-        <asp:ObjectDataSource ID="dsRepairsTotalNum" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.repairsTotalNumTableAdapter">
+        <asp:ObjectDataSource ID="dsRepairsTotalNum" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.repTotalNumTableAdapter">
             <SelectParameters>
                 <asp:ControlParameter ControlID="ddlYears" DefaultValue="0" Name="year" PropertyName="SelectedValue" Type="Decimal" />
                 <asp:ControlParameter ControlID="ddlMonths" DefaultValue="0" Name="month" PropertyName="SelectedValue" Type="Decimal" />
                 <asp:ControlParameter ControlID="ddlPayment" DefaultValue="0" Name="payID" PropertyName="SelectedValue" Type="Int32" />
             </SelectParameters>
         </asp:ObjectDataSource>
-        <asp:ObjectDataSource ID="dsOrders" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.ordersTotalTableAdapter">
+        <asp:ObjectDataSource ID="dsOrders" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.orderingTableAdapter">
             <SelectParameters>
                 <asp:ControlParameter ControlID="ddlYears" DefaultValue="0" Name="year" PropertyName="SelectedValue" Type="Decimal" />
                 <asp:ControlParameter ControlID="ddlMonths" DefaultValue="0" Name="month" PropertyName="SelectedValue" Type="Decimal" />
             </SelectParameters>
         </asp:ObjectDataSource>
-        <asp:ObjectDataSource ID="dsOrdersNum" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.ordersTotalNumTableAdapter"></asp:ObjectDataSource>
+        <asp:ObjectDataSource ID="dsOrdersNum" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.orderingTotalTableAdapter">
+            <SelectParameters>
+                <asp:ControlParameter ControlID="ddlYears" DefaultValue="0" Name="year" PropertyName="SelectedValue" Type="Decimal" />
+                <asp:ControlParameter ControlID="ddlMonths" DefaultValue="0" Name="month" PropertyName="SelectedValue" Type="Decimal" />
+            </SelectParameters>
+        </asp:ObjectDataSource>
         <asp:ObjectDataSource ID="dsPayment" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.paymentTableAdapter"></asp:ObjectDataSource>
     </form>
 </body>
