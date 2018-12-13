@@ -86,5 +86,12 @@ namespace RADwebApp.Forms.CustomerPages
             this.txtEmail.Text = "";
             this.ddlCity.SelectedIndex = 0;
         }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+            authenticationManager.SignOut();
+            Response.Redirect("~/Login.aspx");
+        }
     }
 }

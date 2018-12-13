@@ -19,5 +19,12 @@ namespace RADwebApp
         {
             Response.Redirect("~/Forms/Customers/Customers.aspx");
         }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+            authenticationManager.SignOut();
+            Response.Redirect("~/Login.aspx");
+        }
     }
 }
