@@ -21,5 +21,17 @@ namespace RADwebApp.Forms.Employees
             else
                 this.panelNone.Visible = true;
         }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+            authenticationManager.SignOut();
+            Response.Redirect("~/Login.aspx");
+        }
+
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Forms/Customers/Customers.aspx");
+        }
     }
 }
