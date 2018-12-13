@@ -87,17 +87,19 @@
 
             <%--END OF NAV BAR--%>
 
-            <div class="container mt-3">
-
-                <div class="row mt-4">
-                    <div class="col-lg-4 ">
+            <div class="container mt-4">
+            <div class="row">
+           <div class="col-lg-6 text-center m-auto">
                                         <h3>Add New Sale</h3> 
             <label for="txtOrderNumber">Order #:</label>
+               <div class="col-lg-2 text-center m-auto">
             <asp:TextBox CssClass="form-control" ID="txtOrderNumber" runat="server" BackColor="Silver" ReadOnly="True" Width="55px"></asp:TextBox>
+                   </div>
             <label class=" mt-3" for="txtOrderDate">Order Date:</label>
             <td class="auto-style14">
+                <div class="col-lg-3 text-center m-auto">
                 <asp:TextBox CssClass="form-control" ID="txtOrderDate" runat="server" BackColor="Silver" ReadOnly="True" Width="105px"></asp:TextBox>
-
+                    </div>
                 <label class=" mt-3" for="ddlPaymentType">Payment Type:</label>
                 <asp:DropDownList CssClass="form-control" ID="ddlPaymentType" runat="server" AppendDataBoundItems="True" DataSourceID="dsPayment" DataTextField="payType" DataValueField="id">
                     <asp:ListItem Value="0">Select a type</asp:ListItem>
@@ -119,6 +121,9 @@
                 </asp:DropDownList>
 
 
+                <div class="container mt-4">
+            <div class="row">
+            <div class="col-lg-6 text-center m-auto">
                 <asp:DetailsView CssClass="table table-striped table-bordered table-responsive-lg" ID="dvSalesProducts" runat="server" AutoGenerateRows="False" CellPadding="4" DataKeyNames="id" DataSourceID="dsDVSalesProducts" ForeColor="#333333" GridLines="None" Height="50px" Width="226px">
                     <AlternatingRowStyle BackColor="White" />
                     <CommandRowStyle BackColor="#D1DDF1" Font-Bold="True" />
@@ -136,15 +141,25 @@
                     <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
                     <RowStyle BackColor="#EFF3FB" />
                 </asp:DetailsView>
+                </div>
+                </div>
+                    </div>
+
+
+
                 <label class=" mt-3" for="txtQuantity">Quantity:</label>
+                <div class="col-lg-2 text-center m-auto">
                 <asp:TextBox CssClass="form-control" ID="txtQuantity" runat="server" TextMode="Number" Width="61px"></asp:TextBox>
+                    </div>
                 <label class=" mt-3" for="txtOrderNote">Order Notes:</label>
                 <asp:TextBox CssClass="form-control" ID="txtOrderNote" runat="server" TextMode="MultiLine"></asp:TextBox>
                 <label class=" mt-3" for="rblOrderReq">Order Request:</label>
+                <div class="col-lg-2 text-center m-auto">
                 <asp:RadioButtonList CssClass="" ID="rblOrderReq" runat="server" RepeatDirection="Horizontal">
                     <asp:ListItem Selected="True" Value="False">No</asp:ListItem>
                     <asp:ListItem Value="True">Yes</asp:ListItem>
                 </asp:RadioButtonList>
+                    </div>
                 <asp:Button CssClass="btn mb-4" ID="btnAddNew" runat="server" Text="Add New" OnClick="btnAddNew_Click" />
                 <asp:Label  ID="lblSave" runat="server" Text="Label" Visible="False"></asp:Label>
                 </div>
@@ -155,18 +170,18 @@
             <%--ENDS HERE--%> 
                                 <div class="container mt-4">
             <div class="row">
-            <div class="col-lg-8 text-center">
+            <div class="col-lg-8 text-center m-auto">
 
                 <asp:GridView CssClass="table table-striped table-bordered table-responsive-lg" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="dsReceipt">
                     <Columns>
                         <asp:CommandField ShowDeleteButton="True" />
-                        <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" InsertVisible="False" ReadOnly="True" />
-                        <asp:BoundField DataField="ordNumber" HeaderText="ordNumber" SortExpression="ordNumber" />
-                        <asp:BoundField DataField="ordDate" HeaderText="ordDate" SortExpression="ordDate" />
-                        <asp:CheckBoxField DataField="ordPaid" HeaderText="ordPaid" SortExpression="ordPaid" />
-                        <asp:BoundField DataField="paymentID" HeaderText="paymentID" SortExpression="paymentID" />
-                        <asp:BoundField DataField="custID" HeaderText="custID" SortExpression="custID" />
-                        <asp:BoundField DataField="empID" HeaderText="empID" SortExpression="empID" />
+                        <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" InsertVisible="False" ReadOnly="True" Visible="False" />
+                        <asp:BoundField DataField="ordNumber" HeaderText="Order #" SortExpression="ordNumber" />
+                        <asp:BoundField DataField="ordDate" HeaderText="Date" SortExpression="ordDate" />
+                        <asp:CheckBoxField DataField="ordPaid" HeaderText="Paid Status" SortExpression="ordPaid" />
+                        <asp:BoundField DataField="paymentID" HeaderText="Payment ID" SortExpression="paymentID" Visible="False"/>
+                        <asp:BoundField DataField="custID" HeaderText="Customer ID" SortExpression="custID" Visible="False" />
+                        <asp:BoundField DataField="empID" HeaderText="Employee ID" SortExpression="empID" Visible="False" />
                     </Columns>
                 </asp:GridView>
                                 </div>
