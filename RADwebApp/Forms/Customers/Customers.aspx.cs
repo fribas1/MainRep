@@ -100,5 +100,10 @@ namespace RADwebApp.Forms.CustomerPages
             authenticationManager.SignOut();
             Response.Redirect("~/Login.aspx");
         }
+
+        protected void dvCustomerNew_ItemInserted(object sender, EventArgs e)
+        {
+            Response.Write("<script>alert('Customer successfully created.');</script>");
+        }
     }
 }
