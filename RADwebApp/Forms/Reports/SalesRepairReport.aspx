@@ -50,11 +50,11 @@
                                 <div class="dropdown-divider"></div>
                                 <%if ((User.Identity.Name == "admin") || (User.Identity.Name == "manager"))
                                     { %>
-                                <a class="dropdown-item" href="/Forms/Customers/Customers.aspx?mode=addNew">Add New</a>
-                                <a class="dropdown-item" href="/Forms/Customers/Customers.aspx?mode=edit">Edit</a>
+                                <a class="dropdown-item" href="/Forms/Employees/Employees.aspx?mode=addNew">Add New</a>
+                                <a class="dropdown-item" href="/Forms/Employees/Employees.aspx?mode=edit">Edit</a>
                                 <%if (User.Identity.Name == "admin")
                                     { %>
-                                <a class="dropdown-item" href="/Forms/Customers/Customers.aspx?mode=delete">Remove</a>
+                                <a class="dropdown-item" href="/Forms/Employees/Employees.aspx?mode=delete">Remove</a>
                                 <% } %>
                                 <% } %>
                             </div>
@@ -129,7 +129,7 @@
                         <asp:BoundField DataField="ordNumber" HeaderText="Order #" SortExpression="ordNumber" />
                         <asp:BoundField DataField="ordDate" HeaderText="Date" SortExpression="ordDate" DataFormatString="{0:d}" />
                         <asp:BoundField DataField="payType" HeaderText="Payment" SortExpression="payType" />
-                        <asp:BoundField DataField="orlTotal" HeaderText="Total" ReadOnly="True" SortExpression="orlTotal" />
+                        <asp:BoundField DataField="orlTotal" HeaderText="Total" ReadOnly="True" SortExpression="orlTotal" DataFormatString="{0:C}" />
                         <asp:BoundField DataField="empFull" HeaderText="Employee" ReadOnly="True" SortExpression="empFull" />
                         <asp:BoundField DataField="custFull" HeaderText="Customer" ReadOnly="True" SortExpression="custFull" />
                     </Columns>
@@ -159,7 +159,7 @@
                         <asp:BoundField DataField="ordNumber" HeaderText="Order #" SortExpression="ordNumber" />
                         <asp:BoundField DataField="ordDate" HeaderText="Date" SortExpression="ordDate" DataFormatString="{0:d}" />
                         <asp:BoundField DataField="payType" HeaderText="Payment" SortExpression="payType" />
-                        <asp:BoundField DataField="serPrice" HeaderText="Total" SortExpression="serPrice" />
+                        <asp:BoundField DataField="serPrice" HeaderText="Total" SortExpression="serPrice" DataFormatString="{0:C}" />
                         <asp:BoundField DataField="empFull" HeaderText="Employee" SortExpression="empFull" ReadOnly="True" />
                         <asp:BoundField DataField="custFull" HeaderText="Customer" SortExpression="custFull" ReadOnly="True" />
                     </Columns>

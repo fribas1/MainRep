@@ -58,11 +58,11 @@
                                 <div class="dropdown-divider"></div>
                                 <%if ((User.Identity.Name == "admin") || (User.Identity.Name == "manager"))
                                     { %>
-                                <a class="dropdown-item" href="/Forms/Customers/Customers.aspx?mode=addNew">Add New</a>
-                                <a class="dropdown-item" href="/Forms/Customers/Customers.aspx?mode=edit">Edit</a>
+                                <a class="dropdown-item" href="/Forms/Employees/Employees.aspx?mode=addNew">Add New</a>
+                                <a class="dropdown-item" href="/Forms/Employees/Employees.aspx?mode=edit">Edit</a>
                                 <%if (User.Identity.Name == "admin")
                                     { %>
-                                <a class="dropdown-item" href="/Forms/Customers/Customers.aspx?mode=delete">Remove</a>
+                                <a class="dropdown-item" href="/Forms/Employees/Employees.aspx?mode=delete">Remove</a>
                                 <% } %>
                                 <% } %>
                             </div>

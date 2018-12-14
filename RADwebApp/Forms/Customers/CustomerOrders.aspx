@@ -50,11 +50,11 @@
                                 <div class="dropdown-divider"></div>
                                 <%if ((User.Identity.Name == "admin") || (User.Identity.Name == "manager"))
                                     { %>
-                                <a class="dropdown-item" href="/Forms/Customers/Customers.aspx?mode=addNew">Add New</a>
-                                <a class="dropdown-item" href="/Forms/Customers/Customers.aspx?mode=edit">Edit</a>
+                                <a class="dropdown-item" href="/Forms/Employees/Employees.aspx?mode=addNew">Add New</a>
+                                <a class="dropdown-item" href="/Forms/Employees/Employees.aspx?mode=edit">Edit</a>
                                 <%if (User.Identity.Name == "admin")
                                     { %>
-                                <a class="dropdown-item" href="/Forms/Customers/Customers.aspx?mode=delete">Remove</a>
+                                <a class="dropdown-item" href="/Forms/Employees/Employees.aspx?mode=delete">Remove</a>
                                 <% } %>
                                 <% } %>
                             </div>
@@ -123,12 +123,12 @@
                 <asp:GridView ID="gvCustomerRepairs" runat="server" AutoGenerateColumns="False" DataSourceID="dsCustomerRepairs" CssClass="table table-striped table-bordered table-responsive-lg">
                     <Columns>
                         <asp:BoundField DataField="ordNumber" HeaderText="Order Number" SortExpression="ordNumber" />
-                        <asp:BoundField DataField="ordDate" HeaderText="Order Date" SortExpression="ordDate" />
+                        <asp:BoundField DataField="ordDate" HeaderText="Order Date" SortExpression="ordDate" DataFormatString="{0:d}" />
                         <asp:BoundField DataField="payType" HeaderText="Payment Type" SortExpression="payType" />
                         <asp:BoundField DataField="empFirst" HeaderText="First Name" SortExpression="empFirst" />
                         <asp:BoundField DataField="empLast" HeaderText="Last Name" SortExpression="empLast" />
                         <asp:BoundField DataField="serName" HeaderText="Service Name" SortExpression="serName" />
-                        <asp:BoundField DataField="serPrice" HeaderText="Service Price" SortExpression="serPrice" />
+                        <asp:BoundField DataField="serPrice" HeaderText="Service Price" SortExpression="serPrice" DataFormatString="{0:C}" />
                         <asp:BoundField DataField="eqtType" HeaderText="Equiptment Type" SortExpression="eqtType" />
                     </Columns>
                     <EmptyDataTemplate>
