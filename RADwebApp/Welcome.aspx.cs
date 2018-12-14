@@ -1,4 +1,11 @@
-﻿using System;
+﻿/* Emma's Kyosk - Mac & Donald Corporation
+ * Welcome Page
+ * Done by: Fabio Ribas
+ * Designed by: Filip Lyesovyy
+ * Last modified: 2018-12-12
+ * */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,10 +21,10 @@ namespace RADwebApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (User.Identity.IsAuthenticated)
-            //    pnlContent.Visible = true;
-            //else
-            //    Response.Redirect("~/Login.aspx");
+            if (User.Identity.IsAuthenticated)
+                pnlContent.Visible = true;
+            else
+                Response.Redirect("~/Login.aspx");
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)

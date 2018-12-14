@@ -1,4 +1,11 @@
-﻿using System;
+﻿/* Emma's Kyosk - Mac & Donald Corporation
+ * Inventory Page
+ * Done by: Fabio Ribas
+ * Designed by: Filip Lyesovyy
+ * Last modified: 2018-12-12
+ * */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -39,7 +46,7 @@ namespace RADwebApp.Forms.Inventory
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 // Get value of third column. Index is zero based, to 
-                // get text of third column we use Cells[2].Text
+                // get text of third column we use Cells[4].Text (quantity)
                 int CellValue = Convert.ToInt32(e.Row.Cells[4].Text);
 
                 // If value is greater of 5, change format

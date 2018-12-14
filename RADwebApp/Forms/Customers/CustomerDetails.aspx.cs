@@ -1,4 +1,11 @@
-﻿using System;
+﻿/* Emma's Kyosk - Mac & Donald Corporation
+ * CustomerDetails Page
+ * Done by: Fabio Ribas
+ * Designed by: Braeden Kacho
+ * Last modified: 2018-12-13
+ * */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
