@@ -1,4 +1,10 @@
-﻿using System;
+﻿/* Emma's Kyosk - Mac & Donald Corporation
+ * Customers' Model
+ * Done by: Fabio Ribas
+ * Last modified: 2018-12-08
+ * */
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;

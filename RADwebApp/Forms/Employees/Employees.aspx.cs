@@ -1,4 +1,11 @@
-﻿using RADwebApp.Models;
+﻿/* Emma's Kyosk - Mac & Donald Corporation
+ * Employees Main Page
+ * Done by: Fabio Ribas
+ * Designed by: Filip Lyesovyy
+ * Last modified: 2018-12-12
+ * */
+
+using RADwebApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
