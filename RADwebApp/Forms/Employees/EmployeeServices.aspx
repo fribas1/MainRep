@@ -50,11 +50,11 @@
                                 <div class="dropdown-divider"></div>
                                 <%if ((User.Identity.Name == "admin") || (User.Identity.Name == "manager"))
                                     { %>
-                                <a class="dropdown-item" href="/Forms/Customers/Customers.aspx?mode=addNew">Add New</a>
-                                <a class="dropdown-item" href="/Forms/Customers/Customers.aspx?mode=edit">Edit</a>
+                                <a class="dropdown-item" href="/Forms/Employees/Employees.aspx?mode=addNew">Add New</a>
+                                <a class="dropdown-item" href="/Forms/Employees/Employees.aspx?mode=edit">Edit</a>
                                 <%if (User.Identity.Name == "admin")
                                     { %>
-                                <a class="dropdown-item" href="/Forms/Customers/Customers.aspx?mode=delete">Remove</a>
+                                <a class="dropdown-item" href="/Forms/Employees/Employees.aspx?mode=delete">Remove</a>
                                 <% } %>
                                 <% } %>
                             </div>
@@ -139,7 +139,15 @@
                 <asp:Panel runat="server" ID="panelNone" Visible="False">
                 <p>This employee is not directly related to any Sales or Repairs services.</p>
 
-            </asp:Panel>                               
+            </asp:Panel>
+
+            <div class="container">
+                    <div class="row">
+                        <div class="text-center m-auto">
+            <asp:Button ID="btnBack" runat="server" OnClick="btnBack_Click" Text="Back" CssClass="btn btn-outline-info mb-3" />
+                            </div>
+                        </div>
+                    </div>
 
             </div>
                 </div>
