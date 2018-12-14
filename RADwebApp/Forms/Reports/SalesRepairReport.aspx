@@ -76,10 +76,8 @@
                             </div>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                        <asp:Button runat="server" ID="btnLogout" OnClick="btnLogout_Click" CssClass="btn btn-outline-danger my-2 my-sm-0" Text="Log Out"></asp:Button>
-                    </form>
+                    </ul>                    
+                        <asp:Button runat="server" ID="btnLogout" OnClick="btnLogout_Click" CssClass="btn btn-outline-danger my-2 my-sm-0" Text="Log Out"></asp:Button>                    
                 </div>
             </nav>
 
