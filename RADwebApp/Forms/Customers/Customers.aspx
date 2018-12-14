@@ -99,7 +99,7 @@
                 <div class="text-center m-auto">
             <asp:Button ID="btnNewCustomer" runat="server" OnClick="btnNewCustomer_Click" Text="Add New" CssClass="btn btn-outline-info mb-3"/>
             <br />
-            <asp:DetailsView ID="dvCustomerNew" runat="server" AutoGenerateRows="False" DataKeyNames="id" DataSourceID="dsCustomer" DefaultMode="Insert" Height="50px" OnItemCommand="dvCustomerNew_ItemCommand" Visible="False" Width="718px">
+            <asp:DetailsView ID="dvCustomerNew" runat="server" AutoGenerateRows="False" DataKeyNames="id" DataSourceID="dsCustomer" DefaultMode="Insert" Height="50px" OnItemCommand="dvCustomerNew_ItemCommand" Visible="False" Width="718px" OnItemInserted="dvCustomerNew_ItemInserted">
                 <Fields>
                     <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
                     <asp:DynamicField DataField="custFirst" HeaderText="First Name" SortExpression="custFirst" />
