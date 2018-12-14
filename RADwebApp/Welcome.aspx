@@ -21,15 +21,15 @@
                         <li class="nav-item"><a class="nav-link" href="/Welcome.aspx">Home</a></li>
                         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Customers</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="Forms/Customers/Customers.aspx">Search</a>
+                                <a class="dropdown-item" href="/Forms/Customers/Customers.aspx">Search</a>
                                 <div class="dropdown-divider"></div>
                                 <%if ((User.Identity.Name == "admin") || (User.Identity.Name == "manager") || (User.Identity.Name == "sales"))
                                     { %>
-                                <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=addNew">Add New</a>
+                                <a class="dropdown-item" href="/Forms/Customers/Customers.aspx?mode=addNew">Add New</a>
                                 <%if (User.Identity.Name == "admin")
                                     { %>
-                                <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=edit">Edit</a>
-                                <a class="dropdown-item" href="Forms/Customers/Customers.aspx?mode=delete">Remove</a>
+                                <a class="dropdown-item" href="/Forms/Customers/Customers.aspx?mode=edit">Edit</a>
+                                <a class="dropdown-item" href="/Forms/Customers/Customers.aspx?mode=delete">Remove</a>
                                 <% } %>
                                 <% } %>
                             </div>
