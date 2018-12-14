@@ -39,9 +39,9 @@
                                 <a class="dropdown-item" href="/Forms/RepairPages/AllRepairs.aspx">Repairs</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="/Forms/Sales/searchSales.aspx">Search for a Sale</a>
-                                <%if (User.Identity.Name == "admin")
+                                <%if ((User.Identity.Name == "admin") || (User.Identity.Name == "manager") || (User.Identity.Name == "sales"))
                                     { %>
-                                <a class="dropdown-item" href="/Forms/Sales/SalesNew.aspx">New Sale</a>
+                                    <a class="dropdown-item" href="/Forms/Sales/SalesNew.aspx">New Sale</a>
                                 <% } %>
                             </div>
                         </li>
