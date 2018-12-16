@@ -10,7 +10,7 @@
 namespace RADwebApp.Forms.Sales {
     
     
-    public partial class searchSales {
+    public partial class salesUpdate {
         
         /// <summary>
         /// form1 control.
@@ -22,15 +22,6 @@ namespace RADwebApp.Forms.Sales {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// btnLogout control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogout;
-        
-        /// <summary>
         /// txtOrderNum control.
         /// </summary>
         /// <remarks>
@@ -40,49 +31,76 @@ namespace RADwebApp.Forms.Sales {
         protected global::System.Web.UI.WebControls.TextBox txtOrderNum;
         
         /// <summary>
-        /// txtCustName control.
+        /// ddlPayType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCustName;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPayType;
         
         /// <summary>
-        /// txtEmpName control.
+        /// ddlProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmpName;
+        protected global::System.Web.UI.WebControls.DropDownList ddlProduct;
         
         /// <summary>
-        /// txtDateStart control.
+        /// dvProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDateStart;
+        protected global::System.Web.UI.WebControls.DetailsView dvProduct;
         
         /// <summary>
-        /// txtDateEnd control.
+        /// txtQuantity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDateEnd;
+        protected global::System.Web.UI.WebControls.TextBox txtQuantity;
         
         /// <summary>
-        /// btnSearch control.
+        /// txtNotes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSearch;
+        protected global::System.Web.UI.WebControls.TextBox txtNotes;
+        
+        /// <summary>
+        /// ddlCust control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCust;
+        
+        /// <summary>
+        /// ddlEmp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlEmp;
+        
+        /// <summary>
+        /// btnSave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSave;
         
         /// <summary>
         /// btnClear control.
@@ -94,21 +112,48 @@ namespace RADwebApp.Forms.Sales {
         protected global::System.Web.UI.WebControls.Button btnClear;
         
         /// <summary>
-        /// gvSales control.
+        /// dsPayType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvSales;
+        protected global::System.Web.UI.WebControls.ObjectDataSource dsPayType;
         
         /// <summary>
-        /// dsSearchSales control.
+        /// dsProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource dsSearchSales;
+        protected global::System.Web.UI.WebControls.ObjectDataSource dsProduct;
+        
+        /// <summary>
+        /// dsCustomer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource dsCustomer;
+        
+        /// <summary>
+        /// dsEmployee control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource dsEmployee;
+        
+        /// <summary>
+        /// ObjectDataSource1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSource1;
     }
 }

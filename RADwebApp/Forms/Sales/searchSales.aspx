@@ -44,8 +44,7 @@
                                     { %>
                                 <a class="dropdown-item" href="/Forms/Customers/Customers.aspx?mode=edit">Edit</a>
                                 <a class="dropdown-item" href="/Forms/Customers/Customers.aspx?mode=delete">Remove</a>
-                                <% } %>
-                                <% } %>
+                                <% } %>                                <% } %>
                             </div>
                         </li>
                         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Services</a>
@@ -70,8 +69,7 @@
                                 <%if (User.Identity.Name == "admin")
                                     { %>
                                 <a class="dropdown-item" href="/Forms/Customers/Customers.aspx?mode=delete">Remove</a>
-                                <% } %>
-                                <% } %>
+                                <% } %>                                <% } %>
                             </div>
                         </li>
                         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Orders</a>
@@ -133,11 +131,11 @@
                 <tr>
                     <td class="auto-style1">Date Between:</td>
                     <td class="auto-style2">
-                        <asp:TextBox ID="txtDateStart" runat="server" CssClass="form-control input-lg" Width="200px" Height="25px" TabIndex="1" TextMode="Date"></asp:TextBox>
+                        <asp:TextBox ID="txtDateStart" runat="server" CssClass="form-control input-lg" Width="200px" Height="33px" TabIndex="1" TextMode="Date"></asp:TextBox>
                     </td>
                     <td class="auto-style3">AND</td>
                     <td>
-                        <asp:TextBox ID="txtDateEnd" runat="server" CssClass="form-control input-lg" Width="200px" Height="25px" TabIndex="1" TextMode="Date"></asp:TextBox>
+                        <asp:TextBox ID="txtDateEnd" runat="server" CssClass="form-control input-lg" Width="200px" Height="33px" TabIndex="1" TextMode="Date"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -157,12 +155,11 @@
         <div class="row">
             <div class="col-lg-8 text-center m-auto">
 
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="3" DataSourceID="dsSearchSales" ForeColor="Black" GridLines="Vertical" CssClass="table table-striped table-bordered table-responsive-lg" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px">
+        <asp:GridView ID="gvSales" runat="server" AutoGenerateColumns="False" CellPadding="3" DataSourceID="dsSearchSales" ForeColor="Black" GridLines="Vertical" CssClass="table table-striped table-bordered table-responsive-lg" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" OnSelectedIndexChanged="gvSales_SelectedIndexChanged">
           
             <AlternatingRowStyle BackColor="#CCCCCC" />
           
             <Columns>
-                <asp:CommandField ShowEditButton="True" />
                 <asp:BoundField DataField="ordNumber" HeaderText="Order #" SortExpression="ordNumber" />
                 <asp:BoundField DataField="ordDate" DataFormatString="{0:d}" HeaderText="Date" SortExpression="ordDate" />
                 <asp:CheckBoxField DataField="ordPaid" HeaderText="Paid?" SortExpression="ordPaid" />
@@ -172,6 +169,7 @@
                 <asp:BoundField DataField="orlQuantity" HeaderText="Quantity" SortExpression="orlQuantity" />
                 <asp:BoundField DataField="custFull" HeaderText="Customer" ReadOnly="True" SortExpression="custFull" />
                 <asp:BoundField DataField="empFull" HeaderText="Employee" SortExpression="empFull" ReadOnly="True" />
+                <asp:HyperLinkField DataNavigateUrlFields="haha" DataNavigateUrlFormatString="/Forms/Sales/salesUpdate.aspx?haha={0}" Text="Edit" />
              </Columns>
                 </asp:GridView>
                                 </div>

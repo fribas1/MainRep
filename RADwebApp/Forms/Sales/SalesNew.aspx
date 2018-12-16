@@ -11,6 +11,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+    <style type="text/css">
+        .auto-style1 {
+            display: block;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: .25rem;
+            transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        }
+    </style>
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -102,7 +116,7 @@
             <label class=" mt-3" for="txtOrderDate">Order Date:</label>
             <td class="auto-style14">
                 <div class="col-lg-3 text-center m-auto">
-                <asp:TextBox CssClass="form-control" ID="txtOrderDate" runat="server" BackColor="Silver" ReadOnly="True" Width="105px"></asp:TextBox>
+                <asp:TextBox CssClass="auto-style1" ID="txtOrderDate" runat="server" BackColor="Silver" ReadOnly="True" Width="100px"></asp:TextBox>
                     </div>
                 <label class=" mt-3" for="ddlPaymentType">Payment Type:</label>
                 <asp:DropDownList CssClass="form-control" ID="ddlPaymentType" runat="server" AppendDataBoundItems="True" DataSourceID="dsPayment" DataTextField="payType" DataValueField="id">
@@ -173,20 +187,6 @@
             <%--ENDS HERE--%> 
                                 <div class="container mt-4">
             <div class="row">
-            <div class="col-lg-8 text-center m-auto">
-
-                <asp:GridView CssClass="table table-striped table-bordered table-responsive-lg" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="dsOrderLine">
-                    <Columns>
-                        <asp:BoundField DataField="orlPrice" HeaderText="orlPrice" SortExpression="orlPrice" />
-                        <asp:BoundField DataField="orlQuantity" HeaderText="orlQuantity" SortExpression="orlQuantity" />
-                        <asp:CheckBoxField DataField="orlOrderReq" HeaderText="orlOrderReq" SortExpression="orlOrderReq" />
-                        <asp:BoundField DataField="orlNote" HeaderText="orlNote" SortExpression="orlNote" />
-                        <asp:BoundField DataField="inventoryID" HeaderText="inventoryID" SortExpression="inventoryID" />
-                        <asp:BoundField DataField="receiptID" HeaderText="receiptID" SortExpression="receiptID"/>
-                        <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" InsertVisible="False" ReadOnly="True" />
-                    </Columns>
-                </asp:GridView>
-                                </div>
                 </div>
                         </div>
 

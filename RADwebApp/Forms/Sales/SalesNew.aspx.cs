@@ -43,10 +43,20 @@ namespace RADwebApp.Forms.Sales
             date = DateTime.Now; // Get Date Now.
             DataView nextOrder = (DataView)dsNextOrder.Select();
             orderNum = Convert.ToInt32(nextOrder[0][0]); //Get new Order #
+            int custID = Convert.ToInt32(Request.QueryString["id"]);
 
             txtOrderNumber.Text = Convert.ToString(orderNum);
             txtOrderDate.Text = date.ToString("MM/dd/yyyy");
             txtQuantity.Text = Convert.ToString(1);
+
+            if(custID != -1)
+            {
+                ddlCustomer.SelectedIndex = custID;
+            }
+            else
+            {
+                this.ddlCustomer.SelectedIndex = -1;
+            }
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)
@@ -92,11 +102,27 @@ namespace RADwebApp.Forms.Sales
                 o[6] = lastID;
                 dsAddSale.orderLine.Rows.Add(o);
                 Save();
+                Clear();
             }
             catch
             {
                 this.lblSave.Text = "Unable to add sale - Invalid Input";
             }
+        }
+
+        private void Clear()
+        {
+            DataView nextOrder = (DataView)dsNextOrder.Select();
+            orderNum = Convert.ToInt32(nextOrder[0][0]);
+
+            this.txtOrderNumber.Text = Convert.ToString(orderNum);
+            this.txtOrderDate.Text = date.ToString("MM/dd/yyyy");
+            this.txtQuantity.Text = Convert.ToString(1);
+            this.txtOrderNote.Text = "";
+            this.ddlCustomer.SelectedIndex = -1;
+            this.ddlEmployee.SelectedIndex = -1;
+            this.ddlPaymentType.SelectedIndex = -1;
+            this.ddlProduct.SelectedIndex = -1;
         }
 
         private void Save()

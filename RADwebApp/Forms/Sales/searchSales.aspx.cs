@@ -34,5 +34,10 @@ namespace RADwebApp.Forms.Sales
             authenticationManager.SignOut();
             Response.Redirect("~/Login.aspx");
         }
+
+        protected void gvSales_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -120,6 +120,8 @@ namespace aLibrary {
         
         private global::System.Data.DataRelation relationFK_OrderToolsDataTable_orderToolsSelect;
         
+        private global::System.Data.DataRelation relationorderline_fk_receiptID1;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1133,6 +1135,7 @@ namespace aLibrary {
             this.relationorderline_fk_receiptID = this.Relations["orderline_fk_receiptID"];
             this.relationorderline_fk_inventoryID = this.Relations["orderline_fk_inventoryID"];
             this.relationFK_OrderToolsDataTable_orderToolsSelect = this.Relations["FK_OrderToolsDataTable_orderToolsSelect"];
+            this.relationorderline_fk_receiptID1 = this.Relations["orderline_fk_receiptID1"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1274,6 +1277,10 @@ namespace aLibrary {
                         this.tableOrderToolsDataTable.orNoColumn,
                         this.tableOrderToolsDataTable.orDateColumn}, false);
             this.Relations.Add(this.relationFK_OrderToolsDataTable_orderToolsSelect);
+            this.relationorderline_fk_receiptID1 = new global::System.Data.DataRelation("orderline_fk_receiptID1", new global::System.Data.DataColumn[] {
+                        this.tablereceipt.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tablesearchSales.receiptIDColumn}, false);
+            this.Relations.Add(this.relationorderline_fk_receiptID1);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1707,6 +1714,8 @@ namespace aLibrary {
             
             private global::System.Data.DataColumn columnorlQuantity;
             
+            private global::System.Data.DataColumn columnreceiptID;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public searchSalesDataTable() {
@@ -1814,6 +1823,14 @@ namespace aLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn receiptIDColumn {
+                get {
+                    return this.columnreceiptID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1849,7 +1866,7 @@ namespace aLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public searchSalesRow AddsearchSalesRow(decimal orlPrice, string prodName, string ordNumber, System.DateTime ordDate, bool ordPaid, string custFull, string empFull, string prodBrand, int orlQuantity) {
+            public searchSalesRow AddsearchSalesRow(decimal orlPrice, string prodName, string ordNumber, System.DateTime ordDate, bool ordPaid, string custFull, string empFull, string prodBrand, int orlQuantity, receiptRow parentreceiptRowByorderline_fk_receiptID1) {
                 searchSalesRow rowsearchSalesRow = ((searchSalesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         orlPrice,
@@ -1860,7 +1877,11 @@ namespace aLibrary {
                         custFull,
                         empFull,
                         prodBrand,
-                        orlQuantity};
+                        orlQuantity,
+                        null};
+                if ((parentreceiptRowByorderline_fk_receiptID1 != null)) {
+                    columnValuesArray[9] = parentreceiptRowByorderline_fk_receiptID1[0];
+                }
                 rowsearchSalesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsearchSalesRow);
                 return rowsearchSalesRow;
@@ -1892,6 +1913,7 @@ namespace aLibrary {
                 this.columnempFull = base.Columns["empFull"];
                 this.columnprodBrand = base.Columns["prodBrand"];
                 this.columnorlQuantity = base.Columns["orlQuantity"];
+                this.columnreceiptID = base.Columns["receiptID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1915,6 +1937,8 @@ namespace aLibrary {
                 base.Columns.Add(this.columnprodBrand);
                 this.columnorlQuantity = new global::System.Data.DataColumn("orlQuantity", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnorlQuantity);
+                this.columnreceiptID = new global::System.Data.DataColumn("receiptID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnreceiptID);
                 this.columnprodName.MaxLength = 50;
                 this.columnordNumber.MaxLength = 20;
                 this.columncustFull.ReadOnly = true;
@@ -1922,6 +1946,7 @@ namespace aLibrary {
                 this.columnempFull.ReadOnly = true;
                 this.columnempFull.MaxLength = 81;
                 this.columnprodBrand.MaxLength = 50;
+                this.columnreceiptID.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13857,6 +13882,28 @@ namespace aLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int receiptID {
+                get {
+                    return ((int)(this[this.tablesearchSales.receiptIDColumn]));
+                }
+                set {
+                    this[this.tablesearchSales.receiptIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public receiptRow receiptRow {
+                get {
+                    return ((receiptRow)(this.GetParentRow(this.Table.ParentRelations["orderline_fk_receiptID1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["orderline_fk_receiptID1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsorlPriceNull() {
                 return this.IsNull(this.tablesearchSales.orlPriceColumn);
             }
@@ -15783,6 +15830,17 @@ namespace aLibrary {
                 }
                 else {
                     return ((orderLineRow[])(base.GetChildRows(this.Table.ChildRelations["orderline_fk_receiptID"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public searchSalesRow[] GetsearchSalesRows() {
+                if ((this.Table.ChildRelations["orderline_fk_receiptID1"] == null)) {
+                    return new searchSalesRow[0];
+                }
+                else {
+                    return ((searchSalesRow[])(base.GetChildRows(this.Table.ChildRelations["orderline_fk_receiptID1"])));
                 }
             }
         }
@@ -20687,6 +20745,7 @@ namespace aLibrary.EmmasDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("empFull", "empFull");
             tableMapping.ColumnMappings.Add("prodBrand", "prodBrand");
             tableMapping.ColumnMappings.Add("orlQuantity", "orlQuantity");
+            tableMapping.ColumnMappings.Add("receiptID", "receiptID");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -20704,7 +20763,7 @@ namespace aLibrary.EmmasDataSetTableAdapters {
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        order_line.orlPrice, product.prodName, receipt.ordNumber, receipt.ordDate, receipt.ordPaid, { fn CONCAT(customer.custFirst + ' ', customer.custLast) } AS custFull, { fn CONCAT(employee.empFirst + ' ', employee.empLast) 
-                         } AS empFull, product.prodBrand, order_line.orlQuantity
+                         } AS empFull, product.prodBrand, order_line.orlQuantity, order_line.receiptID
 FROM            order_line INNER JOIN
                          inventory ON order_line.inventoryID = inventory.id INNER JOIN
                          product ON inventory.productID = product.id INNER JOIN
