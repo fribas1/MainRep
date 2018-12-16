@@ -13456,6 +13456,8 @@ namespace aLibrary {
             
             private global::System.Data.DataColumn columnprodDescription;
             
+            private global::System.Data.DataColumn columnorlNote;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public orderProductDataTable() {
@@ -13555,6 +13557,14 @@ namespace aLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn orlNoteColumn {
+                get {
+                    return this.columnorlNote;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -13590,7 +13600,7 @@ namespace aLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public orderProductRow AddorderProductRow(receiptRow parentreceiptRowByorderline_fk_receiptID2, decimal orlPrice, int orlQuantity, string prodName, string prodBrand, int inventoryID, string prodDescription) {
+            public orderProductRow AddorderProductRow(receiptRow parentreceiptRowByorderline_fk_receiptID2, decimal orlPrice, int orlQuantity, string prodName, string prodBrand, int inventoryID, string prodDescription, string orlNote) {
                 orderProductRow roworderProductRow = ((orderProductRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -13600,7 +13610,8 @@ namespace aLibrary {
                         prodBrand,
                         null,
                         inventoryID,
-                        prodDescription};
+                        prodDescription,
+                        orlNote};
                 if ((parentreceiptRowByorderline_fk_receiptID2 != null)) {
                     columnValuesArray[0] = parentreceiptRowByorderline_fk_receiptID2[0];
                 }
@@ -13641,6 +13652,7 @@ namespace aLibrary {
                 this.columnid = base.Columns["id"];
                 this.columninventoryID = base.Columns["inventoryID"];
                 this.columnprodDescription = base.Columns["prodDescription"];
+                this.columnorlNote = base.Columns["orlNote"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13662,6 +13674,8 @@ namespace aLibrary {
                 base.Columns.Add(this.columninventoryID);
                 this.columnprodDescription = new global::System.Data.DataColumn("prodDescription", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnprodDescription);
+                this.columnorlNote = new global::System.Data.DataColumn("orlNote", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnorlNote);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnreceiptID.AllowDBNull = false;
@@ -13675,6 +13689,7 @@ namespace aLibrary {
                 this.columnid.Unique = true;
                 this.columninventoryID.AllowDBNull = false;
                 this.columnprodDescription.MaxLength = 100;
+                this.columnorlNote.MaxLength = 100;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -19946,6 +19961,22 @@ namespace aLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string orlNote {
+                get {
+                    try {
+                        return ((string)(this[this.tableorderProduct.orlNoteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'orlNote\' in table \'orderProduct\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableorderProduct.orlNoteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public receiptRow receiptRow {
                 get {
                     return ((receiptRow)(this.GetParentRow(this.Table.ParentRelations["orderline_fk_receiptID2"])));
@@ -20013,6 +20044,18 @@ namespace aLibrary {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetprodDescriptionNull() {
                 this[this.tableorderProduct.prodDescriptionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsorlNoteNull() {
+                return this.IsNull(this.tableorderProduct.orlNoteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetorlNoteNull() {
+                this[this.tableorderProduct.orlNoteColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -29658,6 +29701,7 @@ ORDER BY receipt.ordNumber DESC";
             tableMapping.ColumnMappings.Add("id", "id");
             tableMapping.ColumnMappings.Add("inventoryID", "inventoryID");
             tableMapping.ColumnMappings.Add("prodDescription", "prodDescription");
+            tableMapping.ColumnMappings.Add("orlNote", "orlNote");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -29674,7 +29718,7 @@ ORDER BY receipt.ordNumber DESC";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        order_line.receiptID, order_line.orlPrice, order_line.orlQuantity, product.prodName, product.prodBrand, order_line.id, order_line.inventoryID, product.prodDescription
+            this._commandCollection[0].CommandText = @"SELECT        order_line.receiptID, order_line.orlPrice, order_line.orlQuantity, product.prodName, product.prodBrand, order_line.id, order_line.inventoryID, product.prodDescription, order_line.orlNote
 FROM            order_line INNER JOIN
                          inventory ON order_line.inventoryID = inventory.id INNER JOIN
                          product ON inventory.productID = product.id";

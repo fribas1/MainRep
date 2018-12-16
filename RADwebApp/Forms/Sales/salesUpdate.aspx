@@ -11,51 +11,46 @@
         <p>
             EDIT SALE</p>
         <p>
+            <asp:Label ID="lblSave" runat="server" ForeColor="Red"></asp:Label>
+        </p>
+        <p>
             Order #:
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtOrderNum" ErrorMessage="Order # cannot be empty." ForeColor="Red">*</asp:RequiredFieldValidator>
             <asp:TextBox ID="txtOrderNum" runat="server"></asp:TextBox>
 &nbsp;
         </p>
         <p>
             Payment Type:
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="ddlPayType" ErrorMessage="You must select a payment type." ForeColor="Red">*</asp:RequiredFieldValidator>
             <asp:DropDownList ID="ddlPayType" runat="server" DataSourceID="dsPayType" DataTextField="payType" DataValueField="id">
             </asp:DropDownList>
         </p>
         <p>
-            Product:
-            <asp:DropDownList ID="ddlProduct" runat="server" AppendDataBoundItems="True" AutoPostBack="True" DataSourceID="dsProduct" DataTextField="prodName" DataValueField="id">
-                <asp:ListItem Value="0">Select a product</asp:ListItem>
-            </asp:DropDownList>
+            <asp:Button ID="btnViewCart" runat="server" OnClick="btnViewCart_Click" Text="View Shopping Cart" />
         </p>
         <p>
-            <asp:DetailsView ID="dvProduct" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" Height="50px" Width="125px">
-                <AlternatingRowStyle BackColor="White" />
-                <CommandRowStyle BackColor="#D1DDF1" Font-Bold="True" />
-                <EditRowStyle BackColor="#2461BF" />
-                <FieldHeaderStyle BackColor="#DEE8F5" Font-Bold="True" />
-                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-                <RowStyle BackColor="#EFF3FB" />
-            </asp:DetailsView>
+            <asp:ListBox ID="lbCart" runat="server" Visible="False"></asp:ListBox>
+        </p>
+        <p>
+            <asp:Button ID="btnSelect" runat="server" OnClick="btnSelect_Click" Text="Select" />
         </p>
         <p>
             Quantity:
-            <asp:TextBox ID="txtQuantity" runat="server">1</asp:TextBox>
-        </p>
-        <p>
-            <asp:ListBox ID="lbCart" runat="server"></asp:ListBox>
+            <asp:TextBox ID="txtQuantity" runat="server" TextMode="Number"></asp:TextBox>
         </p>
         <p>
             Order Notes:
-            <asp:TextBox ID="txtNotes" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtNotes" runat="server" TextMode="MultiLine"></asp:TextBox>
         </p>
         <p>
             Customer:
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="ddlCust" ErrorMessage="You must select a customer." ForeColor="Red">*</asp:RequiredFieldValidator>
             <asp:DropDownList ID="ddlCust" runat="server" DataSourceID="dsCustomer" DataTextField="custFull" DataValueField="id">
             </asp:DropDownList>
         </p>
         <p>
             Employee:
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="ddlEmp" ErrorMessage="You must select a employee." ForeColor="Red">*</asp:RequiredFieldValidator>
             <asp:DropDownList ID="ddlEmp" runat="server" DataSourceID="dsEmployee" DataTextField="empFull" DataValueField="id">
             </asp:DropDownList>
         </p>
@@ -64,18 +59,15 @@
 &nbsp;
             <asp:Button ID="btnClear" runat="server" Text="Clear" />
         </p>
+        <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" HeaderText="Please, fix the following:" />
+        <p>
+        </p>
         <p>
             &nbsp;</p>
         <p>
             <asp:ObjectDataSource ID="dsPayType" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.paymentTableAdapter"></asp:ObjectDataSource>
-            <asp:ObjectDataSource ID="dsProduct" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.ddlSalesProductsTableAdapter"></asp:ObjectDataSource>
             <asp:ObjectDataSource ID="dsCustomer" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.salesCustomerTableAdapter"></asp:ObjectDataSource>
             <asp:ObjectDataSource ID="dsEmployee" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.salesEmployeeTableAdapter"></asp:ObjectDataSource>
-            <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.detailsSalesProductTableAdapter">
-                <SelectParameters>
-                    <asp:ControlParameter ControlID="ddlProduct" DefaultValue="0" Name="prodID" PropertyName="SelectedValue" Type="Int32" />
-                </SelectParameters>
-            </asp:ObjectDataSource>
         </p>
         <p>
             &nbsp;</p>

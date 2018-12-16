@@ -112,7 +112,6 @@ namespace RADwebApp.Forms.Sales
                 }
 
                 Clear();
-                ScriptManager.RegisterStartupScript(Page, this.GetType(), "ScrollPage", "window.scroll(0,0);", true);
             }
             catch
             {
@@ -133,6 +132,7 @@ namespace RADwebApp.Forms.Sales
             this.ddlEmployee.SelectedIndex = -1;
             this.ddlPaymentType.SelectedIndex = -1;
             this.ddlProduct.SelectedIndex = -1;
+            this.lbCart.Items.Clear();
         }
 
         private void Save()
@@ -145,12 +145,21 @@ namespace RADwebApp.Forms.Sales
                 daOrderLine.Update(dsAddSale.orderLine);
                 dsAddSale.AcceptChanges();
                 this.lblSave.Text = "Sale has been added successfully.";
+                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Sale has been added successfully." + "');", true);
             }
             catch
             {
                 dsAddSale.RejectChanges();
                 this.lblSave.Text = "Unable to add sale - All changes have been rejected.";
+                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Unable to add sale - All changes have been rejected." + "');", true);
             }
+        }
+
+        public void ScrollPageToTop()
+        {
+            string strScroll = null;
+            strScroll = "<script language='javascript'>" + Environment.NewLine + "window.scrollTo(0,0);</script>";
+            ClientScript.RegisterStartupScript(this.GetType(), "ScrollToTop", strScroll.ToString());
         }
 
         protected void btnAddCart_Click(object sender, EventArgs e)

@@ -6,6 +6,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+// Luckas Couto Mello
+// PROG1210
+// Final Project
+// 12/13/2018
+
 namespace RADwebApp.Forms.Reports
 {
     public partial class weeklyReport : System.Web.UI.Page
@@ -21,6 +26,12 @@ namespace RADwebApp.Forms.Reports
             else
                 this.panelSale.Visible = false;
 
+            gvWeeklySaleReport.DataBind();
+            if(gvWeeklySaleReport.Rows.Count == 0)
+            {
+                lblSaleReports.Text = "No Sales Records in the past 7 days.";
+            }
+
             // total amount repair
             DataView totalRepairAmount = (DataView)dsTotalRepairAmount.Select();
             decimal repairAmount;
@@ -29,6 +40,12 @@ namespace RADwebApp.Forms.Reports
                 this.txtTotalRepairAmount.Text = repairAmount.ToString("C2");
             else
                 this.panelRepair.Visible = false;
+
+            GridView2.DataBind();
+            if(GridView2.Rows.Count == 0)
+            {
+                lblRepairReports.Text = "No Sales Records in the past 7 days.";
+            }
         }
         protected void btnLogout_Click(object sender, EventArgs e)
         {

@@ -29,8 +29,7 @@
                                     { %>
                                 <a class="dropdown-item" href="/Forms/Customers/Customers.aspx?mode=edit">Edit</a>
                                 <a class="dropdown-item" href="/Forms/Customers/Customers.aspx?mode=delete">Remove</a>
-                                <% } %>
-                                <% } %>
+                                <% } %>                                <% } %>
                             </div>
                         </li>
                         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Services</a>
@@ -55,8 +54,7 @@
                                 <%if (User.Identity.Name == "admin")
                                     { %>
                                 <a class="dropdown-item" href="/Forms/Employees/Employees.aspx?mode=delete">Remove</a>
-                                <% } %>
-                                <% } %>
+                                <% } %>                                <% } %>
                             </div>
                         </li>
                         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Orders</a>
@@ -89,6 +87,9 @@
             <h3>WEEKLY REPORT</h3>
             <br />
             <h4>Sales Reports</h4>
+            <h4>
+                <asp:Label ID="lblSaleReports" runat="server" ForeColor="Red"></asp:Label>
+            </h4>
 
             <div class="row mt-3">
                 <div class="col-lg-8 text-center m-auto">
@@ -122,6 +123,9 @@
             </asp:Panel>
             <br />
             <h4>Repairs Reports</h4>
+            <h4>
+                <asp:Label ID="lblRepairReports" runat="server" ForeColor="Red"></asp:Label>
+            </h4>
 
             <div class="row mt-3">
                 <div class="col-lg-8 text-center m-auto">

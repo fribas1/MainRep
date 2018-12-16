@@ -5,6 +5,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+// Luckas Couto Mello
+// PROG1210
+// Final Project
+// 12/13/2018
+
 namespace RADwebApp.Forms.Sales
 {
     public partial class searchSales : System.Web.UI.Page
