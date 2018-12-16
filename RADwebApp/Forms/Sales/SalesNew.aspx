@@ -88,7 +88,13 @@
             <div class="container mt-4">
             <div class="row">
            <div class="col-lg-6 text-center m-auto">
-                                        <h3>Add New Sale</h3> 
+                                        <h3>New Sale</h3>
+                                        <p>&nbsp;</p>
+                                        <h3>
+                <asp:Label  ID="lblSave" runat="server" ForeColor="Red"></asp:Label>
+                                        </h3>
+                                        <p>
+                                            &nbsp;</p> 
             <label for="txtOrderNumber">Order #:</label>
                <div class="col-lg-2 text-center m-auto">
             <asp:TextBox CssClass="form-control" ID="txtOrderNumber" runat="server" BackColor="Silver" ReadOnly="True" Width="55px"></asp:TextBox>
@@ -159,7 +165,6 @@
                 </asp:RadioButtonList>
                     </div>
                 <asp:Button CssClass="btn mb-4" ID="btnAddNew" runat="server" Text="Add New" OnClick="btnAddNew_Click" />
-                <asp:Label  ID="lblSave" runat="server" Text="Label" Visible="False"></asp:Label>
                 </div>
                                 </div>
                 </div>
@@ -170,16 +175,15 @@
             <div class="row">
             <div class="col-lg-8 text-center m-auto">
 
-                <asp:GridView CssClass="table table-striped table-bordered table-responsive-lg" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="dsReceipt">
+                <asp:GridView CssClass="table table-striped table-bordered table-responsive-lg" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="dsOrderLine">
                     <Columns>
-                        <asp:CommandField ShowDeleteButton="True" />
-                        <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" InsertVisible="False" ReadOnly="True" Visible="False" />
-                        <asp:BoundField DataField="ordNumber" HeaderText="Order #" SortExpression="ordNumber" />
-                        <asp:BoundField DataField="ordDate" HeaderText="Date" SortExpression="ordDate" />
-                        <asp:CheckBoxField DataField="ordPaid" HeaderText="Paid Status" SortExpression="ordPaid" />
-                        <asp:BoundField DataField="paymentID" HeaderText="Payment ID" SortExpression="paymentID" Visible="False"/>
-                        <asp:BoundField DataField="custID" HeaderText="Customer ID" SortExpression="custID" Visible="False" />
-                        <asp:BoundField DataField="empID" HeaderText="Employee ID" SortExpression="empID" Visible="False" />
+                        <asp:BoundField DataField="orlPrice" HeaderText="orlPrice" SortExpression="orlPrice" />
+                        <asp:BoundField DataField="orlQuantity" HeaderText="orlQuantity" SortExpression="orlQuantity" />
+                        <asp:CheckBoxField DataField="orlOrderReq" HeaderText="orlOrderReq" SortExpression="orlOrderReq" />
+                        <asp:BoundField DataField="orlNote" HeaderText="orlNote" SortExpression="orlNote" />
+                        <asp:BoundField DataField="inventoryID" HeaderText="inventoryID" SortExpression="inventoryID" />
+                        <asp:BoundField DataField="receiptID" HeaderText="receiptID" SortExpression="receiptID"/>
+                        <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" InsertVisible="False" ReadOnly="True" />
                     </Columns>
                 </asp:GridView>
                                 </div>

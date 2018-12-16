@@ -31,6 +31,15 @@ namespace RADwebApp.Forms.Sales {
         protected global::System.Web.UI.WebControls.Button btnLogout;
         
         /// <summary>
+        /// lblSave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSave;
+        
+        /// <summary>
         /// txtOrderNumber control.
         /// </summary>
         /// <remarks>
@@ -128,15 +137,6 @@ namespace RADwebApp.Forms.Sales {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAddNew;
-        
-        /// <summary>
-        /// lblSave control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSave;
         
         /// <summary>
         /// GridView1 control.

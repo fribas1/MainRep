@@ -43,13 +43,12 @@ namespace RADwebApp.Forms.Sales
             date = DateTime.Now; // Get Date Now.
             DataView nextOrder = (DataView)dsNextOrder.Select();
             orderNum = Convert.ToInt32(nextOrder[0][0]); //Get new Order #
-            DataView lastReceiptID = (DataView)dsLastReceiptID.Select();
-            lastID = Convert.ToInt32(lastReceiptID[0][0]); //Get last ID added from receipt
 
             txtOrderNumber.Text = Convert.ToString(orderNum);
             txtOrderDate.Text = date.ToString("MM/dd/yyyy");
             txtQuantity.Text = Convert.ToString(1);
         }
+
         protected void btnLogout_Click(object sender, EventArgs e)
         {
             var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
@@ -65,7 +64,8 @@ namespace RADwebApp.Forms.Sales
             empID = Convert.ToInt32(this.ddlEmployee.SelectedValue);
             prodID = Convert.ToInt32(this.ddlProduct.SelectedValue);
             orderReq = Convert.ToBoolean(this.rblOrderReq.SelectedValue);
-            price = Convert.ToDecimal(20); // NOT WORKING !!!!!
+            string prodPrice = dvSalesProducts.Rows[2].Cells[1].Text.ToString();
+            price = Convert.ToDecimal(prodPrice.TrimStart('$'));
 
             try
             {
@@ -79,20 +79,23 @@ namespace RADwebApp.Forms.Sales
                 dsAddSale.receipt.Rows.Add(r);
                 Save();
 
+                DataView lastReceiptID = (DataView)dsLastReceiptID.Select();
+                lastID = Convert.ToInt32(lastReceiptID[0][0]); //Get last ID added from receipt
+
                 // Order Line Table
                 DataRow o = dsAddSale.orderLine.NewRow();
-                o[1] = "20.00";
+                o[1] = price;
                 o[2] = this.txtQuantity.Text;
                 o[3] = orderReq;
                 o[4] = this.txtOrderNote.Text;
                 o[5] = prodID;
-                o[6] = lastID + 1;
+                o[6] = lastID;
                 dsAddSale.orderLine.Rows.Add(o);
                 Save();
             }
             catch
             {
-                this.lblSave.Text = "Unable to update - Invalid Input";
+                this.lblSave.Text = "Unable to add sale - Invalid Input";
             }
         }
 
@@ -105,12 +108,12 @@ namespace RADwebApp.Forms.Sales
                 daReceipt.Update(dsAddSale.receipt);
                 daOrderLine.Update(dsAddSale.orderLine);
                 dsAddSale.AcceptChanges();
-                this.lblSave.Text = "Data Saved";
+                this.lblSave.Text = "Sale has been added successfully.";
             }
             catch
             {
                 dsAddSale.RejectChanges();
-                this.lblSave.Text = "Unable to update";
+                this.lblSave.Text = "Unable to add sale - All changes have been rejected.";
             }
         }
     }
