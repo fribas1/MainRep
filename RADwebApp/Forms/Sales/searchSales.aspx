@@ -169,7 +169,7 @@
                 <asp:BoundField DataField="orlQuantity" HeaderText="Quantity" SortExpression="orlQuantity" />
                 <asp:BoundField DataField="custFull" HeaderText="Customer" ReadOnly="True" SortExpression="custFull" />
                 <asp:BoundField DataField="empFull" HeaderText="Employee" SortExpression="empFull" ReadOnly="True" />
-                <asp:HyperLinkField DataNavigateUrlFields="haha" DataNavigateUrlFormatString="/Forms/Sales/salesUpdate.aspx?haha={0}" Text="Edit" />
+                <asp:HyperLinkField DataNavigateUrlFields="receiptID" DataNavigateUrlFormatString="/Forms/Sales/salesUpdate.aspx?receiptID={0}" Text="Edit" />
              </Columns>
                 </asp:GridView>
                                 </div>

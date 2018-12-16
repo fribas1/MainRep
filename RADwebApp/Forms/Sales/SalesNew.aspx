@@ -10,7 +10,36 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+    <script type = "text/javascript">
+    window.onload = function () {
+        var scrollY = parseInt('<%=Request.Form["scrollY"] %>');             
+        if (!isNaN(scrollY)) {
+            window.scrollTo(0, scrollY);
+        }
+    };
+    window.onscroll = function () {
+        var scrollY = document.body.scrollTop;
+        if (scrollY == 0) {
+            if (window.pageYOffset) {
+                scrollY = window.pageYOffset;
+            }
+            else {
+                scrollY = (document.body.parentElement) ? document.body.parentElement.scrollTop : 0;
+            }
+        }
+        if (scrollY > 0) {
+            var input = document.getElementById("scrollY");
+            if (input == null) {
+                input = document.createElement("input");
+                input.setAttribute("type", "hidden");
+                input.setAttribute("id", "scrollY");
+                input.setAttribute("name", "scrollY");
+                document.forms[0].appendChild(input);
+            }
+            input.value = scrollY;
+        }
+    };
+</script>
     <style type="text/css">
         .auto-style1 {
             display: block;
@@ -45,8 +74,7 @@
                                     { %>
                                 <a class="dropdown-item" href="/Forms/Customers/Customers.aspx?mode=edit">Edit</a>
                                 <a class="dropdown-item" href="/Forms/Customers/Customers.aspx?mode=delete">Remove</a>
-                                <% } %>
-                                <% } %>
+                                <% } %><% } %>
                             </div>
                         </li>
                         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Services</a>
@@ -71,8 +99,7 @@
                                 <%if (User.Identity.Name == "admin")
                                     { %>
                                 <a class="dropdown-item" href="/Forms/Customers/Customers.aspx?mode=delete">Remove</a>
-                                <% } %>
-                                <% } %>
+                                <% } %><% } %>
                             </div>
                         </li>
                         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Orders</a>
@@ -119,22 +146,28 @@
                 <asp:TextBox CssClass="auto-style1" ID="txtOrderDate" runat="server" BackColor="Silver" ReadOnly="True" Width="100px"></asp:TextBox>
                     </div>
                 <label class=" mt-3" for="ddlPaymentType">Payment Type:</label>
+                                        <asp:RequiredFieldValidator ID="rfvPayType" runat="server" ControlToValidate="ddlPaymentType" ErrorMessage="You must select a payment type." ForeColor="Red" InitialValue="0">*</asp:RequiredFieldValidator>
                 <asp:DropDownList CssClass="form-control" ID="ddlPaymentType" runat="server" AppendDataBoundItems="True" DataSourceID="dsPayment" DataTextField="payType" DataValueField="id">
                     <asp:ListItem Value="0">Select a type</asp:ListItem>
                 </asp:DropDownList>
-                <label class=" mt-3" for="ddlCustomer">Customer:</label>
-                <asp:DropDownList CssClass="form-control" ID="ddlCustomer" runat="server" AppendDataBoundItems="True" DataSourceID="dsSalesCustomer" DataTextField="custFull" DataValueField="id">
+                <label class=" mt-3" for="ddlCustomer">Customer:<asp:RequiredFieldValidator ID="rfvCustomer" runat="server" ControlToValidate="ddlCustomer" ErrorMessage="You must select a customer." ForeColor="Red" InitialValue="0">*</asp:RequiredFieldValidator>
+                                        </label>
+                &nbsp;<asp:DropDownList CssClass="form-control" ID="ddlCustomer" runat="server" AppendDataBoundItems="True" DataSourceID="dsSalesCustomer" DataTextField="custFull" DataValueField="id">
                     <asp:ListItem Value="0">Select a customer</asp:ListItem>
                 </asp:DropDownList>
-                <label class=" mt-3" for="ddlEmployee">Employee:</label>
-                <asp:DropDownList CssClass="form-control" ID="ddlEmployee" runat="server" AppendDataBoundItems="True" DataSourceID="dsSalesEmployee" DataTextField="empFull" DataValueField="id">
+                <label class=" mt-3" for="ddlEmployee">Employee:<label class=" mt-3" for="ddlCustomer"><asp:RequiredFieldValidator ID="rfvEmp" runat="server" ControlToValidate="ddlEmployee" ErrorMessage="You must select a employee." ForeColor="Red" InitialValue="0">*</asp:RequiredFieldValidator>
+                                        </label>
+                                        </label>
+                &nbsp;<asp:DropDownList CssClass="form-control" ID="ddlEmployee" runat="server" AppendDataBoundItems="True" DataSourceID="dsSalesEmployee" DataTextField="empFull" DataValueField="id">
                     <asp:ListItem Value="0">Select an employee</asp:ListItem>
                 </asp:DropDownList>
               
 
 
-                <label class=" mt-3" for="ddlProduct">Product:</label>
-                <asp:DropDownList CssClass="form-control" ID="ddlProduct" runat="server" AppendDataBoundItems="True" AutoPostBack="True" DataSourceID="dsDDLSalesProducts" DataTextField="prodName" DataValueField="id">
+                <label class=" mt-3" for="ddlProduct">Product:<label class=" mt-3" for="ddlCustomer"><asp:RequiredFieldValidator ID="rfvProduct" runat="server" ControlToValidate="ddlProduct" ErrorMessage="You must select atleast one product." ForeColor="Red" InitialValue="0">*</asp:RequiredFieldValidator>
+                                        </label>
+                                        </label>
+                &nbsp;<asp:DropDownList CssClass="form-control" ID="ddlProduct" runat="server" AppendDataBoundItems="True" AutoPostBack="True" DataSourceID="dsDDLSalesProducts" DataTextField="prodName" DataValueField="id">
                     <asp:ListItem Value="0">Select a product</asp:ListItem>
                 </asp:DropDownList>
 
@@ -167,8 +200,20 @@
 
                 <label class=" mt-3" for="txtQuantity">Quantity:</label>
                 <div class="col-lg-2 text-center m-auto">
-                <asp:TextBox CssClass="form-control" ID="txtQuantity" runat="server" TextMode="Number" Width="61px"></asp:TextBox>
+                <asp:TextBox CssClass="form-control" ID="txtQuantity" runat="server" TextMode="Number" Width="61px">1</asp:TextBox>
+                <label class=" mt-3" for="ddlCustomer">
+                    <asp:RequiredFieldValidator ID="rfvQuantity" runat="server" ControlToValidate="txtQuantity" ErrorMessage="You must enter a quantity." ForeColor="Red">*</asp:RequiredFieldValidator>
+                    </label>
+                    <asp:RangeValidator ID="rvQuantity" runat="server" ControlToValidate="txtQuantity" ErrorMessage="Quantity cannot be 0 or less." ForeColor="Red" MaximumValue="30" MinimumValue="0" Type="Integer">*</asp:RangeValidator>
                     </div>
+                                        <br />
+                                        <asp:Button ID="btnAddCart" runat="server" OnClick="btnAddCart_Click" Text="Add to cart" />
+                                        <br />
+                                        <br />
+                                        <asp:ListBox ID="lbCart" runat="server"></asp:ListBox>
+                                        <br />
+                                        <br />
+                                        <br />
                 <label class=" mt-3" for="txtOrderNote">Order Notes:</label>
                 <asp:TextBox CssClass="form-control" ID="txtOrderNote" runat="server" TextMode="MultiLine"></asp:TextBox>
                 <label class=" mt-3" for="rblOrderReq">Order Request:</label>
@@ -187,6 +232,7 @@
             <%--ENDS HERE--%> 
                                 <div class="container mt-4">
             <div class="row">
+                <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" HeaderText="Please fix the following:" />
                 </div>
                         </div>
 

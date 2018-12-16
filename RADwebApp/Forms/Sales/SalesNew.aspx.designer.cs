@@ -58,6 +58,15 @@ namespace RADwebApp.Forms.Sales {
         protected global::System.Web.UI.WebControls.TextBox txtOrderDate;
         
         /// <summary>
+        /// rfvPayType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPayType;
+        
+        /// <summary>
         /// ddlPaymentType control.
         /// </summary>
         /// <remarks>
@@ -65,6 +74,15 @@ namespace RADwebApp.Forms.Sales {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlPaymentType;
+        
+        /// <summary>
+        /// rfvCustomer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCustomer;
         
         /// <summary>
         /// ddlCustomer control.
@@ -76,6 +94,15 @@ namespace RADwebApp.Forms.Sales {
         protected global::System.Web.UI.WebControls.DropDownList ddlCustomer;
         
         /// <summary>
+        /// rfvEmp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEmp;
+        
+        /// <summary>
         /// ddlEmployee control.
         /// </summary>
         /// <remarks>
@@ -83,6 +110,15 @@ namespace RADwebApp.Forms.Sales {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlEmployee;
+        
+        /// <summary>
+        /// rfvProduct control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvProduct;
         
         /// <summary>
         /// ddlProduct control.
@@ -112,6 +148,42 @@ namespace RADwebApp.Forms.Sales {
         protected global::System.Web.UI.WebControls.TextBox txtQuantity;
         
         /// <summary>
+        /// rfvQuantity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvQuantity;
+        
+        /// <summary>
+        /// rvQuantity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator rvQuantity;
+        
+        /// <summary>
+        /// btnAddCart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddCart;
+        
+        /// <summary>
+        /// lbCart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lbCart;
+        
+        /// <summary>
         /// txtOrderNote control.
         /// </summary>
         /// <remarks>
@@ -137,6 +209,15 @@ namespace RADwebApp.Forms.Sales {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAddNew;
+        
+        /// <summary>
+        /// ValidationSummary1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
         
         /// <summary>
         /// dsPayment control.

@@ -40,7 +40,10 @@
         </p>
         <p>
             Quantity:
-            <asp:TextBox ID="txtQuantity" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtQuantity" runat="server">1</asp:TextBox>
+        </p>
+        <p>
+            <asp:ListBox ID="lbCart" runat="server"></asp:ListBox>
         </p>
         <p>
             Order Notes:
@@ -57,10 +60,12 @@
             </asp:DropDownList>
         </p>
         <p>
-            <asp:Button ID="btnSave" runat="server" Text="Save" />
+            <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
 &nbsp;
             <asp:Button ID="btnClear" runat="server" Text="Clear" />
         </p>
+        <p>
+            &nbsp;</p>
         <p>
             <asp:ObjectDataSource ID="dsPayType" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.paymentTableAdapter"></asp:ObjectDataSource>
             <asp:ObjectDataSource ID="dsProduct" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.ddlSalesProductsTableAdapter"></asp:ObjectDataSource>

@@ -8,11 +8,18 @@ using System.Web.UI.WebControls;
 using aLibrary;
 using aLibrary.EmmasDataSetTableAdapters;
 
+// Luckas Couto Mello
+// PROG1210
+// Final Project
+// 12/13/2018
+
 namespace RADwebApp.Forms.Sales
 {
     public partial class SalesNew : System.Web.UI.Page
     {
         private static EmmasDataSet dsAddSale;
+
+        private static DataRow[] rows;
 
         public int orderNum;
         public int lastID;
@@ -21,18 +28,20 @@ namespace RADwebApp.Forms.Sales
         public int custID;
         public int empID;
         public int prodID;
-        public decimal price;
         public Boolean orderReq;
+        ListItem item = new ListItem();
 
         static SalesNew()
         {
             dsAddSale = new EmmasDataSet();
             receiptTableAdapter daReceipt = new receiptTableAdapter();
             orderLineTableAdapter daOrderLine = new orderLineTableAdapter();
+            salesInvenTableAdapter daInventory = new salesInvenTableAdapter();
             try
             {
                 daReceipt.Fill(dsAddSale.receipt);
                 daOrderLine.Fill(dsAddSale.orderLine);
+                daInventory.Fill(dsAddSale.salesInven);
             }
             catch { }
         }
@@ -43,19 +52,14 @@ namespace RADwebApp.Forms.Sales
             date = DateTime.Now; // Get Date Now.
             DataView nextOrder = (DataView)dsNextOrder.Select();
             orderNum = Convert.ToInt32(nextOrder[0][0]); //Get new Order #
-            int custID = Convert.ToInt32(Request.QueryString["id"]);
+            string passedID = (Request.QueryString["id"]);
 
             txtOrderNumber.Text = Convert.ToString(orderNum);
             txtOrderDate.Text = date.ToString("MM/dd/yyyy");
-            txtQuantity.Text = Convert.ToString(1);
 
-            if(custID != -1)
+            if(passedID != null)
             {
-                ddlCustomer.SelectedIndex = custID;
-            }
-            else
-            {
-                this.ddlCustomer.SelectedIndex = -1;
+                ddlCustomer.SelectedIndex = Convert.ToInt32(passedID);
             }
         }
 
@@ -74,8 +78,7 @@ namespace RADwebApp.Forms.Sales
             empID = Convert.ToInt32(this.ddlEmployee.SelectedValue);
             prodID = Convert.ToInt32(this.ddlProduct.SelectedValue);
             orderReq = Convert.ToBoolean(this.rblOrderReq.SelectedValue);
-            string prodPrice = dvSalesProducts.Rows[2].Cells[1].Text.ToString();
-            price = Convert.ToDecimal(prodPrice.TrimStart('$'));
+
 
             try
             {
@@ -92,17 +95,24 @@ namespace RADwebApp.Forms.Sales
                 DataView lastReceiptID = (DataView)dsLastReceiptID.Select();
                 lastID = Convert.ToInt32(lastReceiptID[0][0]); //Get last ID added from receipt
 
-                // Order Line Table
-                DataRow o = dsAddSale.orderLine.NewRow();
-                o[1] = price;
-                o[2] = this.txtQuantity.Text;
-                o[3] = orderReq;
-                o[4] = this.txtOrderNote.Text;
-                o[5] = prodID;
-                o[6] = lastID;
-                dsAddSale.orderLine.Rows.Add(o);
-                Save();
+                for (int i = 0; i <= lbCart.Items.Count - 1; i++)
+                {
+                    int value = Convert.ToInt32(lbCart.Items[i].Value);
+                    DataRow a = dsAddSale.salesInven.FindByid(Convert.ToInt32(value));
+                    // Order Line Table
+                    DataRow o = dsAddSale.orderLine.NewRow();
+                    o[1] = a[7];
+                    o[2] = this.txtQuantity.Text;
+                    o[3] = orderReq;
+                    o[4] = this.txtOrderNote.Text;
+                    o[5] = a[0];
+                    o[6] = lastID;
+                    dsAddSale.orderLine.Rows.Add(o);
+                    Save();
+                }
+
                 Clear();
+                ScriptManager.RegisterStartupScript(Page, this.GetType(), "ScrollPage", "window.scroll(0,0);", true);
             }
             catch
             {
@@ -140,6 +150,20 @@ namespace RADwebApp.Forms.Sales
             {
                 dsAddSale.RejectChanges();
                 this.lblSave.Text = "Unable to add sale - All changes have been rejected.";
+            }
+        }
+
+        protected void btnAddCart_Click(object sender, EventArgs e)
+        {
+            int id = this.ddlProduct.SelectedIndex;
+            string criteria = "id = " + id;
+
+            rows = dsAddSale.salesInven.Select(criteria);
+            foreach (DataRow row in rows)
+            {
+                item.Text = "Order Qt.: " + txtQuantity.Text + " - Product: " + row.ItemArray[2].ToString() + " - Price: " + (Convert.ToInt32(txtQuantity.Text) * Convert.ToDecimal(row.ItemArray[7].ToString())).ToString();
+                item.Value = row.ItemArray[0].ToString();
+                this.lbCart.Items.Add(item);
             }
         }
     }

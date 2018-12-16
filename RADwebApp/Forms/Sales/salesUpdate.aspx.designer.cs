@@ -67,6 +67,15 @@ namespace RADwebApp.Forms.Sales {
         protected global::System.Web.UI.WebControls.TextBox txtQuantity;
         
         /// <summary>
+        /// lbCart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lbCart;
+        
+        /// <summary>
         /// txtNotes control.
         /// </summary>
         /// <remarks>
