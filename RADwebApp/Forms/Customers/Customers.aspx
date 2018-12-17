@@ -111,7 +111,7 @@
                     <asp:DynamicField DataField="custEmail" HeaderText="E-mail" SortExpression="custEmail" />
                     <asp:TemplateField ShowHeader="False">
                         <InsertItemTemplate>
-                            <asp:Button ID="btnIsert" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
+                            <asp:Button ID="btnIsert" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" CssClass="btn btn-outline-info mb-3" />
                             &nbsp;<asp:Button ID="btnCancel" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" CssClass="btn btn-outline-info mb-3" />
                         </InsertItemTemplate>
                         <ItemTemplate>
