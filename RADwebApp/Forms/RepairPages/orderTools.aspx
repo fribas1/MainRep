@@ -32,8 +32,7 @@
                                 { %>
                             <a class="dropdown-item" href="/Forms/Customers/Customers.aspx?mode=edit">Edit</a>
                             <a class="dropdown-item" href="/Forms/Customers/Customers.aspx?mode=delete">Remove</a>
-                            <% } %>
-                            <% } %>
+                            <% } %>                            <% } %>
                         </div>
                     </li>
                     <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Services</a>
@@ -58,8 +57,7 @@
                             <%if (User.Identity.Name == "admin")
                                 { %>
                             <a class="dropdown-item" href="/Forms/Employees/Employees.aspx?mode=delete">Remove</a>
-                            <% } %>
-                            <% } %>
+                            <% } %>                            <% } %>
                         </div>
                     </li>
                     <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Orders</a>
@@ -153,6 +151,9 @@
             </div>
         </div>
         <asp:ObjectDataSource ID="dbOrderTools" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.orderToolsSelectTableAdapter"></asp:ObjectDataSource>
+
+        <br />
+        <asp:ObjectDataSource ID="dsNewOrderTools" runat="server" DataObjectTypeName="aLibrary.EmmasDataSet+OrderToolsNewAddDataTable" InsertMethod="Fill" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.OrderToolsNewAddTableAdapter"></asp:ObjectDataSource>
 
     </form>
     </form>

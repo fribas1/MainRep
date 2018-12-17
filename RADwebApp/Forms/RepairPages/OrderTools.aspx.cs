@@ -16,7 +16,6 @@ namespace RADwebApp.Forms.RepairPages
 
         private static EmmasDataSet dsOrderTools;
 
-        private static DataRow[] rows;
         public string custFirst;
         public string custLast;
         public string empFirst;
@@ -33,9 +32,10 @@ namespace RADwebApp.Forms.RepairPages
         {
             dsOrderTools = new EmmasDataSet();
             orderToolsSelectTableAdapter daOrderTools = new orderToolsSelectTableAdapter();
+            OrderToolsNewAddTableAdapter daNewTools = new OrderToolsNewAddTableAdapter();
             try
             {
-                //daOrderTools.Fill(dsOrderTools.orderToolsSelect);
+                daNewTools.Fill(dsOrderTools.OrderToolsNewAdd);
 
             }
             catch { }
@@ -55,6 +55,27 @@ namespace RADwebApp.Forms.RepairPages
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
+           
+
+            try
+            {
+                DataRow rows = dsOrderTools.OrderToolsNewAdd.NewRow();
+                rows[1] = this.txtCustFirst.Text;
+                rows[2] = this.txtCustLast.Text;
+                rows[3] = this.txtEmpLast.Text;
+                rows[4] = this.txtEmpLast.Text;
+                rows[5] = this.txtEqpMod.Text;
+                rows[6] = this.txtEqpSerNo.Text;
+                rows[7] = this.txtEqpType.Text;
+                rows[8] = this.txtOrDate.Text;
+                rows[9] = this.txtOrNo.Text;
+                dsOrderTools.OrderToolsNewAdd.Rows.Add(rows);
+                
+            }
+            catch
+            {
+
+            }
             /*
             string inpCustFirst = Convert.ToString(txtCustFirst.Text);
             string inpCustLast = Convert.ToString(txtCustLast.Text);
