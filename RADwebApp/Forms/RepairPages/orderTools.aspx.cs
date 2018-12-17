@@ -67,7 +67,6 @@ namespace RADwebApp.Forms.RepairPages
             catch { }
             */
             
-            btnNewOrder.Visible = true;
             gvToolOrders.Visible = true;
 
             lblCustFirst.Visible = false;
@@ -102,7 +101,6 @@ namespace RADwebApp.Forms.RepairPages
         protected void btnNewOrder_Click(object sender, EventArgs e)
         {
             
-            btnNewOrder.Visible = false;
             gvToolOrders.Visible = false;
             lblCustFirst.Visible = true;
             lblCustLast.Visible = true;
