@@ -135,7 +135,7 @@
                     <a class="btn btn-outline-dark mb-3 mt-3" data-toggle="collapse" href="#collapse2" role="button" aria-expanded="false" aria-controls="collapseExample">See all Tool Orders
                     </a>
                     <div id="collapse2" class="collapse">
-                        <asp:GridView CssClass="table table-striped table-bordered table-responsive-lg text-center" ID="gvToolOrders" runat="server" AutoGenerateColumns="False" DataSourceID="dbOrderTools">
+                        <asp:GridView CssClass="table table-striped table-bordered table-responsive-lg text-center" ID="gvToolOrders" runat="server" AutoGenerateColumns="False" DataSourceID="dsNewOrderTools">
                             <Columns>
                                 <asp:BoundField DataField="Customer First Name" HeaderText="Customer First Name" SortExpression="Customer First Name" />
                                 <asp:BoundField DataField="Customer Last Name" HeaderText="Customer Last Name" SortExpression="Customer Last Name" />

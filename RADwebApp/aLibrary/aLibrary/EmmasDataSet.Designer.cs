@@ -14606,9 +14606,9 @@ namespace aLibrary {
             
             private global::System.Data.DataColumn columnEquipment_Type;
             
-            private global::System.Data.DataColumn columnOrder_No;
-            
             private global::System.Data.DataColumn columnOrder_Date;
+            
+            private global::System.Data.DataColumn columnOrder_Number;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -14701,17 +14701,17 @@ namespace aLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn Order_NoColumn {
+            public global::System.Data.DataColumn Order_DateColumn {
                 get {
-                    return this.columnOrder_No;
+                    return this.columnOrder_Date;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn Order_DateColumn {
+            public global::System.Data.DataColumn Order_NumberColumn {
                 get {
-                    return this.columnOrder_Date;
+                    return this.columnOrder_Number;
                 }
             }
             
@@ -14752,7 +14752,7 @@ namespace aLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public OrderToolsNewAddRow AddOrderToolsNewAddRow(string Customer_First_Name, string Customer_Last_Name, string Employee_First_Name, string Employee_Last_Name, string Equipment_Model, string Equipment_Serial_No, string Equipment_Type, string Order_No, System.DateTime Order_Date) {
+            public OrderToolsNewAddRow AddOrderToolsNewAddRow(string Customer_First_Name, string Customer_Last_Name, string Employee_First_Name, string Employee_Last_Name, string Equipment_Model, string Equipment_Serial_No, string Equipment_Type, System.DateTime Order_Date, string Order_Number) {
                 OrderToolsNewAddRow rowOrderToolsNewAddRow = ((OrderToolsNewAddRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Customer_First_Name,
@@ -14762,8 +14762,8 @@ namespace aLibrary {
                         Equipment_Model,
                         Equipment_Serial_No,
                         Equipment_Type,
-                        Order_No,
-                        Order_Date};
+                        Order_Date,
+                        Order_Number};
                 rowOrderToolsNewAddRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowOrderToolsNewAddRow);
                 return rowOrderToolsNewAddRow;
@@ -14793,8 +14793,8 @@ namespace aLibrary {
                 this.columnEquipment_Model = base.Columns["Equipment Model"];
                 this.columnEquipment_Serial_No = base.Columns["Equipment Serial No"];
                 this.columnEquipment_Type = base.Columns["Equipment Type"];
-                this.columnOrder_No = base.Columns["Order No"];
                 this.columnOrder_Date = base.Columns["Order Date"];
+                this.columnOrder_Number = base.Columns["Order Number"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14814,10 +14814,10 @@ namespace aLibrary {
                 base.Columns.Add(this.columnEquipment_Serial_No);
                 this.columnEquipment_Type = new global::System.Data.DataColumn("Equipment Type", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEquipment_Type);
-                this.columnOrder_No = new global::System.Data.DataColumn("Order No", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnOrder_No);
                 this.columnOrder_Date = new global::System.Data.DataColumn("Order Date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOrder_Date);
+                this.columnOrder_Number = new global::System.Data.DataColumn("Order Number", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOrder_Number);
                 this.columnCustomer_First_Name.MaxLength = 30;
                 this.columnCustomer_Last_Name.MaxLength = 50;
                 this.columnEmployee_First_Name.MaxLength = 30;
@@ -14825,7 +14825,7 @@ namespace aLibrary {
                 this.columnEquipment_Model.MaxLength = 50;
                 this.columnEquipment_Serial_No.MaxLength = 30;
                 this.columnEquipment_Type.MaxLength = 30;
-                this.columnOrder_No.MaxLength = 20;
+                this.columnOrder_Number.MaxLength = 20;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -21406,22 +21406,6 @@ namespace aLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Order_No {
-                get {
-                    try {
-                        return ((string)(this[this.tableOrderToolsNewAdd.Order_NoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Order No\' in table \'OrderToolsNewAdd\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableOrderToolsNewAdd.Order_NoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public System.DateTime Order_Date {
                 get {
                     try {
@@ -21433,6 +21417,22 @@ namespace aLibrary {
                 }
                 set {
                     this[this.tableOrderToolsNewAdd.Order_DateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Order_Number {
+                get {
+                    try {
+                        return ((string)(this[this.tableOrderToolsNewAdd.Order_NumberColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Order Number\' in table \'OrderToolsNewAdd\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOrderToolsNewAdd.Order_NumberColumn] = value;
                 }
             }
             
@@ -21522,18 +21522,6 @@ namespace aLibrary {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsOrder_NoNull() {
-                return this.IsNull(this.tableOrderToolsNewAdd.Order_NoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetOrder_NoNull() {
-                this[this.tableOrderToolsNewAdd.Order_NoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsOrder_DateNull() {
                 return this.IsNull(this.tableOrderToolsNewAdd.Order_DateColumn);
             }
@@ -21542,6 +21530,18 @@ namespace aLibrary {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetOrder_DateNull() {
                 this[this.tableOrderToolsNewAdd.Order_DateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsOrder_NumberNull() {
+                return this.IsNull(this.tableOrderToolsNewAdd.Order_NumberColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetOrder_NumberNull() {
+                this[this.tableOrderToolsNewAdd.Order_NumberColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -31527,8 +31527,8 @@ WHERE        (customer.custFirst = @Param1)";
             tableMapping.ColumnMappings.Add("Equipment Model", "Equipment Model");
             tableMapping.ColumnMappings.Add("Equipment Serial No", "Equipment Serial No");
             tableMapping.ColumnMappings.Add("Equipment Type", "Equipment Type");
-            tableMapping.ColumnMappings.Add("Order No", "Order No");
             tableMapping.ColumnMappings.Add("Order Date", "Order Date");
+            tableMapping.ColumnMappings.Add("Order Number", "Order Number");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -31546,7 +31546,7 @@ WHERE        (customer.custFirst = @Param1)";
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        customer.custFirst AS [Customer First Name], customer.custLast AS [Customer Last Name], employee.empFirst AS [Employee First Name], employee.empLast AS [Employee Last Name], 
-                         equipment.equModel AS [Equipment Model], equipment.equSerial AS [Equipment Serial No], equip_type.eqtType AS [Equipment Type], receipt.ordNumber AS [Order No], receipt.ordDate AS [Order Date]
+                         equipment.equModel AS [Equipment Model], equipment.equSerial AS [Equipment Serial No], equip_type.eqtType AS [Equipment Type], receipt.ordNumber AS [Order Number], receipt.ordDate AS [Order Date]
 FROM            receipt INNER JOIN
                          equipment ON receipt.id = equipment.id INNER JOIN
                          equip_type ON equipment.equtypeID = equip_type.id INNER JOIN
