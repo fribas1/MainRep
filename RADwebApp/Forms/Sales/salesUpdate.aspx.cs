@@ -141,6 +141,12 @@ namespace RADwebApp.Forms.Sales
             txtNotes.Text = Product.ItemArray[8].ToString();
             txtQuantity.Text = Product.ItemArray[2].ToString();
         }
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+            authenticationManager.SignOut();
+            Response.Redirect("~/Login.aspx");
+        }
 
         private void Save()
         {
