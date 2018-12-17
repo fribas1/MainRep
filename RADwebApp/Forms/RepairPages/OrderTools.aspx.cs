@@ -1,10 +1,12 @@
-﻿using System;
+﻿/*Coded by Jacob Fields*/
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using aLibrary;
 using aLibrary.EmmasDataSetTableAdapters;
 
 namespace RADwebApp.Forms.RepairPages
@@ -12,25 +14,42 @@ namespace RADwebApp.Forms.RepairPages
     public partial class OrderTools : System.Web.UI.Page
     {
 
-        private static aLibrary.EmmasDataSet dsEmmas = new aLibrary.EmmasDataSet();
+        private static EmmasDataSet dsOrderTools;
+
+        private static DataRow[] rows;
+        public string custFirst;
+        public string custLast;
+        public string empFirst;
+        public string empLast;
+        public string eqpMod;
+        public string sqlSrNo;
+        public string eqpType;
+        public string ordNo;
+        public DateTime ordDate;
+        GridView inputItem = new GridView();
 
 
         static OrderTools()
         {
+            dsOrderTools = new EmmasDataSet();
             orderToolsSelectTableAdapter daOrderTools = new orderToolsSelectTableAdapter();
             try
             {
-               // daOrderTools.Fill(dsEmmas.orderToolsSelect);
+                //daOrderTools.Fill(dsOrderTools.orderToolsSelect);
 
             }
             catch { }
         }
 
-
+        public void Page_Init(object sender, EventArgs e)
+        {
+            gvToolOrders.EnableDynamicData(typeof(OrderTools));
+        }
 
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            ordDate = DateTime.Now;
             if (this.IsPostBack) return;
         }
 
@@ -67,7 +86,7 @@ namespace RADwebApp.Forms.RepairPages
             catch { }
             */
             
-            btnNewOrder.Visible = true;
+            //btnNewOrder.Visible = true;
             gvToolOrders.Visible = true;
 
             lblCustFirst.Visible = false;
@@ -102,7 +121,7 @@ namespace RADwebApp.Forms.RepairPages
         protected void btnNewOrder_Click(object sender, EventArgs e)
         {
             
-            btnNewOrder.Visible = false;
+            //btnNewOrder.Visible = false;
             gvToolOrders.Visible = false;
             lblCustFirst.Visible = true;
             lblCustLast.Visible = true;

@@ -49,24 +49,6 @@ namespace RADwebApp.Forms.RepairPages {
         protected global::System.Web.UI.WebControls.HyperLink hlOrderWarranty;
         
         /// <summary>
-        /// gvToolOrders control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvToolOrders;
-        
-        /// <summary>
-        /// btnNewOrder control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNewOrder;
-        
-        /// <summary>
         /// lblCustFirst control.
         /// </summary>
         /// <remarks>
@@ -236,6 +218,15 @@ namespace RADwebApp.Forms.RepairPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSubmit;
+        
+        /// <summary>
+        /// gvToolOrders control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvToolOrders;
         
         /// <summary>
         /// dbOrderTools control.

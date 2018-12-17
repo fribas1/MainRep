@@ -1,4 +1,6 @@
-﻿using System;
+﻿/*Coded by Jacob Fields*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,6 +15,12 @@ namespace RADwebApp.Forms.RepairPages
         {
 
         }
+
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            gvAllRepairs.EnableDynamicData(typeof(AllRepairs));
+        }
+
         protected void btnLogout_Click(object sender, EventArgs e)
         {
             var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
@@ -20,5 +28,15 @@ namespace RADwebApp.Forms.RepairPages
             Response.Redirect("~/Login.aspx");
         }
 
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            this.gvAllRepairs.DataSourceID = "dsAllRepairsSearch";
+        }
+
+        protected void txtClear_Click(object sender, EventArgs e)
+        {
+            this.gvAllRepairs.DataSourceID = "dsAllRepairs";
+            txtSearch.Text = "";
+        }
     }
 }

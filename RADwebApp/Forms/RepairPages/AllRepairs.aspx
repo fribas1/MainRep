@@ -33,8 +33,7 @@
                                 { %>
                             <a class="dropdown-item" href="/Forms/Customers/Customers.aspx?mode=edit">Edit</a>
                             <a class="dropdown-item" href="/Forms/Customers/Customers.aspx?mode=delete">Remove</a>
-                            <% } %>
-                            <% } %>
+                            <% } %><% } %>
                         </div>
                     </li>
                     <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Services</a>
@@ -59,8 +58,7 @@
                             <%if (User.Identity.Name == "admin")
                                 { %>
                             <a class="dropdown-item" href="/Forms/Employees/Employees.aspx?mode=delete">Remove</a>
-                            <% } %>
-                            <% } %>
+                            <% } %><% } %>
                         </div>
                     </li>
                     <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Orders</a>
@@ -98,6 +96,12 @@
             &nbsp;&nbsp;&nbsp;
             <input class="btn btn-outline-primary" id="Button1" type="button" value="Create new " /><br />
             <br />
+            <asp:Label ID="lblSearch" runat="server" Text="Search for Customer:"></asp:Label>
+            <br />
+            <asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>
+            <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" />
+            <asp:Button ID="txtClear" runat="server" OnClick="txtClear_Click" Text="Clear Search" />
+            <br />
             <br />
 
             <h4 class="mb-3">All Repairs Records</h4>
@@ -115,6 +119,12 @@
             <br />
             <br />
             <asp:ObjectDataSource ID="dsAllRepairs" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.AllRepairsTableAdapter"></asp:ObjectDataSource>
+            <br />
+            <asp:ObjectDataSource ID="dsAllRepairsSearch" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="aLibrary.EmmasDataSetTableAdapters.AllRepairsSearchTableAdapter">
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="txtSearch" Name="Param1" PropertyName="Text" Type="String" />
+                </SelectParameters>
+            </asp:ObjectDataSource>
         </div>
     </form>
 </body>
