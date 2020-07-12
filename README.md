@@ -1,2 +1,2 @@
-# PROG 1305 Assignemt
-A group of 4 including myself as a team-leader was responsible for developing and dilvering a web application using ASP.NET c# framework in combination with SQL liblrary. During this project I have picked up bootstrap in order to deliver a better Front-End solution.
+# Final Assignment
+A group of 4 students was responsible for developing and delivering a web application using ASP.NET C# framework in combination with a SQL library. During this project I was responsible for the back-end as well as the database management.
